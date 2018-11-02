@@ -1,2 +1,2 @@
 # FSC-SFI
-A project developing method to compare private regulations and applying them to forest certification  programs
+A project developing methods to compare private regulations and applying them to forest certification programs.
