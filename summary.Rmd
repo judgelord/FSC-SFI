@@ -1,8 +1,8 @@
 ---
-title: "FSC-SFI/summary"
+title: "Project summary: comparing FSC and SFI "
 output: 
    html_document:
-    toc: false
+    toc: true
     code_folding: hide
 ---
 
@@ -19,9 +19,13 @@ source("setup.R")
 ```
 \center
 
+--- 
+
+# U.S. Timberland
 ```{r acres, fig.height= 2, fig.width=6.5}
 
 acres <- read.csv(here("data/acres.csv"))
+
 acres$color <- gsub("FSC and PEFC \\(i.e. SFI or ATFS\\)", "PEFC (i.e. SFI or ATFS) and FSC", acres$color)
  
  # acres (witout family forests )
@@ -69,7 +73,9 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 ```
 
 
+--- 
 
+# Patterns of Change
 ```{r fsc-sfi-issue-data}
 # ISSUE DATA
 data <- read.csv(here("data/FSCissues.csv"))
@@ -83,10 +89,13 @@ data %<>% mutate(Program = ifelse(Program == "FSC-US", "Activist-backed FSC-US",
 data %<>% mutate(Program = ifelse(Program == "SFI", "Industry-backed SFI", Program))
 data %<>% mutate(Program = ifelse(Program == "PEFC", "Industry-backed PEFC", Program))
 
-#correction
+# correction
 data %<>% mutate(Change = ifelse(Issue  == "Plantations" & Year == "2015" & Program == "Industry-backed SFI", "Became more prescriptive", Change))
+
 data %<>% mutate(Change = ifelse(Issue  == "Riparian" & Year == "2010" & Program == "Activist-backed FSC-US", "Became more prescriptive", Change))
+
 data %<>% mutate(Prescriptiveness = ifelse(Issue  == "Plantations" & Year %in% c("2015", "2016") & Program == "Industry-backed SFI", 2, Prescriptiveness))
+
 data$Prescriptiveness %<>% as.factor()
 # data$Change %<>% as.factor()
 levels(data$Prescriptiveness) <- c("No prescriptive requirements", "Some prescriptive requirements", "At least as or most prescriptive")
@@ -127,7 +136,7 @@ Issues <- issues %>% filter(Year == 2010) %>% group_by(pattern)  %>% select(patt
 
 ```
 
-__Patterns of change among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues__
+__Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues__
 
 | 2010| Converging | Parallell | Diverging |
 |:----|:----:|:----:|:----:|
@@ -154,7 +163,9 @@ Issues <- issues %>% filter(Year == 2015) %>% group_by(pattern)  %>% select(patt
 
 
 
-# Plots 
+--- 
+
+# Scope and Prescriptiveness of FSC and SFI 2008-2016
 ```{r FSC-SFI-data}
 # Get data 
 d <- read.csv(here("data/FSC.csv"))
@@ -297,6 +308,9 @@ grid.draw(egg::ggarrange(bar, tile, line,
 
 
 
+--- 
+
+# Scope and Prescriptiveness of FSC and PEFC 2008-2015
 
 ```{r pefc-fsc-data}
 
