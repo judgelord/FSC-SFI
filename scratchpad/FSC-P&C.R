@@ -1,25 +1,8 @@
-# install.packages("ggpubr")
-# install.packages("devtools")       
-# install.packages("egg")
-# library(egg) #ggarrange is mased by egg and ggpubr
-# library(ggpubr)
-# install.packages("tidyverse")
-# install.packages("magrittr")
-getwd()
-setwd("/Users/judgelord/Downloads")
-
-options(stringsAsFactors = FALSE)
-library(tidyverse)
-library(magrittr)
-library(grid)
-library(gridExtra)
-library(gtable)
-
-
+source("setup.R")
 
 
 # d <- read.csv("FSC.csv")
-d <- read.csv("PEFCvFSC.csv")
+d <- read.csv(here("data/PEFCvFSC.csv"))
 # d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "FSC", Net.Change+4, Increased))
 # d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "SFI", Net.Change+1, Increased))
 # also not run for PEFC? 
@@ -48,8 +31,8 @@ data <- filter(d, Measure == "Increased")
 
 # GOOD PLOTS 
 
-# line plot (top)
-top <- ggplot() + 
+# line plot (line)
+line <- ggplot() + 
   geom_step(data = d %>% filter(Program %in% c(
   #"FSC-US", "SFI"
   "FSC-P&C", "PEFC"
@@ -83,8 +66,8 @@ top <- ggplot() +
     axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)
     )
 
-# bar plot (middle)
-middle <- 
+# bar plot (bar)
+bar <- 
   ggplot() + 
     geom_bar(data = filter(d, Measure == "Increased" & Program %in% c("FSC-P&C", "PEFC" # "FSC-US", "SFI"
     )), aes(x = Year, alpha = Prescriptiveness, fill = Change)) +
@@ -119,8 +102,8 @@ middle <-
 
 
 
-# tile plot (bottom)
-bottom <- ggplot(d %>% filter(Program %in% c(
+# tile plot (tile)
+tile <- ggplot(d %>% filter(Program %in% c(
   #"FSC-US", "SFI"
   "FSC-P&C", "PEFC"
   )), 
@@ -145,21 +128,21 @@ bottom <- ggplot(d %>% filter(Program %in% c(
         strip.text.x = element_blank())
   
 # both
-# ggpubr::ggarrange(top, middle, bottom, ncol = 1, nrow = 3, align = "v", heights = c(.7, .7,2))
+# ggpubr::ggarrange(line, bar, tile, ncol = 1, nrow = 3, align = "v", heights = c(.7, .7,2))
           #common.legend = T,
           #legend = "right",
           #label.y = "Key Issues",
           
        # PORTRATE 
 grid.newpage()
-grid.draw(egg::ggarrange(middle, bottom, top, 
+grid.draw(egg::ggarrange(bar, tile, line, 
                     ncol = 1,
                     #common.legend = T,
                     #legend = "right",
                     heights = c(.4, 2, .4)))       
 
 # flip 3
-grid.draw(egg::ggarrange(middle, top, bottom, 
+grid.draw(egg::ggarrange(bar, line, tile, 
                          ncol = 1,
                          #common.legend = T,
                          #legend = "right",
@@ -168,7 +151,7 @@ grid.draw(egg::ggarrange(middle, top, bottom,
 
 # flip 4
 grid.newpage()
-grid.draw(egg::ggarrange(bottom, middle, top,
+grid.draw(egg::ggarrange(tile, bar, line,
                          ncol = 1,
                          #common.legend = T,
                          #legend = "right",
@@ -183,8 +166,8 @@ grid.draw(egg::ggarrange(bottom, middle, top,
 
  # LANDSCAPE 
 
-# line plot (topright)
-topright <- ggplot(d %>% filter(Program %in% c("FSC-US", "SFI")), 
+# line plot (lineright)
+lineright <- ggplot(d %>% filter(Program %in% c("FSC-US", "SFI")), 
               aes(x = Year, y = Change, linetype = Measure)) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
   #geom_segment(data = d.sfi, aes(x = 2008, y = 0, xend = 2016, yend = 12), linetype = 1, alpha = .005, size = 5, arrow = arrow(length = unit(0.3, "npc"))) + 
@@ -209,7 +192,7 @@ topright <- ggplot(d %>% filter(Program %in% c("FSC-US", "SFI")),
 
 
 data$Change %<>% {gsub("less prescriptive", "less prescriptive          .",.)}
-# bar plot (middle)
+# bar plot (bar)
 right <- ggplot(data %>% filter(Program %in% c("FSC-US", "SFI")), 
                  aes(x = Year)) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
@@ -258,7 +241,7 @@ left <- ggplot(data %>% filter(Program %in% c("FSC-US", "SFI")),
         panel.grid.minor = element_blank())
 
 # LANDSCAPE 
-Right <- ggpubr::ggarrange(topright, right, nrow = 2, heights = c(1,2))
+Right <- ggpubr::ggarrange(lineright, right, nrow = 2, heights = c(1,2))
 ggpubr::ggarrange(left, Right, ncol = 2, heights = c(1, .8), widths = c(1.5,1))
 
 

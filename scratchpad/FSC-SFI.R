@@ -1,24 +1,31 @@
-# install.packages("ggpubr")
-# install.packages("devtools")       
-# install.packages("egg")
-# install.packages("tidyverse")
-# install.packages("magrittr")
-
-
 options(stringsAsFactors = FALSE)
+
+requires <- c("gmailr", 
+              "dplyr", 
+              "ggplot2", 
+              "magrittr",
+              "here",
+              "gridExtra",
+              "ggpubr",
+              "grid", 
+              "egg",
+              "tidyverse")
+to_install <- c(requires %in% rownames(installed.packages()) == FALSE)
+install.packages(c(requires[to_install], "NA"), repos = "https://cloud.r-project.org/" )
+rm(requires, to_install)
+
+library(here)
 library(tidyverse)
 library(magrittr)
 library(grid)
 library(gridExtra)
 library(gtable)
+library(egg)
+library(ggpubr)
 
 
-getwd()
-setwd("/Users/judgelord/Downloads")
-setwd("/Users/Patron/Downloads")
-setwd("/Users/user/Downloads")
 
-d <- read.csv("FSC.csv")
+d <- read.csv(here("data/FSC.csv"))
 d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "FSC", Net.Change+4, Net.Change))
 d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "SFI", Net.Change+1, Increased))
 d %<>% gather("Measure","Change", 6:7)
@@ -40,19 +47,88 @@ d.sfi <- filter(d, Program == "SFI")
 
 
 # ISSUE DATA
-data <- read.csv("FSCissues.csv")
+data <- read.csv(here("data/FSCissues.csv"))
 data$Change <- gsub("Bacame", "Became", data$Change)
+data$Issue %<>% gsub(" $", "", .)
+data$Change %<>% gsub(" * .$", "", .)
 unique(data$Change)
 names(data)
 data$Strictist %<>% as.factor()
 # data$Year %<>% as.factor()
+
 #correction
 data %<>% mutate(Change = ifelse(Issue  == "Plantations" & Year == "2015" & Program == "SFI", "Became more prescriptive", Change))
+data %<>% mutate(Change = ifelse(Issue  == "Riparian" & Year == "2010" & Program == "FSC-US", "Became more prescriptive", Change))
 data %<>% mutate(Prescriptiveness = ifelse(Issue  == "Plantations" & Year %in% c("2015", "2016") & Program == "SFI", 2, Prescriptiveness))
 data$Prescriptiveness %<>% as.factor()
-data$Change %<>% as.factor()
+# data$Change %<>% as.factor()
 levels(data$Prescriptiveness) <- c("No prescriptive requirements", "Some prescriptive requirements", "At least as or most prescriptive")
-data$Issue %<>% as.factor()
+# data$Issue %<>% as.factor()
+
+
+# issues where increased 
+fscissues <- filter(data, Program == 'FSC-US', Change == 'Became more prescriptive', Year == 2010) %>% distinct()
+fscissues
+# 
+sfiissues <- filter(data, Program == 'SFI', Change == 'Became more prescriptive', Year == 2010) %>% select(Issue, Prescriptiveness, Strictist) %>% distinct()
+sfiissues
+# 
+both <- filter(fscissues, Issue %in% sfiissues$Issue)
+both
+filter(fscissues, !Issue %in% both$Issue)
+filter(sfiissues, !Issue %in% both$Issue)
+
+
+
+# issues where decreased 
+fscissues <- filter(data, Program == 'FSC-US', Change == "Became less prescriptive") %>% select(-Year) %>% distinct()
+fscissues
+# 
+sfiissues <- filter(data, Program == 'SFI', Change == "Became less prescriptive") %>% select(-Year) %>% distinct()
+sfiissues
+# 
+both <- filter(fscissues, Issue %in% sfiissues$Issue)
+both
+
+
+#######################################################################################
+# make table 
+issues <- filter(data, Year == 2010) %>% 
+  group_by(Issue) %>% mutate(Change = paste(Strictist, Change)) %>%
+  group_by(Issue) %>% mutate(pattern = paste(Change, collapse = ": ")) %>%
+  mutate(pattern = ifelse(pattern == "1 No change: 0 No change", "Equilibrium", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "0 No change: 1 No change", "Equilibrium", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "0 No change: 0 No change", "Equilibrium", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 1 No change", "Downward divergence", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "1 Became less prescriptive: 0 No change", "Downward convergence", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "1 Became more prescriptive: 0 No change", "Upward divergence", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "0 Became more prescriptive: 1 No change", "Upward convergence", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "1 No change: 0 Became more prescriptive", "Upward convergence", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "0 No change: 1 Became more prescriptive", "Upward divergence", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "1 Became less prescriptive: 0 Became less prescriptive", "Downward parallell", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 1 Became less prescriptive", "Downward parallell", pattern)) %>% 
+  mutate(pattern = ifelse(pattern == "1 Became more prescriptive: 0 Became more prescriptive", "Upward parallell", pattern))  %>% 
+  mutate(pattern = ifelse(pattern == "0 Became more prescriptive: 0 Became more prescriptive", "Upward parallell", pattern))  %>% 
+  mutate(pattern = ifelse(pattern == "0 Became more prescriptive: 1 Became more prescriptive", "Upward parallell", pattern))  %>% 
+  mutate(pattern = ifelse(pattern == "1 Became less prescriptive: 0 Became more prescriptive", "Opposing divergence", pattern)) %>%
+  mutate(pattern = ifelse(pattern == "1 Became more prescriptive: 0 Became less prescriptive", "Opposing divergence", pattern)) %>%
+  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 1 Became more prescriptive", "Opposing divergence", pattern)) %>%
+  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 0 Became more prescriptive", "Opposing divergence", pattern)) # aesthetic feels wrong 
+
+# Table
+Issues <- issues %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n)
+
+
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -62,8 +138,8 @@ data$Issue %<>% as.factor()
 
 # GOOD PLOTS 
 
-# line plot (top)
-top <- ggplot() + 
+# line plot (line)
+line <- ggplot() + 
   geom_step(data = d %>% filter(Program %in% c(
     "FSC-US", "SFI")), 
   aes(x = Year, y = Change, linetype = Measure)) + 
@@ -95,11 +171,11 @@ top <- ggplot() +
     axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)
   )
 
-# bar plot (middle)
-middle <- 
+# bar plot (bar)
+bar <- 
   ggplot() + 
   geom_bar(data = filter(data, Program %in% c("FSC-US", "SFI")), 
-           aes(x = Year, alpha = Prescriptiveness, fill = Change)) +
+           aes(x = Year, alpha = Prescriptiveness, fill = Change), position = "stack") +
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
   #geom_segment(data = filter(data, Program == "FSC-US"), aes(x = 2007.5, y = 34, xend = 2011.5, yend = 34), linetype = 1, size = .5) + 
   #geom_segment(data = filter(data, Program == "FSC-US"), aes(x = 2011.5, y = 36, xend = 2015.5, yend = 36), linetype = 1, size = .5) + 
@@ -115,8 +191,8 @@ middle <-
   scale_y_continuous(breaks = seq(0,48, by = 8)) + 
   #geom_point(data = data %>% filter(Program %in% c("FSC-US", "SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
   theme(legend.position="none",
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(), 
+        panel.grid.minor.x = element_blank(),
         #remove legend title
         legend.title=element_blank(),
         #set a slim legend
@@ -130,12 +206,14 @@ middle <-
         strip.background = element_blank())
 
 
-# tile plot (bottom)
-bottom <- ggplot(data %>% filter(Program %in% c("FSC-US", "SFI")), 
+# tile plot (tile)
+tile <- ggplot(data %>% filter(Program %in% c("FSC-US", "SFI")), 
 aes(x = Year, y = Issue)) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
   geom_tile(aes(alpha = Prescriptiveness, fill = Change, color = Strictist),#)+
             color = "white") + 
+  geom_point(aes(shape = Change)) +
+  scale_shape_manual(values=c("-", "+", ""))+
   #labs(title = "Scope of Key Issues Addressed") + 
   # geom_point(data = data %>% filter(Program %in% c("FSC-US", "SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
   theme(panel.grid.major = element_blank(), 
@@ -152,8 +230,11 @@ aes(x = Year, y = Issue)) +
         strip.background = element_blank(),
         strip.text.x = element_blank())
 
+
+# TRY INSTEAD A NEW TILE PLOT 3x3
+
 # both
-# ggpubr::ggarrange(top, middle, bottom, ncol = 1, nrow = 3, align = "v", heights = c(.7, .7,2))
+# ggpubr::ggarrange(line, bar, tile, ncol = 1, nrow = 3, align = "v", heights = c(.7, .7,2))
 #common.legend = T,
 #legend = "right",
 #label.y = "Key Issues",
@@ -178,6 +259,10 @@ mostlegend <- ggplot(data,
   geom_tile(aes(fill = Change),
             color = "white", alpha=1) +
   scale_fill_discrete(name="At least as or more prescriptive")
+
+
+
+
 #  This is a function found in this post to create a legend grob.
   
   g_legend<-function(a.gplot){
@@ -188,15 +273,15 @@ mostlegend <- ggplot(data,
   }
 #  Now use this function to create 2 legend grobs with different color schemes, then use grid.arrange to put everything together:
     
-legendless <- g_legend(lesslegend)
-legendmore <- g_legend(morelegend)
+legendless <- g_legend(somelegend)
+legendmore <- g_legend(mostlegend)
 legendno <- g_legend(nolegend)
 
 
 # PORTRATE 
 grid.newpage()
-grid.draw(egg::ggarrange(middle, bottom, top, legendno, legendmore, legendless,
-                         ncol = 2, nrow = 3,
+grid.draw(egg::ggarrange(bar, tile, line,
+                         ncol = 1, nrow = 3,
                          #common.legend = T,
                          #legend = "right",
                          heights = c(.4, 2, .4)))    
@@ -230,8 +315,8 @@ grid.draw(egg::ggarrange(legendno, legendmore, legendless,
 
  # LANDSCAPE 
 
-# line plot (topright)
-topright <- ggplot(d %>% filter(Program %in% c("FSC-US", "SFI")), 
+# line plot (lineright)
+lineright <- ggplot(d %>% filter(Program %in% c("FSC-US", "SFI")), 
               aes(x = Year, y = Change, linetype = Measure)) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
   #geom_segment(data = d.sfi, aes(x = 2008, y = 0, xend = 2016, yend = 12), linetype = 1, alpha = .005, size = 5, arrow = arrow(length = unit(0.3, "npc"))) + 
@@ -256,7 +341,7 @@ topright <- ggplot(d %>% filter(Program %in% c("FSC-US", "SFI")),
 
 
 data$Change %<>% {gsub("less prescriptive", "less prescriptive          .",.)}
-# bar plot (middle)
+# bar plot (bar)
 right <- ggplot(data %>% filter(Program %in% c("FSC-US", "SFI")), 
                  aes(x = Year)) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
@@ -305,8 +390,11 @@ left <- ggplot(data %>% filter(Program %in% c("FSC-US", "SFI")),
         panel.grid.minor = element_blank())
 
 # LANDSCAPE 
-Right <- ggpubr::ggarrange(topright, right, nrow = 2, heights = c(1,2))
+Right <- ggpubr::ggarrange(lineright, right, nrow = 2, heights = c(1,2))
 ggpubr::ggarrange(left, Right, ncol = 2, heights = c(1, .8), widths = c(1.5,1))
+
+
+
 
 
 
