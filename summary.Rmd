@@ -1,8 +1,8 @@
 ---
-title: "summary"
+title: "FSC-SFI/summary"
 output: 
    html_document:
-    toc: true
+    toc: false
     code_folding: hide
 ---
 
@@ -76,8 +76,7 @@ data <- read.csv(here("data/FSCissues.csv"))
 data$Change <- gsub("Bacame", "Became", data$Change)
 data$Issue %<>% gsub(" $", "", .)
 data$Change %<>% gsub(" * .$", "", .)
-unique(data$Change)
-names(data)
+
 data$Strictist %<>% as.factor()
 # data$Year %<>% as.factor()
 data %<>% mutate(Program = ifelse(Program == "FSC-US", "Activist-backed FSC-US", Program))
@@ -148,7 +147,7 @@ Issues <- issues %>% filter(Year == 2015) %>% group_by(pattern)  %>% select(patt
 | Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
 | Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
 
-`r Issues$issues`
+
 
 
 
@@ -272,8 +271,8 @@ aes(x = Year, y = Issue)) +
   #labs(title = "Scope of Key Issues Addressed") + 
   # geom_point(data = data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
   theme_minimal() +
-  theme(panel.grid.major.x = element_blank(), 
-        panel.grid.minor.x = element_blank(),
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
         #remove legend title
         legend.title=element_blank(),
         #set a slim legend
