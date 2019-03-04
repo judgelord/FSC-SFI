@@ -7,17 +7,12 @@ output:
 ---
 
 ```{r global.options, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      cache = FALSE, 
-                      fig.width=8.5, fig.align = 'center', fig.path='Figs/',
-                      warning=FALSE, message=FALSE)
+
 ```
 <center>
 ```{r setup, include=FALSE}
-library(here)
-source("setup.R")
+source(here::here("setup.R"))
 ```
-\center
 
 --- 
 
@@ -272,13 +267,17 @@ bar <-
 
 
 # tile plot (tile)
-tile <- ggplot(data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")), 
-aes(x = Year, y = Issue)) + 
-  facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-  geom_tile(aes(alpha = Prescriptiveness, fill = Change, color = Strictist),#)+
-            color = "white") + 
-  geom_point(aes(shape = Change)) +
+data %>% 
+  filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")) %>%
+  mutate(Issue = as.factor(Issue)) %>%
+ggplot() +
+aes(x = Year, y = Issue) + 
+  facet_grid(. ~ Program)  + scale_fill_grey() + scale_color_grey() +
+  geom_tile(aes(fill = Prescriptiveness)) + 
+  geom_point(aes(shape = Change), color = "red", size = 5) +
   scale_shape_manual(values=c("-", "+", ""))+
+  geom_segment(
+    aes(xend = ifelse(Change == "No Change", Year+1, NA), yend = as.numeric(Issue)+1), color = "blue", size = .1)+ 
   #labs(title = "Scope of Key Issues Addressed") + 
   # geom_point(data = data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
   theme_minimal() +
