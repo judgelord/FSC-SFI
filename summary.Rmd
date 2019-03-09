@@ -194,12 +194,14 @@ Training on OSHA |
 <center>
 ```{r FSC-SFI-plot, fig.height= 10, fig.width=7.5}
 
+
 ## line plot (line)
 line <- SFIvFSCnetChange %>%
   filter(Program %in% c(
     "Activist-backed FSC-US", "Industry-backed SFI")) %>% 
   ggplot() + 
-  geom_step(aes(x = Year, y = Change, linetype = Measure) ) +  
+  geom_step(aes(x = Year, y = Change, linetype = Measure, color = Measure) ) +
+      scale_color_viridis_d(begin = .5, end = .2, option = "B") +
   facet_grid(. ~ Program) + 
   geom_text(data = data.frame(Program = "Industry-backed SFI"), 
 label = "Increased in 12
@@ -209,7 +211,8 @@ label = "Increased in
 21 issues
 since 2008", x = 2016, y = 6, vjust = 0, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
-       y = "Key Issues") + 
+       y = "Key Issues",
+       color = "Prescriptiveness", linetype = "Prescriptiveness") + 
   scale_y_continuous(breaks = seq(0,48, by = 4)) + 
   scale_x_continuous(breaks = seq(2008,2016, by = 1)) + 
   #scale_linetype_discrete(name = "Change in Prescriptiveness") + 
@@ -321,7 +324,8 @@ line <- PEFCvFSC %>%
   mutate(Change = Change08) %>% 
   filter(Program %in% c( "Activist-backed FSC P&C", "Industry-backed PEFC")) %>% 
   ggplot() + 
-  geom_step(aes(x = Year, y = Change08, linetype = Measure)) + 
+  geom_step(aes(x = Year, y = Change08, linetype = Measure, color = Measure)) + 
+        scale_color_viridis_d(begin = .5, end = .2, option = "B") +
   facet_grid(. ~ Program) + 
   geom_text(data = data.frame(Program = "Industry-backed PEFC"), 
 label = "Increased in
@@ -331,14 +335,15 @@ since 2008", x = 2015, y = 16, vjust = 1, hjust = 1, size = 3) +
 label = "Increased in 13
 issues since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
-       y = "Key Issues") + 
+       y = "Key Issues",
+       color = "Prescriptiveness", linetype = "Prescriptiveness") + 
   scale_y_continuous(breaks = seq(0,48, by = 4)) + 
   scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
   #scale_linetype_discrete(name = "Change in Prescriptiveness") + 
   theme(#panel.grid.major = element_blank(), 
     #strip.text.x = element_blank(),
         #remove legend title
-        legend.title=element_blank(),
+        # legend.title=element_blank(),
         #legend.key.width=grid::unit(0.2,"cm"),
         axis.title.x = element_blank(),
         #change axis ticks thickness
