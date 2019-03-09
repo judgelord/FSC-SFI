@@ -14,7 +14,7 @@ rm(requires, to_install)
 
 library(tidyverse)
 library(dplyr) # in case tydyverse fails (problem on linux)
-library(ggplot2)
+library(ggplot2); theme_set(theme_minimal())
 library(magrittr)
 library(scales)
 library(here)
@@ -22,6 +22,7 @@ library(grid)
 library(gridExtra)
 library(gtable)
 library(egg)
+library(glue)
 
 knitr::opts_chunk$set(echo = FALSE, 
                       cache = FALSE, 
