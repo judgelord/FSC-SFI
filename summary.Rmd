@@ -159,6 +159,33 @@ grid.draw(egg::ggarrange(fsc, sfi,
 
 ---
 
+### Qualitative comparison of policy settings
+
+| Issue | Activist-backed FSC-US | Industry-backed SFI |
+|:----|:----|:----|
+Threatened <br> and Endangered Species | | | 
+
+Old growth | | | 
+
+Public Reporting and Consultation | | | 
+
+Indigenous use rights | Access and use rights documented, identified on maps | Identify and protect culturally important sites. |
+
+Indigenous consultation | Identify and contact American Indian groups via designated tribal representatives for legal or customary use rights, ensure no impact on rights, protocols jointly developed and signed by tribes in formal consultation, informed written consent, identify special sites and protected areas. | Confer with affected indigenous peoples on public lands.
+
+Indigenous knowledge | Understand and respect traditional knowledge. | Identify knowledge used, fairly compensate for use. |
+
+Workers' right to organize | Freedom to associate and advocate |
+Develop dispute resolution. | Obey law. Train on worker rights. |
+
+Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
+
+Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA
+Training on OSHA |
+
+
+---
+
 
 
 
@@ -209,7 +236,7 @@ bar <- SFIvFSC %>%
   filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")) %>% 
   ggplot() + 
   geom_bar(aes(x = Year, fill = Prescriptiveness), position = "stack") +
-  scale_fill_grey(start = .8, end = .5) + 
+  scale_fill_grey(start = .9, end = .5) + 
   facet_grid(. ~ Program) + 
   geom_segment(data = data.frame(Program = "Activist-backed FSC-US"), aes(x = 2007.5, y = 42, xend = 2009.5, yend = 42), linetype = 1, size = .5) + 
   geom_segment(data = data.frame(Program = "Activist-backed FSC-US"), aes(x = 2009.5, y = 43, xend = 2016.5, yend = 43), linetype = 1, size = .5) + 
@@ -225,7 +252,7 @@ more on 42 issues", x = 2016, y = 28, vjust = 0, hjust = 1, size = 3) +
        y = "Key Issues") + 
   scale_y_continuous(breaks = seq(0,48, by = 8)) +
   scale_x_continuous(breaks = seq(2008,2016, by = 1), labels = rep('↑', 9)) +
-  theme(legend.position="none",
+  theme(#legend.position="none",
         panel.grid.major.x = element_blank(), 
         panel.grid.minor.x = element_blank(),
         #remove legend title
@@ -249,8 +276,8 @@ tile <- SFIvFSC %>%
 ggplot() +
 aes(x = Year, y = Issue) + 
   facet_grid(. ~ Program)   + 
-  geom_tile(aes(fill = Prescriptiveness), color = "white") + 
-  scale_fill_grey(start = 1, end = .5) + 
+  geom_tile(aes(fill = Prescriptiveness), color = "white",  show.legend =FALSE) + 
+  scale_fill_grey(start = .9, end = .5) + 
   scale_color_viridis_d(option = "B") + 
   geom_point(aes(shape = Change, color = Change), size = 5) +
   scale_shape_manual(values=c("-", "+", ""))+
@@ -330,7 +357,7 @@ bar <- filter(PEFCvFSC, Measure == "Increased" & Program %in% c("Activist-backed
     )) %>% 
 ggplot() + 
     geom_bar(aes(x = Year, fill = Prescriptiveness), width = 0.9) +
-  scale_fill_grey(start = .7, end = .5) + 
+  scale_fill_grey(start = .9, end = .5) + 
     facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
     geom_segment(data = data.frame(Program = "Activist-backed FSC P&C"), aes(x = 2007.5, y = 34, xend = 2011.5, yend = 34), linetype = 1, size = .5) + 
     geom_segment(data = data.frame(Program = "Activist-backed FSC P&C"), aes(x = 2011.5, y = 36, xend = 2015.5, yend = 36), linetype = 1, size = .5) + 
@@ -346,7 +373,7 @@ more on 36 issues", x = 2015, y = 20, vjust = 0, hjust = 1, size = 3) +
        y = "Key Issues") + 
     scale_y_continuous(breaks = seq(0,48, by = 8)) + 
     scale_x_continuous(breaks = seq(2008,2015, by = 1), labels = rep('↑', 8)) +
-  theme(legend.position="none",
+  theme(# legend.position="none",
         panel.grid.major.x = element_blank(), 
         panel.grid.minor.x = element_blank(),
         #remove legend title
@@ -370,10 +397,10 @@ tile <- PEFCvFSC %>% filter(Program %in% c(
   )) %>%
   ggplot( aes(x = Year, y = Issues) ) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-  geom_tile(aes(fill = Prescriptiveness), color = "white") + 
+  geom_tile(aes(fill = Prescriptiveness), color = "white",  show.legend =FALSE) + 
       geom_point(aes(shape = Change, color = Change), size =5) +
       scale_shape_manual(values=c("-", "+", ""))+
-      scale_fill_grey(start = 1, end = .5) + 
+      scale_fill_grey(start = .9, end = .5) + 
     scale_color_viridis_d(option = "B") +  
   scale_y_discrete(limits = rev(levels(PEFCvFSC$Issues))) +
   scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
