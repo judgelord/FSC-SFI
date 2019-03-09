@@ -1,0 +1,44 @@
+---
+title: "Untitled"
+author: "Devin Judge-Lord"
+date: "2/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# new feature request 
+A font `family` argument for `shape` in `geom_point` (like `family` in `geom_text`) could vastly expand available glyphs by allowing Unicode characters missing from the default font. Alternatively, `base_family` with complete themes could be used when Unicode is supplied to the `shape` scale. 
+
+The example requires the "Calibri" font:
+
+```{r}
+library(extrafont)
+font_import()
+glyphs <- c('\u2197', '\u2198')
+p <- ggplot(NULL, aes(x = 0, y=c(1,2), color = glyphs))
+```
+
+`geom_text` plots Unicode symbols, but not in the legend. 
+```{r}
+p +
+  geom_text(aes(label = glyphs), family = "Calibri")
+```
+
+`geom_point` seems like the right way to plot Unicode glyphs, if it and/or `scale_shape` had a `family` argument like this:
+
+```{r}
+p +
+  geom_point( aes(shape = glyphs), family = "Calibri") +
+  scale_shape_manual(values = glyphs)
+```
+
+Or if `base_family` applied to Unicode supplied to the `shape` scale:
+```{r}
+p + 
+  geom_point(aes(shape = glyphs) ) +
+  scale_shape_manual(values = glyphs) + 
+  theme_gray(base_family = "Calibri") 
+```

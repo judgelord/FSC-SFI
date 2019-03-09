@@ -4,19 +4,25 @@ output:
    html_document:
     toc: true
     code_folding: hide
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r global.options, include=FALSE}
 
 ```
-<center>
+
 ```{r setup, include=FALSE}
 source(here::here("setup.R"))
+
+load(here("data/SFIvFSC.Rdata"))
 ```
 
 --- 
 
-# U.S. Timberland
+## Context
+
+### U.S. Timberland by ownership and certification scheme
 ```{r acres, fig.height= 2, fig.width=6.5}
 
 acres <- read.csv(here("data/acres.csv"))
@@ -30,8 +36,8 @@ acres$color <- gsub("FSC and PEFC \\(i.e. SFI or ATFS\\)", "PEFC (i.e. SFI or AT
                                   bar != "Family forest (unmanaged)")) + 
     geom_col(aes(y = Acres, x = bar, fill = color)) + 
     coord_flip() + 
-    labs(y = "Acres (millions)", x = "") + 
-    scale_fill_grey(name = "Global Label") + 
+    labs(y = "Acres (millions)", x = "", fill = "Program") + 
+    scale_fill_viridis_d(begin = .5, end = .2, option = "B") +
     scale_y_continuous(breaks = seq(0, 150, 30), limits = c(0,155)) +
      theme_minimal() +
     theme(axis.title.y = element_blank(),
@@ -48,7 +54,6 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
     coord_flip() + 
     labs(y = "Acres (millions)", x = "") + 
     scale_y_continuous(breaks = seq(0, 150, 30), limits = c(0,155)) +
-  theme_minimal() +
     theme(legend.title=element_blank(),
           #legend.key.width=grid::unit(0.2,"cm"),
           axis.title = element_blank(),
@@ -57,7 +62,7 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
                     panel.grid.minor.y = element_blank(),
           panel.grid.major.y = element_blank(),
           #change axis ticks thickness
-          axis.ticks.y=element_blank())  + scale_fill_grey()
+          axis.ticks.y=element_blank())  
  
  #grid.newpage()
   grid.draw(egg::ggarrange(corp, cert, 
@@ -70,186 +75,154 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 
 --- 
 
-# Patterns of Change
-```{r fsc-sfi-issue-data}
-# ISSUE DATA
-data <- read.csv(here("data/FSCissues.csv"))
-data$Change <- gsub("Bacame", "Became", data$Change)
-data$Issue %<>% gsub(" $", "", .)
-data$Change %<>% gsub(" * .$", "", .)
+## Comparing Forest Certification Programs
 
-data$Strictist %<>% as.factor()
-# data$Year %<>% as.factor()
-data %<>% mutate(Program = ifelse(Program == "FSC-US", "Activist-backed FSC-US", Program))
-data %<>% mutate(Program = ifelse(Program == "SFI", "Industry-backed SFI", Program))
-data %<>% mutate(Program = ifelse(Program == "PEFC", "Industry-backed PEFC", Program))
+### Restrictions on clearcuts
+```{r clearcuts, fig.height=3, fig.width=5}
+d <- read_csv("data/clearcuts.csv")
 
-# correction
-data %<>% mutate(Change = ifelse(Issue  == "Plantations" & Year == "2015" & Program == "Industry-backed SFI", "Became more prescriptive", Change))
+d %>% 
+  ggplot(aes(x = program, ymin= min, ymax=max, label = text, color = program)) + 
+  geom_point( aes(y = min)) + 
+  geom_point( aes(y = max)) + 
+  geom_text( aes(y = 1), hjust = 0, size = 2.5) + 
+  geom_linerange()+
+  coord_flip() + 
+  labs(x = "", y = "Acres",
+       caption = "*Ranges reflect different maximums in different contexts") + 
+  scale_color_viridis_d(begin = .5, end = .2, option = "B") +
+  facet_grid(criteria ~., scales = "free", space = "free", switch = "y") +
+  theme(strip.text.y = element_text(angle = 180),
+        strip.placement = "outside",
+        legend.position = "none")
+```
 
-data %<>% mutate(Change = ifelse(Issue  == "Riparian" & Year == "2010" & Program == "Activist-backed FSC-US", "Became more prescriptive", Change))
+### Restrictions on harvesting near streams
+```{r riparian, fig.height=6.5, fig.width=7.5}
+d <- read_csv("data/riparian-buffers.csv") %>% 
+  mutate(Criteria = glue("{criteria} {criteria2}", .na = "")) %>%
+  mutate(Standard = glue("{program} {region}", .na = "")) %>%
+  gather(none, tree, group, key = "type", value = "feet")
 
-data %<>% mutate(Prescriptiveness = ifelse(Issue  == "Plantations" & Year %in% c("2015", "2016") & Program == "Industry-backed SFI", 2, Prescriptiveness))
+d$type %<>% factor(levels = c("group", "tree", "none") )
+d$type %<>% fct_recode("Single trees only" = "tree",
+                       "Limited groups of trees" = "group",
+                       "No timber harvesting" = "none")
 
-data$Prescriptiveness %<>% as.factor()
-# data$Change %<>% as.factor()
-levels(data$Prescriptiveness) <- c("No prescriptive requirements", "Some prescriptive requirements", "At least as or most prescriptive")
-# data$Issue %<>% as.factor()
+d$Criteria %<>% factor()
+d$Criteria %<>% fct_reorder(d$feet)
+
+fsc <- d %>% 
+  filter(program %in% c("FSC-US", "FSC")) %>% 
+  ggplot(aes(x = Criteria, y = feet, fill= type, label = text)) + 
+  geom_col(position = "stack") + 
+  geom_text( aes(y = 0), hjust = 0, size = 2.5, color = "#458B00")+
+  coord_flip() +
+  labs(x = "", y = "Feet", fill = "Minimum streamside
+harvest buffer zones",
+       title = "Activist-backed FSC")+
+  scale_fill_viridis_d(begin = .9, end = .5, option = "B") +
+  facet_grid(region ~., scales = "free", space = "free", switch = "y") +
+  theme_gray() +
+  theme(strip.text.y = element_text(angle = 180),
+        strip.placement = "outside")
+
+sfi <- d %>% 
+  filter(program %in% c("SFI", "PEFC")) %>% 
+  ggplot(aes(x = Criteria, y = feet, fill= type, label = text)) + 
+  geom_col(position = "stack") + 
+  geom_text( aes(y = 0), hjust = 0, size = 2.5, color = "#458B00")+
+    geom_text( aes(y = 150, x = 0, label = "") )+ # to get scale to match
+  coord_flip() +
+  labs(x = "", y = "Feet", fill = "",
+       title = "Industry-backed SFI & PEFC")+
+  scale_fill_viridis_d(begin = .9, end = .5, option = "B") + 
+  facet_grid(region ~., scales = "free", space = "free", switch = "y") +
+  # scale_x_continuous(limits = c(0,150)) + 
+  theme_gray() +
+  theme(strip.text.y = element_text(angle = 180),
+        strip.placement = "outside",
+        legend.position = "none")
+
+grid.newpage()
+grid.draw(egg::ggarrange(fsc, sfi, 
+                         ncol = 1,
+                         #common.legend = T,
+                         #legend = "right",
+                         heights = c(2, .2)))  
+
+
 
 ```
 
-
-```{r results-table}
-# make table 
-issues <- filter(data) %>% 
-  group_by(Issue, Year) %>% mutate(Change = paste(Strictist, Change)) %>%
-  group_by(Issue, Year) %>% mutate(pattern = paste(Change, collapse = ": ")) %>%
-  mutate(pattern = ifelse(pattern == "1 No change: 0 No change", "Equilibrium", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "0 No change: 1 No change", "Equilibrium", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "0 No change: 0 No change", "Equilibrium", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 1 No change", "Downward divergence", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "1 Became less prescriptive: 0 No change", "Downward convergence", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "1 Became more prescriptive: 0 No change", "Upward divergence", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "0 Became more prescriptive: 1 No change", "Upward convergence", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "1 No change: 0 Became more prescriptive", "Upward convergence", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "0 No change: 1 Became more prescriptive", "Upward divergence", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "1 Became less prescriptive: 0 Became less prescriptive", "Downward parallell", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 1 Became less prescriptive", "Downward parallell", pattern)) %>% 
-  mutate(pattern = ifelse(pattern == "1 Became more prescriptive: 0 Became more prescriptive", "Upward parallell", pattern))  %>% 
-  mutate(pattern = ifelse(pattern == "0 Became more prescriptive: 0 Became more prescriptive", "Upward parallell", pattern))  %>% 
-  mutate(pattern = ifelse(pattern == "0 Became more prescriptive: 1 Became more prescriptive", "Upward parallell", pattern))  %>% 
-  mutate(pattern = ifelse(pattern == "1 Became less prescriptive: 0 Became more prescriptive", "Opposing divergence", pattern)) %>%
-  mutate(pattern = ifelse(pattern == "1 Became more prescriptive: 0 Became less prescriptive", "Opposing divergence", pattern)) %>%
-  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 1 Became more prescriptive", "Opposing divergence", pattern)) %>%
-  mutate(pattern = ifelse(pattern == "0 Became less prescriptive: 0 Became more prescriptive", "Opposing divergence", pattern)) # aesthetic feels wrong 
-# correction to above method
-issues %<>% mutate(pattern = ifelse(pattern == "Upward parallell" & Issue == "Riparian", "Upward divergence", pattern))
-```
-
-```{r 2010}
-Issues <- issues %>% filter(Year == 2010) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n)
-
-```
-
-__Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues__
-
-| 2010| Converging | Parallell | Diverging |
-|:----|:----:|:----:|:----:|
-| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` 
-| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
-| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
-
-```{r 2015}
-# Table
-Issues <- issues %>% filter(Year == 2015) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n)
-
-```
-
-| 2015 | Converging | Parallell | Diverging |
-|:----|:----:|:----:|:----:|
-| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` 
-| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
-| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
+---
 
 
 
 
+### Prescriptiveness and Scope 2008-2016
 
+<center>
+```{r FSC-SFI-plot, fig.height= 10, fig.width=7.5}
 
-
-
---- 
-
-# Scope and Prescriptiveness of FSC and SFI 2008-2016
-```{r FSC-SFI-data}
-# Get data 
-d <- read.csv(here("data/FSC.csv"))
-d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "FSC", Net.Change+4, Net.Change))
-d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "SFI", Net.Change+1, Increased))
-d %<>% gather("Measure","Change", 6:7)
-d %<>% group_by(Program)
-d %<>% gather("Prescriptiveness","Issues", 3:5)
-d$Prescriptiveness %<>% as.factor()
-d$Prescriptiveness %<>% relevel("Some.Requirements")
-d$Prescriptiveness %<>% relevel("Most.Prescriptive")
-d %<>% ungroup()
-d %<>% mutate(Program = ifelse(Program == "FSC", "Activist-backed FSC-US", Program))
-d %<>% mutate(Program = ifelse(Program == "SFI", "Industry-backed SFI", Program))
-d$Program %<>% as.factor()
-d %<>% mutate(Measure = ifelse(Measure == "Net.Change", "Net Change", Measure))
-
-# corrections
-d %<>% mutate(Change = if_else(Year > 2009 & Program == "Activist-backed FSC-US" & Measure == "Increased", 21, Change))
-d %<>% mutate(Change = if_else(Year > 2009 & Program == "Activist-backed FSC-US" & Measure == "Net Change", 17, Change))
-
-d %<>% mutate(Change = if_else(Year > 2009 & Program == "Industry-backed SFI" & Measure == "Increased", 8, Change))
-d %<>% mutate(Change = if_else(Year > 2012 & Program == "Industry-backed SFI" & Measure == "Increased", 9, Change))
-d %<>% mutate(Change = if_else(Year > 2014 & Program == "Industry-backed SFI" & Measure == "Increased", 12, Change))
-
-d %<>% mutate(Change = if_else(Year > 2009 & Program == "Industry-backed SFI" & Measure == "Net Change", 7, Change))
-d %<>% mutate(Change = if_else(Year > 2012 & Program == "Industry-backed SFI" & Measure == "Net Change", 8, Change))
-d %<>% mutate(Change = if_else(Year > 2014 & Program == "Industry-backed SFI" & Measure == "Net Change", 11, Change))
-
-#data <- filter(d, Measure == "Increased")
-```
-
-
-```{r FSC-SFI-plot, fig.height= 10, fig.width=8}
-# line plot (line)
-line <- ggplot() + 
-  geom_step(data = d %>% filter(Program %in% c(
-    "Activist-backed FSC-US", "Industry-backed SFI")), 
-  aes(x = Year, y = Change, linetype = Measure)) + 
-  facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-  #geom_segment(data = d.sfi, aes(x = 2008, y = 0, xend = 2016, yend = 12), linetype = 1, alpha = .005, size = 5, arrow = arrow(length = unit(0.3, "npc"))) + 
-  #geom_segment(data = d.fsc, aes(x = 2008, y = 0, xend = 2016, yend = 16), linetype = 1, alpha = .005, size = 5, arrow = arrow(length = unit(0.3, "npc"))) +
-  geom_text(data = data.frame(Program = "Industry-backed SFI"), label = "Increased in 12
-            issues since 2008", x = 2016, y = 14, vjust = 0, hjust = 1, size = 3) + 
-  geom_text(data = data.frame(Program = "Activist-backed FSC-US"), label = "Increased in
+## line plot (line)
+line <- SFIvFSCnetChange %>%
+  filter(Program %in% c(
+    "Activist-backed FSC-US", "Industry-backed SFI")) %>% 
+  ggplot() + 
+  geom_step(aes(x = Year, y = Change, linetype = Measure) ) +  
+  facet_grid(. ~ Program) + 
+  geom_text(data = data.frame(Program = "Industry-backed SFI"), 
+label = "Increased in 12
+issues since 2008", x = 2016, y = 14, vjust = 0, hjust = 1, size = 3) + 
+  geom_text(data = data.frame(Program = "Activist-backed FSC-US"), 
+label = "Increased in
 21 issues
-            since 2008", x = 2016, y = 0, vjust = 0, hjust = 1, size = 3) + 
-  labs(title = "Absolute Change in Prescriptiveness") + 
+since 2008", x = 2016, y = 6, vjust = 0, hjust = 1, size = 3) + 
+  labs(title = "Absolute Change in Prescriptiveness",
+       y = "Key Issues") + 
   scale_y_continuous(breaks = seq(0,48, by = 4)) + 
   scale_x_continuous(breaks = seq(2008,2016, by = 1)) + 
   #scale_linetype_discrete(name = "Change in Prescriptiveness") + 
-  theme_minimal() +
   theme(#panel.grid.major = element_blank(), 
     #strip.text.x = element_blank(),
     #remove legend title
     legend.title=element_blank(),
     #legend.key.width=grid::unit(0.2,"cm"),
     axis.title.x = element_blank(),
+    axis.title.y = element_text(angle = 0),
     #change axis ticks thickness
     axis.ticks.x=element_blank(),
     # horizontal y
     #axis.title.y=element_text(angle = 0),
     # or blank y
-    axis.title.y=element_blank(),
     #axis.text.x=element_blank()
     axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)
   )
+# line
+
 
 # bar plot (bar)
-bar <- 
+bar <- SFIvFSC %>%
+  filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")) %>% 
   ggplot() + 
-  geom_bar(data = filter(data, Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")), 
-           aes(x = Year, alpha = Prescriptiveness, fill = Change), position = "stack") +
-  facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-  geom_segment(data = filter(data, Program == "Activist-backed FSC-US"), aes(x = 2007.5, y = 42, xend = 2009.5, yend = 42), linetype = 1, size = .5) + 
-  geom_segment(data = filter(data, Program == "Activist-backed FSC-US"), aes(x = 2009.5, y = 43, xend = 2016.5, yend = 43), linetype = 1, size = .5) + 
-  geom_segment(data = filter(data, Program == "Industry-backed SFI"), aes(x = 2007.5, y = 11, xend = 2009.5, yend = 11), linetype = 1, size = .5) + 
-  geom_segment(data = filter(data, Program == "Industry-backed SFI"), aes(x = 2009.5, y = 10, xend = 2016.5, yend = 10), linetype = 1, size = .5) + 
-  geom_text(data = data.frame(Program = "Industry-backed SFI"), label = "As prescriptive or 
-            more on 10 issues", x = 2016, y = 24, vjust = 0, hjust = 1, size = 3) + 
-  geom_text(data = data.frame(Program = "Activist-backed FSC-US"), label = "As prescriptive or
-            more on 42 issues", x = 2016, y = 24, vjust = 0, hjust = 1, size = 3) + 
-  #geom_text(data = data.frame(Program = "Industry-backed PEFC"), label = "41 issues", x = 2015.5, y = 42, vjust = 0, hjust = 1, size = 3) + 
-  #geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), label = "42 issues", x = 2015.5, y = 43, vjust = 0, hjust = 1, size = 3) + 
-  labs(title = "Relative Prescriptiveness and Scope") + 
-  scale_y_continuous(breaks = seq(0,48, by = 8)) + 
-  scale_x_continuous(breaks = seq(2008,2016, by = 1)) +
-  #geom_point(data = data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
-  theme_minimal() +
+  geom_bar(aes(x = Year, fill = Prescriptiveness), position = "stack") +
+  scale_fill_grey(start = .8, end = .5) + 
+  facet_grid(. ~ Program) + 
+  geom_segment(data = data.frame(Program = "Activist-backed FSC-US"), aes(x = 2007.5, y = 42, xend = 2009.5, yend = 42), linetype = 1, size = .5) + 
+  geom_segment(data = data.frame(Program = "Activist-backed FSC-US"), aes(x = 2009.5, y = 43, xend = 2016.5, yend = 43), linetype = 1, size = .5) + 
+  geom_segment(data = data.frame(Program = "Industry-backed SFI"), aes(x = 2007.5, y = 11, xend = 2009.5, yend = 11), linetype = 1, size = .5) + 
+  geom_segment(data = data.frame(Program = "Industry-backed SFI"), aes(x = 2009.5, y = 10, xend = 2016.5, yend = 10), linetype = 1, size = .5) + 
+  geom_text(data = data.frame(Program = "Industry-backed SFI"), 
+label = "As prescriptive or 
+more on 10 issues", x = 2016, y = 12, vjust = 0, hjust = 1, size = 3) + 
+  geom_text(data = data.frame(Program = "Activist-backed FSC-US"), 
+label = "As prescriptive or
+more on 42 issues", x = 2016, y = 28, vjust = 0, hjust = 1, size = 3) + 
+  labs(title = "Relative Prescriptiveness and Scope",
+       y = "Key Issues") + 
+  scale_y_continuous(breaks = seq(0,48, by = 8)) +
+  scale_x_continuous(breaks = seq(2008,2016, by = 1), labels = rep('↑', 9)) +
   theme(legend.position="none",
         panel.grid.major.x = element_blank(), 
         panel.grid.minor.x = element_blank(),
@@ -257,30 +230,32 @@ bar <-
         legend.title=element_blank(),
         #set a slim legend
         # legend.key.width=grid::unit(0.2,"cm"),
-        axis.title = element_blank(),
+        # axis.title.y = element_blank(),
         #change axis ticks thickness
         axis.ticks.x=element_blank(),
-        axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
-        # axis.text.x=element_blank(),
+        # axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
+        axis.title.x=element_blank(),
+        axis.title.y = element_text(angle = 0),
         #strip.text.x = element_blank(),
         strip.background = element_blank())
-
+# bar
 
 # tile plot (tile)
-data %>% 
+tile <- SFIvFSC %>% 
+  ungroup() %>%
   filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")) %>%
-  mutate(Issue = as.factor(Issue)) %>%
 ggplot() +
 aes(x = Year, y = Issue) + 
-  facet_grid(. ~ Program)  + scale_fill_grey() + scale_color_grey() +
-  geom_tile(aes(fill = Prescriptiveness)) + 
-  geom_point(aes(shape = Change), color = "red", size = 5) +
+  facet_grid(. ~ Program)   + 
+  geom_tile(aes(fill = Prescriptiveness), color = "white") + 
+  scale_fill_grey(start = 1, end = .5) + 
+  scale_color_viridis_d(option = "B") + 
+  geom_point(aes(shape = Change, color = Change), size = 5) +
   scale_shape_manual(values=c("-", "+", ""))+
-  geom_segment(
-    aes(xend = ifelse(Change == "No Change", Year+1, NA), yend = as.numeric(Issue)+1), color = "blue", size = .1)+ 
+  scale_y_discrete(limits = rev(levels(SFIvFSC$Issue))) +
+  scale_x_continuous(breaks = seq(2008,2016, by = 1)) + 
   #labs(title = "Scope of Key Issues Addressed") + 
   # geom_point(data = data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
-  theme_minimal() +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         #remove legend title
@@ -290,11 +265,11 @@ aes(x = Year, y = Issue) +
         axis.title = element_blank(),
         #change axis ticks thickness
         axis.ticks=element_blank(),
-        # axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
-        axis.text.x=element_blank(),
+        axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
+        # axis.text.x=element_blank(),
         strip.background = element_blank(),
         strip.text.x = element_blank())
-
+# tile
 
 grid.newpage()
 grid.draw(egg::ggarrange(bar, tile, line,
@@ -305,73 +280,32 @@ grid.draw(egg::ggarrange(bar, tile, line,
 ```
 
 
-
-
 --- 
 
-# Scope and Prescriptiveness of FSC and PEFC 2008-2015
-
-```{r pefc-fsc-data}
+### Prescriptiveness and Scope 2008-2015
 
 
 
-d <- read.csv(here("data/PEFCvFSC.csv"))
-# d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "FSC", Net.Change+4, Increased))
-# d %<>% mutate(Increased = ifelse(Year > 2009 & Program == "Industry-backed SFI", Net.Change+1, Increased))
-# also not run for PEFC? 
-d %<>% gather("Measure","Change08", 7:8)
-
-d %<>% mutate(Measure = ifelse(Measure == "Net.Change", "Net Change", Measure))
-# d.fsc <- filter(d, Program == "Activist-backed FSC-US")
-# d.sfi <- filter(d, Program == "Industry-backed SFI")
-d$Program %<>% as.character()
-d %<>% mutate(Program = ifelse(Program == "FSC-P&C", "Activist-backed FSC P&C", Program))
-d %<>% mutate(Program = ifelse(Program == "PEFC", "Industry-backed PEFC", Program))
-d$Program %<>% as.factor()
-d$Strictist %<>% as.factor()
-d$Year %<>% as.numeric()
-d$Prescriptiveness %<>% as.factor()
-levels(d$Prescriptiveness) <- c("No prescriptive requirements", "Some prescriptive requirements", "At least as or most prescriptive")
-d$Change %<>% as.factor()
-levels(d$Change) <- c("Became less prescriptive", "No change", "Became more prescriptive")
-d$Change %<>% relevel("Became more prescriptive")
-d$Change %<>% relevel("Became less prescriptive")
-
-#year as factor data
-data <- filter(d, Measure == "Increased")
-# data$Year %<>% as.factor()
-
-
-```
-
-```{r pefc-fsc-plots, fig.height= 10, fig.width=8}
-d %<>% mutate(Change08 = ifelse(Year > 2011 & Program == "Activist-backed FSC P&C" & Measure == "Increased", 13, Change08))
-
-d %<>% mutate(Change08 = ifelse(Year > 2011 & Program == "Activist-backed FSC P&C" & Measure == "No change", 9, Change08))
-
-d %<>% mutate(Change08 = ifelse(Year > 2009 & Program == "Industry-backed PEFC", 18, Change08))
-
-
+```{r pefc-fsc-plots, fig.height= 10, fig.width=7.5}
 # line plot (line)
-line <- ggplot() + 
-  geom_step(data = d %>% filter(Program %in% c(
-  #"Activist-backed FSC-US", "Industry-backed SFI"
-  "Activist-backed FSC P&C", "Industry-backed PEFC"
-  )), 
-       aes(x = Year, y = Change08, linetype = Measure)) + 
-  facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-  #geom_segment(data = d.sfi, aes(x = 2008, y = 0, xend = 2016, yend = 12), linetype = 1, alpha = .005, size = 5, arrow = arrow(length = unit(0.3, "npc"))) + 
-  #geom_segment(data = d.fsc, aes(x = 2008, y = 0, xend = 2016, yend = 16), linetype = 1, alpha = .005, size = 5, arrow = arrow(length = unit(0.3, "npc"))) +
-  geom_text(data = data.frame(Program = "Industry-backed PEFC"), label = "Increased in
-18 issues
-            since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
-  geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), label = "Increased in 13
-            issues since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
-  labs(title = "Absolute Change in Prescriptiveness") + 
+line <- PEFCvFSC %>% 
+  mutate(Change = Change08) %>% 
+  filter(Program %in% c( "Activist-backed FSC P&C", "Industry-backed PEFC")) %>% 
+  ggplot() + 
+  geom_step(aes(x = Year, y = Change08, linetype = Measure)) + 
+  facet_grid(. ~ Program) + 
+  geom_text(data = data.frame(Program = "Industry-backed PEFC"), 
+label = "Increased in
+18 issues 
+since 2008", x = 2015, y = 16, vjust = 1, hjust = 1, size = 3) + 
+  geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), 
+label = "Increased in 13
+issues since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
+  labs(title = "Absolute Change in Prescriptiveness",
+       y = "Key Issues") + 
   scale_y_continuous(breaks = seq(0,48, by = 4)) + 
   scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
   #scale_linetype_discrete(name = "Change in Prescriptiveness") + 
-  theme_minimal() +
   theme(#panel.grid.major = element_blank(), 
     #strip.text.x = element_blank(),
         #remove legend title
@@ -383,31 +317,33 @@ line <- ggplot() +
         # horizontal y
         #axis.title.y=element_text(angle = 0),
         # or blank y
-        axis.title.y=element_blank(),
+        axis.title.y = element_text(angle = 0),
         #axis.text.x=element_blank()
     axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)
     )
+# line
 
 # bar plot (bar)
-bar <- ggplot() + 
-    geom_bar(data = filter(d, Measure == "Increased" & Program %in% c("Activist-backed FSC P&C", "Industry-backed PEFC" # "Activist-backed FSC-US", "Industry-backed SFI"
-    )), aes(x = Year, alpha = Prescriptiveness, fill = Change), width = 0.9) +
+bar <- filter(PEFCvFSC, Measure == "Increased" & Program %in% c("Activist-backed FSC P&C", "Industry-backed PEFC" # "Activist-backed FSC-US", "Industry-backed SFI"
+    )) %>% 
+ggplot() + 
+    geom_bar(aes(x = Year, fill = Prescriptiveness), width = 0.9) +
+  scale_fill_grey(start = .7, end = .5) + 
     facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-    geom_segment(data = filter(d, Measure == "Increased" & Program == "Activist-backed FSC P&C"), aes(x = 2007.5, y = 34, xend = 2011.5, yend = 34), linetype = 1, size = .5) + 
-    geom_segment(data = filter(d, Program == "Activist-backed FSC P&C"), aes(x = 2011.5, y = 36, xend = 2015.5, yend = 36), linetype = 1, size = .5) + 
-    geom_segment(data = filter(d, Program == "Industry-backed PEFC"), aes(x = 2007.5, y = 20, xend = 2009.5, yend = 20), linetype = 1, size = .5) + 
-    geom_segment(data = filter(d, Program == "Industry-backed PEFC"), aes(x = 2009.5, y = 27, xend = 2015.5, yend = 27), linetype = 1, size = .5) + 
-    geom_text(data = data.frame(Program = "Industry-backed PEFC"), label = "As prescriptive or 
-              more on 27 issues", x = 2015, y = 2, vjust = 0, hjust = 1, size = 3) + 
-    geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), label = "As prescriptive or
-              more on 36 issues", x = 2015, y = 2, vjust = 0, hjust = 1, size = 3) + 
-    #geom_text(data = data.frame(Program = "Industry-backed PEFC"), label = "41 issues", x = 2015.5, y = 42, vjust = 0, hjust = 1, size = 3) + 
-    #geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), label = "42 issues", x = 2015.5, y = 43, vjust = 0, hjust = 1, size = 3) + 
-    labs(title = "Relative Prescriptiveness and Scope") + 
+    geom_segment(data = data.frame(Program = "Activist-backed FSC P&C"), aes(x = 2007.5, y = 34, xend = 2011.5, yend = 34), linetype = 1, size = .5) + 
+    geom_segment(data = data.frame(Program = "Activist-backed FSC P&C"), aes(x = 2011.5, y = 36, xend = 2015.5, yend = 36), linetype = 1, size = .5) + 
+    geom_segment(data = data.frame(Program = "Industry-backed PEFC"), aes(x = 2007.5, y = 20, xend = 2009.5, yend = 20), linetype = 1, size = .5) + 
+    geom_segment(data = data.frame(Program = "Industry-backed PEFC"), aes(x = 2009.5, y = 27, xend = 2015.5, yend = 27), linetype = 1, size = .5) + 
+    geom_text(data = data.frame(Program = "Industry-backed PEFC"), 
+label = "As prescriptive or 
+more on 27 issues", x = 2015, y = 13, vjust = 0, hjust = 1, size = 3) + 
+    geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), 
+label = "As prescriptive or
+more on 36 issues", x = 2015, y = 20, vjust = 0, hjust = 1, size = 3) + 
+    labs(title = "Relative Prescriptiveness and Scope",
+       y = "Key Issues") + 
     scale_y_continuous(breaks = seq(0,48, by = 8)) + 
-    scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
-  #geom_point(data = data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
-    theme_minimal() +
+    scale_x_continuous(breaks = seq(2008,2015, by = 1), labels = rep('↑', 8)) +
   theme(legend.position="none",
         panel.grid.major.x = element_blank(), 
         panel.grid.minor.x = element_blank(),
@@ -415,31 +351,31 @@ bar <- ggplot() +
         legend.title=element_blank(),
         #set a slim legend
         # legend.key.width=grid::unit(0.2,"cm"),
-        axis.title = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(angle = 0),
         #change axis ticks thickness
         axis.ticks.x=element_blank(),
-        axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
+        #axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
         #axis.text.x=element_blank(),
         #strip.text.x = element_blank(),
         strip.background = element_blank())
-
-
+# bar
 
 # tile plot (tile)
-tile <- ggplot(d %>% filter(Program %in% c(
+tile <- PEFCvFSC %>% filter(Program %in% c(
   #"Activist-backed FSC-US", "Industry-backed SFI"
   "Activist-backed FSC P&C", "Industry-backed PEFC"
-  )), 
-                 aes(x = Year, y = Issues)) + 
+  )) %>%
+  ggplot( aes(x = Year, y = Issues) ) + 
   facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
-  geom_tile(aes(alpha = Prescriptiveness, fill = Change, color = Strictist),#)+
-            
-            color = "white") + 
-  #labs(title = "Scope of Key Issues Addressed") + 
-# geom_point(data = data %>% filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI"), Change %in% c("Became less prescriptive", "Became more prescriptive")), aes(shape = Change))  +
-    geom_point(aes(shape = Change)) +
-    scale_shape_manual(values=c("-", "+", ""))+
-    theme_minimal() +
+  geom_tile(aes(fill = Prescriptiveness), color = "white") + 
+      geom_point(aes(shape = Change, color = Change), size =5) +
+      scale_shape_manual(values=c("-", "+", ""))+
+      scale_fill_grey(start = 1, end = .5) + 
+    scale_color_viridis_d(option = "B") +  
+  scale_y_discrete(limits = rev(levels(PEFCvFSC$Issues))) +
+  scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
+#labs(title = "Scope of Key Issues Addressed") + 
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         #remove legend title
@@ -449,18 +385,12 @@ tile <- ggplot(d %>% filter(Program %in% c(
         axis.title = element_blank(),
         #change axis ticks thickness
         axis.ticks=element_blank(),
-        #axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
-        axis.text.x=element_blank(),
+        axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
+        # axis.text.x=element_blank(),
         strip.background = element_blank(),
         strip.text.x = element_blank())
-  
-# both
-# ggpubr::ggarrange(line, bar, tile, ncol = 1, nrow = 3, align = "v", heights = c(.7, .7,2))
-          #common.legend = T,
-          #legend = "right",
-          #label.y = "Key Issues",
-          
-       # PORTRATE 
+# tile
+
 grid.newpage()
 grid.draw(egg::ggarrange(bar, tile, line, 
                     ncol = 1,
@@ -469,6 +399,71 @@ grid.draw(egg::ggarrange(bar, tile, line,
                     heights = c(.4, 2, .4)))   
 ```
 
-
+---
 
 </center>
+
+
+## Patterns of Change
+```{r FSC-SFI-data}
+zeros <- issues %>%
+  ungroup() %>% 
+  select(pattern)  %>% 
+  distinct()
+
+zeros2 <- tibble(pattern = c("Downward parallell", "Downward divergence", "Opposing convergence"))
+
+zeros %<>% full_join(zeros2) %>% 
+  mutate(n = 0)
+  
+```
+
+```{r 2010}
+Issues <- issues %>% filter(Year == 2010) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n) 
+
+Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
+
+```
+
+
+### 2010 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
+
+| | Converging | Parallell | Diverging |
+|:----|:----:|:----:|:----:|
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` 
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
+
+Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
+
+Upward parallell issues: `r Issues$issues[which(Issues$pattern =="Upward parallell")]`
+
+Upwardly diverging issues: `r Issues$issues[which(Issues$pattern =="Upward divergence")]`
+
+Opposing diverging issues: `r Issues$issues[which(Issues$pattern =="Opposing divergence")]`
+
+Downwardly converging issues: `r Issues$issues[which(Issues$pattern =="Downward convergence")]`
+
+
+
+
+### 2015 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
+```{r 2015}
+# Table
+Issues <- issues %>% filter(Year == 2015) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n)
+
+Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
+
+```
+
+|  | Converging | Parallell | Diverging |
+|:----|:----:|:----:|:----:|
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` 
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
+
+Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
+
+
+
+
