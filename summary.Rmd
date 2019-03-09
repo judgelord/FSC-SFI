@@ -37,7 +37,7 @@ acres$color <- gsub("FSC and PEFC \\(i.e. SFI or ATFS\\)", "PEFC (i.e. SFI or AT
     geom_col(aes(y = Acres, x = bar, fill = color)) + 
     coord_flip() + 
     labs(y = "Acres (millions)", x = "", fill = "Program") + 
-    scale_fill_viridis_d(begin = .5, end = .2, option = "B") +
+    scale_fill_viridis_d(begin = .6, end = .2, option = "B") +
     scale_y_continuous(breaks = seq(0, 150, 30), limits = c(0,155)) +
      theme_minimal() +
     theme(axis.title.y = element_blank(),
@@ -54,6 +54,8 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
     coord_flip() + 
     labs(y = "Acres (millions)", x = "") + 
     scale_y_continuous(breaks = seq(0, 150, 30), limits = c(0,155)) +
+      scale_color_viridis_d(begin = .8, end = .2, option = "D") +
+
     theme(legend.title=element_blank(),
           #legend.key.width=grid::unit(0.2,"cm"),
           axis.title = element_blank(),
@@ -90,7 +92,7 @@ d %>%
   coord_flip() + 
   labs(x = "", y = "Acres",
        caption = "*Ranges reflect different maximums in different contexts") + 
-  scale_color_viridis_d(begin = .5, end = .2, option = "B") +
+  scale_color_viridis_d(begin = .6, end = .2, option = "B") +
   facet_grid(criteria ~., scales = "free", space = "free", switch = "y") +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
