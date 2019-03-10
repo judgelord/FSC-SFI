@@ -80,27 +80,54 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 ## Comparing Forest Certification Programs
 
 ### Restrictions on clearcuts
-```{r clearcuts, fig.height=3, fig.width=5}
+```{r clearcuts, fig.height=4, fig.width=5}
 d <- read_csv("data/clearcuts.csv")
 
-d %>% 
-  ggplot(aes(x = program, ymin= min, ymax=max, label = text, color = program)) + 
+fsc <- d %>% 
+  filter(program %in% c("FSC")) %>% 
+  ggplot(aes(x = criteria, ymin= min, ymax=max, label = text)) + 
+  geom_col( aes(y = max), alpha = .2, width = .3) +
   geom_point( aes(y = min)) + 
   geom_point( aes(y = max)) + 
-  geom_text( aes(y = 1), hjust = 0, size = 2.5) + 
+  geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
   geom_linerange()+
+  geom_text( aes(y = 125, x = 0, label = "") )+
   coord_flip() + 
   labs(x = "", y = "Acres",
-       caption = "*Ranges reflect different maximums in different contexts") + 
-  scale_color_viridis_d(begin = .6, end = .2, option = "B") +
-  facet_grid(criteria ~., scales = "free", space = "free", switch = "y") +
+       title = "Activist-backed FSC",       
+       caption = "*Ranges reflect different maximums in different contexts") +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
-        legend.position = "none")
+        legend.position = "none",
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
+
+sfi <- d %>% 
+  filter(program %in% c("SFI")) %>% 
+  ggplot(aes(x = criteria, ymin= min, ymax=max, label = text)) + 
+  geom_col( aes(y = max), alpha = .2, width = .3) +
+  geom_point( aes(y = min)) + 
+  geom_point( aes(y = max)) + 
+  geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
+  geom_linerange()+
+  geom_text( aes(y = 125, x = 0, label = "") )+
+  coord_flip() + 
+  labs(x = "", y = "Acres",
+       title = "Industry-backed SFI") + 
+  theme(strip.text.y = element_text(angle = 180),
+        strip.placement = "outside",
+        legend.position = "none",
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
+
+
+grid.newpage()
+grid.draw(egg::ggarrange(fsc, sfi, 
+                         ncol = 1))
 ```
 
 ### Restrictions on harvesting near streams
-```{r riparian, fig.height=6.5, fig.width=7.5}
+```{r riparian, fig.height=6.5, fig.width=8}
 d <- read_csv("data/riparian-buffers.csv") %>% 
   mutate(Criteria = glue("{criteria2} {criteria}", .na = "")) %>%
   mutate(Standard = glue("{program} {region}", .na = "")) %>%
@@ -118,33 +145,39 @@ fsc <- d %>%
   filter(program %in% c("FSC-US", "FSC")) %>% 
   ggplot(aes(x = Criteria, y = feet, fill= type, label = text)) + 
   geom_col(position = "stack") + 
-  geom_text( aes(y = 0), hjust = 0, size = 2.5, color = "#458B00")+
+  geom_text( aes(y = 0), hjust = 0, size = 3, color = "#458B00")+
+  # align axis
+    geom_text( aes(y = 175, x = 0, label = "") )+
   coord_flip() +
   labs(x = "", y = "Feet", fill = "Minimum streamside
 harvest buffer zones",
        title = "Activist-backed FSC")+
   scale_fill_viridis_d(begin = .9, end = .5, option = "B") +
   facet_grid(region ~., scales = "free", space = "free", switch = "y") +
-  theme_gray() +
+  # theme_gray() +
   theme(strip.text.y = element_text(angle = 180),
-        strip.placement = "outside")
+        strip.placement = "outside",
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
 
 sfi <- d %>% 
   filter(program %in% c("SFI", "PEFC")) %>% 
   ggplot(aes(x = Criteria, y = feet, fill= type, label = text)) + 
   geom_col(position = "stack") + 
-  geom_text( aes(y = 0), hjust = 0, size = 2.5, color = "#458B00")+
-    geom_text( aes(y = 150, x = 0, label = "") )+ # to get scale to match
+  geom_text( aes(y = 0), hjust = 0, size = 3, color = "#458B00")+
+    geom_text( aes(y = 175, x = 0, label = "") )+ # to get scale to match
   coord_flip() +
   labs(x = "", y = "Feet", fill = "",
        title = "Industry-backed SFI & PEFC")+
   scale_fill_viridis_d(begin = .9, end = .5, option = "B") + 
   facet_grid(region ~., scales = "free", space = "free", switch = "y") +
   # scale_x_continuous(limits = c(0,150)) + 
-  theme_gray() +
+  # theme_gray() +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
-        legend.position = "none")
+        legend.position = "none",        
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
 
 grid.newpage()
 grid.draw(egg::ggarrange(fsc, sfi, 
@@ -205,10 +238,10 @@ line <- SFIvFSCnetChange %>%
       scale_color_viridis_d(begin = .5, end = .2, option = "B") +
   facet_grid(. ~ Program) + 
   geom_text(data = data.frame(Program = "Industry-backed SFI"), 
-label = "Increased in 12
+label = "Increased on 12
 issues since 2008", x = 2016, y = 14, vjust = 0, hjust = 1, size = 3) + 
   geom_text(data = data.frame(Program = "Activist-backed FSC-US"), 
-label = "Increased in
+label = "Increased on
 21 issues
 since 2008", x = 2016, y = 6, vjust = 0, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
@@ -230,8 +263,9 @@ since 2008", x = 2016, y = 6, vjust = 0, hjust = 1, size = 3) +
     #axis.title.y=element_text(angle = 0),
     # or blank y
     #axis.text.x=element_blank()
-    axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)
-  )
+    axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_blank())
 # line
 
 SFIvFSC$Prescriptiveness %<>% fct_recode("Less prescriptive" = "Some prescriptive requirements")
@@ -330,11 +364,11 @@ line <- PEFCvFSC %>%
         scale_color_viridis_d(begin = .5, end = .2, option = "B") +
   facet_grid(. ~ Program) + 
   geom_text(data = data.frame(Program = "Industry-backed PEFC"), 
-label = "Increased in
+label = "Increased on
 18 issues 
 since 2008", x = 2015, y = 16, vjust = 1, hjust = 1, size = 3) + 
   geom_text(data = data.frame(Program = "Activist-backed FSC P&C"), 
-label = "Increased in 13
+label = "Increased on 13
 issues since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
        y = "Key Issues",
@@ -355,8 +389,9 @@ issues since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) +
         # or blank y
         axis.title.y = element_text(angle = 0),
         #axis.text.x=element_blank()
-        axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)
-    )
+    axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_blank())
 # line
 
 PEFCvFSC$Prescriptiveness %<>% fct_recode("Less prescriptive" = "Some prescriptive requirements")
