@@ -161,11 +161,6 @@ grid.draw(egg::ggarrange(fsc, sfi,
 
 ### Qualitative comparison of policy settings
 
-<style>
-table {
-    width:100%;
-}
-
 
 | Issue | Activist-backed FSC-US | Industry-backed SFI |
 |:----|:----|:----|
@@ -181,7 +176,6 @@ Wages | Meets local norms | Written commitment to comply with social law prevail
 Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA
 Training on OSHA |
 |<img width=200/>|<img width=500/>|<img width=500/>|
-</style>
 
 
 ---
