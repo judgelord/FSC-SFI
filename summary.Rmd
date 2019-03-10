@@ -162,28 +162,35 @@ grid.draw(egg::ggarrange(fsc, sfi,
 ### Qualitative comparison of policy settings
 
 
-| Issue | Activist-backed FSC-US | Industry-backed SFI |
+|  Issue  |  Activist-backed FSC-US  |  Industry-backed SFI  |
 |:----|:----|:----|
-Threatened and Endangered Species | | | 
-Old growth | | | 
-Public Reporting and Consultation | | | 
-Indigenous use rights | Access and use rights documented, identified on maps | Identify and protect culturally important sites. |
-Indigenous consultation | Identify and contact American Indian groups via designated tribal representatives for legal or customary use rights, ensure no impact on rights, protocols jointly developed and signed by tribes in formal consultation, informed written consent, identify special sites and protected areas. | Confer with affected indigenous peoples on public lands.
-Indigenous knowledge | Understand and respect traditional knowledge. | Identify knowledge used, fairly compensate for use. |
-Workers' right to organize | Freedom to associate and advocate |
+|Threatened and Endangered Species | | | 
+|Old growth | | | 
+|Public Reporting and Consultation | | | 
+|Indigenous use rights | Access and use rights documented, identified on maps | Identify and protect culturally important sites. |
+|Indigenous consultation | Identify and contact American Indian groups via designated tribal representatives for legal or customary use rights, ensure no impact on rights, protocols jointly developed and signed by tribes in formal consultation, informed written consent, identify special sites and protected areas. | Confer with affected indigenous peoples on public lands.
+|Indigenous knowledge | Understand and respect traditional knowledge. | Identify knowledge used, fairly compensate for use. |
+|Workers' right to organize | Freedom to associate and advocate |
 Develop dispute resolution. | Obey law. Train on worker rights. |
-Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
-Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA
-Training on OSHA |
+|Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
+|Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA. Training on OSHA |
 |<img width=200/>|<img width=500/>|<img width=500/>|
 
 
 ---
 
+### Policy Prescriptiveness (adapted from Cashore (1997))
 
 
+|  | Discretionary |  Non-discretionary | 
+|:----|:----:|:----:|
+| Procedural (plan- or systems-based) | Flexible | Somewhat prescriptive | 
+| Substantive (e.g.  a policy threshold) | Flexible | Most prescriptive |
 
-### Prescriptiveness and Scope 2008-2016
+---
+
+
+### Prescriptiveness and Scope of FSC-US and SFI 2008-2016
 
 <center>
 ```{r FSC-SFI-plot, fig.height= 10, fig.width=7.5}
@@ -309,7 +316,7 @@ grid.draw(egg::ggarrange(bar, tile, line,
 
 --- 
 
-### Prescriptiveness and Scope 2008-2015
+### Prescriptiveness and Scope of FSC P&C and PEFC 2008-2015
 
 
 
@@ -434,14 +441,6 @@ grid.draw(egg::ggarrange(bar, tile, line,
 </center>
 $$\require{HTML}$$
 
-### Prescriptiveness of Policy Types (adapted from Cashore (1997))
-
-
-|  | Discretionary |  Non-discretionary | 
-|:----|:----:|:----:|
-| Procedural (plan- or systems-based) | Flexible | Somewhat prescriptive | 
-| Substantive (e.g.  a policy threshold) | Flexible | Most prescriptive |
-
 
 
 ## Patterns of Change
@@ -481,9 +480,9 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 
 | | Converging | Parallell | Diverging |
 |:----|:----:|:----:|:----:|
-| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` 
-| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
-| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]`  | `r Issues$n[which(Issues$pattern == "Upward parallell")]`   | `r Issues$n[which(Issues$pattern == "Upward divergence")]`  |
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
 
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
@@ -509,9 +508,9 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 
 |  | Converging | Parallell | Diverging |
 |:----|:----:|:----:|:----:|
-| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` 
-| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` 
-| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` 
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` |
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
 
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
