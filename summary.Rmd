@@ -100,8 +100,8 @@ fsc <- d %>%
     geom_line( aes(y = 100), color="white", lwd = .1)+
     geom_line( aes(y = 110), color="white", lwd = .1)+
     geom_line( aes(y = 120), color="white", lwd = .1)+
-  geom_point( aes(y = min)) + 
-  geom_point( aes(y = max)) + 
+  geom_point( aes(y = min),shape = 15) + 
+  geom_point( aes(y = max), shape = 15) + 
   geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
   geom_linerange()+
   geom_text( aes(y = 125, x = 0, label = "") )+
@@ -111,8 +111,8 @@ fsc <- d %>%
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
         legend.position = "none",
-        panel.grid.minor = element_blank(),
-        panel.grid.major = element_blank())
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
 
 sfi <- d %>% 
   filter(program %in% c("SFI")) %>% 
@@ -130,8 +130,8 @@ sfi <- d %>%
     geom_line( aes(y = 100), color="white", lwd = .1)+
     geom_line( aes(y = 110), color="white", lwd = .1)+
     geom_line( aes(y = 120), color="white", lwd = .1)+
-  geom_point( aes(y = min)) + 
-  geom_point( aes(y = max)) + 
+  geom_point( aes(y = min), shape = 15) + 
+  geom_point( aes(y = max), shape = 15) + 
   geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
   geom_linerange()+
   geom_text( aes(y = 125, x = 0, label = "") )+
