@@ -88,18 +88,18 @@ fsc <- d %>%
   filter(program %in% c("FSC")) %>% 
   ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group = 1)) + 
   geom_col( aes(y = max), alpha = .2, width = .3, fill = "saddlebrown") +
-    geom_line( aes(y = 10), color = "white")+
-  geom_line( aes(y = 20), color = "white")+
-    geom_line( aes(y = 30), color = "white")+
-    geom_line( aes(y = 40), color = "white")+
-    geom_line( aes(y = 50), color = "white")+
-    geom_line( aes(y = 60), color = "white")+
-    geom_line( aes(y = 70), color = "white")+
-    geom_line( aes(y = 80), color = "white")+
-    geom_line( aes(y = 90), color = "white")+
-    geom_line( aes(y = 100), color = "white")+
-    geom_line( aes(y = 110), color = "white")+
-    geom_line( aes(y = 120), color = "white")+
+    geom_line( aes(y = 10), color="white", lwd = .1)+
+  geom_line( aes(y = 20), color="white", lwd = .1)+
+    geom_line( aes(y = 30), color="white", lwd = .1)+
+    geom_line( aes(y = 40), color="white", lwd = .1)+
+    geom_line( aes(y = 50), color="white", lwd = .1)+
+    geom_line( aes(y = 60), color="white", lwd = .1)+
+    geom_line( aes(y = 70), color="white", lwd = .1)+
+    geom_line( aes(y = 80), color="white", lwd = .1)+
+    geom_line( aes(y = 90), color="white", lwd = .1)+
+    geom_line( aes(y = 100), color="white", lwd = .1)+
+    geom_line( aes(y = 110), color="white", lwd = .1)+
+    geom_line( aes(y = 120), color="white", lwd = .1)+
   geom_point( aes(y = min)) + 
   geom_point( aes(y = max)) + 
   geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
@@ -118,18 +118,18 @@ sfi <- d %>%
   filter(program %in% c("SFI")) %>% 
   ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group=1)) + 
   geom_col( aes(y = max), alpha = .2, width = .3, fill = "saddlebrown") +
-  geom_line( aes(y = 10), color = "white")+
-  geom_line( aes(y = 20), color = "white")+
-    geom_line( aes(y = 30), color = "white")+
-    geom_line( aes(y = 40), color = "white")+
-    geom_line( aes(y = 50), color = "white")+
-    geom_line( aes(y = 60), color = "white")+
-    geom_line( aes(y = 70), color = "white")+
-    geom_line( aes(y = 80), color = "white")+
-    geom_line( aes(y = 90), color = "white")+
-    geom_line( aes(y = 100), color = "white")+
-    geom_line( aes(y = 110), color = "white")+
-    geom_line( aes(y = 120), color = "white")+
+  geom_line( aes(y = 10), color="white", lwd = .1)+
+  geom_line( aes(y = 20), color="white", lwd = .1)+
+    geom_line( aes(y = 30), color="white", lwd = .1)+
+    geom_line( aes(y = 40), color="white", lwd = .1)+
+    geom_line( aes(y = 50), color="white", lwd = .1)+
+    geom_line( aes(y = 60), color="white", lwd = .1)+
+    geom_line( aes(y = 70), color="white", lwd = .1)+
+    geom_line( aes(y = 80), color="white", lwd = .1)+
+    geom_line( aes(y = 90), color="white", lwd = .1)+
+    geom_line( aes(y = 100), color="white", lwd = .1)+
+    geom_line( aes(y = 110), color="white", lwd = .1)+
+    geom_line( aes(y = 120), color="white", lwd = .1)+
   geom_point( aes(y = min)) + 
   geom_point( aes(y = max)) + 
   geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
@@ -142,8 +142,8 @@ sfi <- d %>%
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
         legend.position = "none",
-        panel.grid.minor = element_blank(),
-        panel.grid.major = element_blank())
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
 
 
 grid.newpage()
@@ -188,7 +188,7 @@ fsc <- d %>%
       geom_text(y= 150, label = "|", color = "white")+
       geom_text(y= 160, label = "|", color = "white")+
       geom_text(y= 170, label = "|", color = "white")+
-  geom_text( aes(y=total, label = paste(total, "feet")), size =3, hjust = 0, color = "#458B00") +
+  # geom_text( aes(y=total, label = paste(total, "feet")), size =3, hjust = 0, color = "#458B00") +
   geom_text( aes(y = 0), hjust = 0, size = 3, color = "#458B00", check_overlap = T)+
   # align axis
     geom_text( aes(y = 175, x = 0, label = "") )+
@@ -201,8 +201,8 @@ harvest buffer zones",
   # theme_gray() +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
-        panel.grid.minor = element_blank(),
-        panel.grid.major = element_blank())
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank())
 
 sfi <- d %>% 
   filter(program %in% c("SFI", "PEFC")) %>% 
@@ -257,7 +257,7 @@ Develop dispute resolution. | Obey law. Train on worker rights. |
 
 ---
 
-### Policy Prescriptiveness (adapted from Cashore (1997))
+### Policy Prescriptiveness
 
 
 |  | Discretionary |  Non-discretionary | 
