@@ -35,6 +35,7 @@ acres$color <- gsub("FSC and PEFC \\(i.e. SFI or ATFS\\)", "PEFC (i.e. SFI or AT
                                   bar != "Family forest (non-corporate)",
                                   bar != "Family forest (unmanaged)")) + 
     geom_col(aes(y = Acres, x = bar, fill = color)) + 
+   geom_vline(xintercept =seq(10, 150, 10), color="white", lwd=1) +
     coord_flip() + 
     labs(y = "Acres (millions)", x = "", fill = "Program") + 
     scale_fill_viridis_d(begin = .6, end = .2, option = "B") +
@@ -79,14 +80,26 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 
 ## Comparing Forest Certification Programs
 
-### Restrictions on clearcuts
-```{r clearcuts, fig.height=4, fig.width=5}
+### Limits on clearcut size
+```{r clearcuts, fig.height=3.7, fig.width=5.5}
 d <- read_csv("data/clearcuts.csv")
 
 fsc <- d %>% 
   filter(program %in% c("FSC")) %>% 
-  ggplot(aes(x = criteria, ymin= min, ymax=max, label = text)) + 
-  geom_col( aes(y = max), alpha = .2, width = .3) +
+  ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group = 1)) + 
+  geom_col( aes(y = max), alpha = .2, width = .3, fill = "saddlebrown") +
+    geom_line( aes(y = 10), color = "white")+
+  geom_line( aes(y = 20), color = "white")+
+    geom_line( aes(y = 30), color = "white")+
+    geom_line( aes(y = 40), color = "white")+
+    geom_line( aes(y = 50), color = "white")+
+    geom_line( aes(y = 60), color = "white")+
+    geom_line( aes(y = 70), color = "white")+
+    geom_line( aes(y = 80), color = "white")+
+    geom_line( aes(y = 90), color = "white")+
+    geom_line( aes(y = 100), color = "white")+
+    geom_line( aes(y = 110), color = "white")+
+    geom_line( aes(y = 120), color = "white")+
   geom_point( aes(y = min)) + 
   geom_point( aes(y = max)) + 
   geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
@@ -94,18 +107,29 @@ fsc <- d %>%
   geom_text( aes(y = 125, x = 0, label = "") )+
   coord_flip() + 
   labs(x = "", y = "Acres",
-       title = "Activist-backed FSC",       
-       caption = "*Ranges reflect different maximums in different contexts") +
+       title = "Activist-backed FSC") +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
         legend.position = "none",
-        panel.grid.minor.y = element_blank(),
-        panel.grid.major.y = element_blank())
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
 
 sfi <- d %>% 
   filter(program %in% c("SFI")) %>% 
-  ggplot(aes(x = criteria, ymin= min, ymax=max, label = text)) + 
-  geom_col( aes(y = max), alpha = .2, width = .3) +
+  ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group=1)) + 
+  geom_col( aes(y = max), alpha = .2, width = .3, fill = "saddlebrown") +
+  geom_line( aes(y = 10), color = "white")+
+  geom_line( aes(y = 20), color = "white")+
+    geom_line( aes(y = 30), color = "white")+
+    geom_line( aes(y = 40), color = "white")+
+    geom_line( aes(y = 50), color = "white")+
+    geom_line( aes(y = 60), color = "white")+
+    geom_line( aes(y = 70), color = "white")+
+    geom_line( aes(y = 80), color = "white")+
+    geom_line( aes(y = 90), color = "white")+
+    geom_line( aes(y = 100), color = "white")+
+    geom_line( aes(y = 110), color = "white")+
+    geom_line( aes(y = 120), color = "white")+
   geom_point( aes(y = min)) + 
   geom_point( aes(y = max)) + 
   geom_text( aes(y = 1), hjust = 0, size = 3, color = "#458B00") +
@@ -113,12 +137,13 @@ sfi <- d %>%
   geom_text( aes(y = 125, x = 0, label = "") )+
   coord_flip() + 
   labs(x = "", y = "Acres",
-       title = "Industry-backed SFI") + 
+       title = "Industry-backed SFI",   
+       caption = "*Ranges reflect different maximums in different contexts") + 
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
         legend.position = "none",
-        panel.grid.minor.y = element_blank(),
-        panel.grid.major.y = element_blank())
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
 
 
 grid.newpage()
@@ -126,11 +151,12 @@ grid.draw(egg::ggarrange(fsc, sfi,
                          ncol = 1))
 ```
 
-### Restrictions on harvesting near streams
-```{r riparian, fig.height=6.5, fig.width=8}
+### Limits on harvesting near streams
+```{r riparian, fig.height=7, fig.width=8}
 d <- read_csv("data/riparian-buffers.csv") %>% 
   mutate(Criteria = glue("{criteria2} {criteria}", .na = "")) %>%
   mutate(Standard = glue("{program} {region}", .na = "")) %>%
+  mutate(total = none+tree+group) %>%
   gather(none, tree, group, key = "type", value = "feet")
 
 d$type %<>% factor(levels = c("group", "tree", "none") )
@@ -143,9 +169,27 @@ d$Criteria %<>% fct_reorder(d$feet)
 
 fsc <- d %>% 
   filter(program %in% c("FSC-US", "FSC")) %>% 
-  ggplot(aes(x = Criteria, y = feet, fill= type, label = text)) + 
+  ggplot(aes(x = Criteria, y = feet, fill= type, label = text, group=1)) + 
   geom_col(position = "stack") + 
-  geom_text( aes(y = 0), hjust = 0, size = 3, color = "#458B00")+
+  geom_text(y= 10, label = "|", color = "white")+
+    geom_text(y= 20, label = "|", color = "white")+
+    geom_text(y= 30, label = "|", color = "white")+
+    geom_text(y= 40, label = "|", color = "white")+
+    geom_text(y= 50, label = "|", color = "white")+
+    geom_text(y= 60, label = "|", color = "white")+
+    geom_text(y= 70, label = "|", color = "white")+
+    geom_text(y= 80, label = "|", color = "white")+
+    geom_text(y= 90, label = "|", color = "white")+
+    geom_text(y= 100, label = "|", color = "white")+
+    geom_text(y= 110, label = "|", color = "white")+
+    geom_text(y= 120, label = "|", color = "white")+
+    geom_text(y= 130, label = "|", color = "white")+
+      geom_text(y= 140, label = "|", color = "white")+
+      geom_text(y= 150, label = "|", color = "white")+
+      geom_text(y= 160, label = "|", color = "white")+
+      geom_text(y= 170, label = "|", color = "white")+
+  geom_text( aes(y=total, label = paste(total, "feet")), size =3, hjust = 0, color = "#458B00") +
+  geom_text( aes(y = 0), hjust = 0, size = 3, color = "#458B00", check_overlap = T)+
   # align axis
     geom_text( aes(y = 175, x = 0, label = "") )+
   coord_flip() +
@@ -157,17 +201,17 @@ harvest buffer zones",
   # theme_gray() +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
-        panel.grid.minor.y = element_blank(),
-        panel.grid.major.y = element_blank())
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
 
 sfi <- d %>% 
   filter(program %in% c("SFI", "PEFC")) %>% 
-  ggplot(aes(x = Criteria, y = feet, fill= type, label = text)) + 
+  ggplot(aes(x = Criteria, y = feet, fill= type, label = text, group=1)) + 
   geom_col(position = "stack") + 
-  geom_text( aes(y = 0), hjust = 0, size = 3, color = "#458B00")+
-    geom_text( aes(y = 175, x = 0, label = "") )+ # to get scale to match
+  geom_text(aes(y = 0), hjust = 0, size = 3, color = "#458B00", check_overlap = T)+
+    geom_text(aes(y = 175, x = 0), label = "" )+ # to get scale to match
   coord_flip() +
-  labs(x = "", y = "Feet", fill = "",
+  labs(x = "", y = "", fill = "",
        title = "Industry-backed SFI & PEFC")+
   scale_fill_viridis_d(begin = .9, end = .5, option = "B") + 
   facet_grid(region ~., scales = "free", space = "free", switch = "y") +
@@ -175,9 +219,10 @@ sfi <- d %>%
   # theme_gray() +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
-        legend.position = "none",        
-        panel.grid.minor.y = element_blank(),
-        panel.grid.major.y = element_blank())
+        legend.position = "none",    
+        axis.text.x = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
 
 grid.newpage()
 grid.draw(egg::ggarrange(fsc, sfi, 
@@ -245,7 +290,7 @@ label = "Increased on
 21 issues
 since 2008", x = 2016, y = 6, vjust = 0, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
-       y = "Key Issues",
+       y = "Number of Issues",
        color = "Prescriptiveness", linetype = "Prescriptiveness") + 
   scale_y_continuous(breaks = seq(0,48, by = 4)) + 
   scale_x_continuous(breaks = seq(2008,2016, by = 1)) + 
@@ -275,7 +320,7 @@ bar <- SFIvFSC %>%
   filter(Program %in% c("Activist-backed FSC-US", "Industry-backed SFI")) %>% 
   ggplot() + 
   geom_bar(aes(x = Year, fill = Prescriptiveness), position = "stack") +
-  scale_fill_grey(start = .9, end = .5) + 
+  geom_hline(yintercept =seq(0,48, by = 1), color="white", lwd = .1) +  scale_fill_grey(start = .9, end = .5) + 
   facet_grid(. ~ Program) + 
   # geom_segment(data = data.frame(Program = "Activist-backed FSC-US"), aes(x = 2007.5, y = 42, xend = 2009.5, yend = 42), linetype = 1, size = .5) + 
   geom_segment(data = data.frame(Program = "Activist-backed FSC-US"), aes(x = 2015.5, y = 43, xend = 2016.5, yend = 43), linetype = 1, size = .5) + 
@@ -288,12 +333,12 @@ more on 10 issues", x = 2016, y = 12, vjust = 0, hjust = 1, size = 3) +
 label = "As prescriptive or
 more on 43 issues", x = 2016, y = 28, vjust = 0, hjust = 1, size = 3) + 
   labs(title = "Relative Prescriptiveness",
-       y = "Key Issues") + 
+       y = "Number of Issues") + 
   scale_y_continuous(breaks = seq(0,48, by = 8)) +
   scale_x_continuous(breaks = seq(2008,2016, by = 1), labels = rep('↑', 9)) +
   theme(#legend.position="none",
-        panel.grid.major.x = element_blank(), 
-        panel.grid.minor.x = element_blank(),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
         #remove legend title
         legend.title=element_blank(),
         #set a slim legend
@@ -371,7 +416,7 @@ since 2008", x = 2015, y = 16, vjust = 1, hjust = 1, size = 3) +
 label = "Increased on 13
 issues since 2008", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
-       y = "Key Issues",
+       y = "Number of Issues",
        color = "Prescriptiveness", linetype = "Prescriptiveness") + 
   scale_y_continuous(breaks = seq(0,48, by = 4)) + 
   scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
@@ -400,6 +445,7 @@ bar <- filter(PEFCvFSC, Measure == "Increased" & Program %in% c("Activist-backed
     )) %>% 
 ggplot() + 
     geom_bar(aes(x = Year, fill = Prescriptiveness), width = 0.9) +
+    geom_hline(yintercept =seq(0,48, by = 1), color="white", lwd = .1) +
   scale_fill_grey(start = .9, end = .5) + 
     facet_grid(. ~ Program) + # scale_color_grey() + scale_fill_grey() + scale_color_grey() +
     # geom_segment(data = data.frame(Program = "Activist-backed FSC P&C"), aes(x = 2007.5, y = 34, xend = 2011.5, yend = 34), linetype = 1, size = .5) + 
@@ -413,12 +459,12 @@ more on 27 issues", x = 2015, y = 13, vjust = 0, hjust = 1, size = 3) +
 label = "As prescriptive or
 more on 36 issues", x = 2015, y = 20, vjust = 0, hjust = 1, size = 3) + 
     labs(title = "Relative Prescriptiveness",
-       y = "Key Issues") + 
+       y = "Number of Issues") + 
     scale_y_continuous(breaks = seq(0,48, by = 8)) + 
     scale_x_continuous(breaks = seq(2008,2015, by = 1), labels = rep('↑', 8)) +
   theme(# legend.position="none",
-        panel.grid.major.x = element_blank(), 
-        panel.grid.minor.x = element_blank(),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
         #remove legend title
         legend.title=element_blank(),
         #set a slim legend
@@ -447,7 +493,7 @@ tile <- PEFCvFSC %>% filter(Program %in% c(
     scale_color_viridis_d(option = "B") +  
   scale_y_discrete(limits = rev(levels(PEFCvFSC$Issues))) +
   scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
-#labs(title = "Scope of Key Issues Addressed") + 
+#labs(title = "Scope of Issues Addressed") + 
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         #remove legend title
@@ -486,7 +532,7 @@ $$\require{HTML}$$
 |:----|:----:|:----:|:----:|
 | Increasing | $\style{display: inline-block; transform: rotate(35deg)}{\nearrow}$  <br> $\nearrow$ | $\nearrow$ <br> $\nearrow$ | $\nearrow$ <br> $\style{display: inline-block; transform: rotate(35deg)}{\nearrow}$ |
 | Opposing or Eqilibrium | $\searrow$ <br> $\nearrow$ | $\longrightarrow$ <br> $\longrightarrow$ | $\nearrow$ <br> $\searrow$ |
-| Decreasing | $\style{display: inline-block; transform: rotate(35deg)}{\searrow}$  <br> $\searrow$ | $\searrow$ <br> $\searrow$ | $\searrow$ <br> $\style{display: inline-block; transform: rotate(35deg)}{\searrow}$ |
+| Decreasing |$\searrow$ <br> $\style{display: inline-block; transform: rotate(-35deg)}{\searrow}$  | $\searrow$ <br> $\searrow$ | $\style{display: inline-block; transform: rotate(-35deg)}{\searrow}$  <br> $\searrow$ |
 
 ---
 
