@@ -1,5 +1,6 @@
 ---
-title: "Comparing forestry certification standards"
+title: "Do Private Regulations Ratchet Up?"
+subtitle: "A comparative classification framework"
 output: 
    html_document:
     toc: true
@@ -7,10 +8,6 @@ output:
 editor_options: 
   chunk_output_type: console
 ---
-
-```{r global.options, include=FALSE}
-
-```
 
 ```{r setup, include=FALSE}
 source(here::here("setup.R"))
@@ -20,7 +17,21 @@ load(here("data/SFIvFSC.Rdata"))
 
 --- 
 
-## Context
+**Abstract**
+
+Scholars have given conflicting accounts of change in private regulations. We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to disentangle three often-conflated measures: scope, prescriptiveness, and performance levels. This framework allows scholars to better assess patterns policy change, including “racing to the bottom,” “ratcheting up,” “converging,” or “diverging.” Using our framework, we compare the two leading US forestry certification programs, revealing upward but diverging policy prescriptiveness over time. The program supported by environmental activists mostly added requirements that impose economic costs on firms, while the industry-backed program mostly added requirements that created economic benefits. While these results are consistent with the hypothesis that industry-backed programs tend to offer less costly types of regulatory stringency than activist-backed programs, we also find several unique patterns that previous scholarship had failed to uncover, let alone explain. These results demonstrate how disaggregating policy components can improve theory building and testing.
+
+---
+
+## Context: Regulating foresty in the U.S.
+
+Competing certification regimes, the Forest Stewardship Council (FSC) and The Sustainable Forestry Initiative (SFI), play a major role in regulating the forestry industry in the United States, regulating a third of commercially harvested timberland including most corporate-owned timberland.
+
+![](images/fsclogo.png)
+![](images/sfilogo.jpeg) 
+![](images/fscwood.jpg) 
+
+
 
 ### U.S. Timberland by ownership and certification scheme
 ```{r acres, fig.height= 2.6, fig.width=6.5}
@@ -84,6 +95,8 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 --- 
 
 ## Comparing Forest Certification Programs
+
+We each program's stringency on 48 key social and environmental issues. For example, the FSC and SFI have different limits on the size of clearcuts and harvesting buffers arround streams. 
 
 ### Limits on clearcut size
 ```{r clearcuts, fig.height=3, fig.width=5.5}
@@ -210,7 +223,7 @@ fsc <- d %>%
   # align axis
     geom_text( aes(y = 170, x = 0, label = "") )+
   coord_flip() +
-  labs(x = "", y = "Feet", fill = "Minimum streamside
+  labs(x = "", y = "Feet from stream", fill = "Minimum streamside
 harvest buffer zones",
        title = "Activist-backed FSC")+
   scale_fill_viridis_d(begin = .9, end = .5, option = "B") +
@@ -254,6 +267,8 @@ grid.draw(egg::ggarrange(sfi, fsc,
 
 
 ---
+
+In addition to issue-by-issue comparisons, we use two measures of regulatory stringency that can be aggregated across issues: the scope of issues addressed and the prescriptiveness of requirements on each issue. 
 
 ### Policy Prescriptiveness
 
