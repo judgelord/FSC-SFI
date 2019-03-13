@@ -1,2 +1,1 @@
-# FSC-SFI
-A project developing methods to compare private regulations and applying them to forest certification programs.
+[Project summary](https://judgelord.github.io/FSC-SFI/summary.html)
