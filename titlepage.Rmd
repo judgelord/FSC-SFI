@@ -1,0 +1,35 @@
+---
+title: Do Private Regulations Ratchet Up?
+subtitle: How to distinguish types of regulatory stringency and patterns of change
+author: 
+- name: Devin Judge-Lord
+  # affiliation: University of Wisconsin--Madison
+  # footnote: Ph.D. Candidate, Political Science, University of Wisconsin--Madison
+- name: Constance L. McDermott
+  # affiliation: University of Wisconsin--Madison
+  # footnote: 
+- name: Benjamin Cashore
+  # affiliation: University of Wisconsin--Madison
+  # footnote: 
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+# thanks: "Replication files are available on the author's Github account..."
+abstract: "Scholars present conflicting accounts of change in private regulations, including whether competing programs “race to the bottom,” “ratchet up,” “converge,” or “diverge.” We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to distinguish three often-conflated measures: policy scope, prescriptiveness, and performance levels. Using our framework, we compare two leading U.S. forestry certification programs, revealing an upward but divergent pattern in policy prescriptiveness. The program founded by activists generally added requirements that impose costs on firms, while the program established by the American Forest & Paper Association generally added requirements that benefit the sector. This is consistent with our hypothesis that industry-backed programs target less costly types of regulatory stringency than activist-backed programs. We also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
+# keywords: "R Markdown, knitr, R Markdown"
+fontsize: 12pt
+geometry: margin = 1in
+output: 
+  bookdown::pdf_document2:
+    latex_engine: pdflatex
+    keep_tex: false
+    template: ~/FSC-SFI/article-template.tex
+    toc: false
+    number_sections: true
+    fig_caption: true
+    # citation_package: natbib
+spacing: doublespacing
+# stretch: 3
+bibliography: /users/judgelord/dissertation/mendeley.bib
+# biblio-style: apsr
+---
+
+![](Figs/patterns-2010-2015.png)

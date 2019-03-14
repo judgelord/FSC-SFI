@@ -1,0 +1,58 @@
+---
+output: 
+  pdf_document
+---
+
+
+
+```{r FSC-SFI-data, include=FALSE}
+source(here::here("setup.R"))
+load(here("data/SFIvFSC.Rdata"))
+zeros <- issues %>%
+  ungroup() %>% 
+  select(pattern)  %>% 
+  distinct()
+
+zeros2 <- tibble(pattern = c("Downward parallell", "Downward divergence", "Opposing convergence"))
+
+zeros %<>% full_join(zeros2) %>% 
+  mutate(n = 0)
+  
+```
+
+```{r 2010}
+Issues <- issues %>% filter(Year == 2010) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n) 
+
+Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
+
+```
+
+
+
+
+
+\centerline{2010}
+
+| | Converging | Parallell | Diverging |
+|:----|:----:|:----:|:----:|
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]`  | `r Issues$n[which(Issues$pattern == "Upward parallell")]`   | `r Issues$n[which(Issues$pattern == "Upward divergence")]`  |
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
+
+
+```{r 2015}
+# Table
+Issues <- issues %>% filter(Year == 2015) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n)
+
+Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
+
+```
+
+\centerline{2015}
+
+|  | Converging | Parallell | Diverging |
+|:----|:----:|:----:|:----:|
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` |
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
+

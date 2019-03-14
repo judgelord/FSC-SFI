@@ -2,9 +2,10 @@
 title: "Do Private Regulations Ratchet Up?"
 subtitle: "A comparative classification framework"
 output: 
+#    pdf_document:
    html_document:
     toc: true
-    code_folding: hide
+#    code_folding: hide
 editor_options: 
   chunk_output_type: console
 ---
@@ -55,7 +56,8 @@ acres$color %<>% fct_relevel("FSC", "PEFC (i.e. SFI or ATFS) and FSC")
     geom_col(aes(y = Acres, x = bar, fill = color)) + 
    geom_vline(xintercept =seq(10, 150, 10), color="white", lwd=1) +
     coord_flip() + 
-    labs(y = "Acres (millions)", x = "", fill = "Certification Scheme") + 
+    labs(y = "Acres (millions)", x = "", fill = "Certification Scheme",
+         caption = "Sources: AF&PA, 2016; PEFC, 2017; U.S. Forest Service, 2009") + 
     scale_fill_viridis_d(begin = .6, end = .2, option = "B") +
     scale_y_continuous(breaks = seq(0, 150, 30), limits = c(0,155)) +
      theme_minimal() +
@@ -129,7 +131,7 @@ fsc <- d %>%
   labs(x = "", 
        y = "Acres",
        title = "Activist-backed FSC",    
-       caption = "*Ranges reflect different maximums in different forest types") +
+       caption = "*Ranges reflect different maximums for different forest types") +
   theme(strip.text.y = element_text(angle = 180),
         strip.placement = "outside",
         legend.position = "none",
@@ -147,6 +149,7 @@ sfi <- d %>%
   ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group=1)) + 
   geom_col( aes(y = max), width = .3, fill = "tan") +
   geom_segment(aes(x = "Clearcut size limit", xend = "Clearcut size limit", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.4, "cm")), lineend = "butt", linejoin= "mitre") +
+    geom_segment(aes(x = "Harvest with 20% retention average", xend = "Harvest with 20% retention average", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.4, "cm")), lineend = "butt", linejoin= "mitre") +
   geom_segment(aes(x = "Harvest with 20% retention limit", xend = "Harvest with 20% retention limit", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.4, "cm") ), lineend = "butt", linejoin= "mitre") +
   scale_color_identity() + 
   # geom_point( aes(y = 10), color="white", shape = "|")+
@@ -281,10 +284,10 @@ In addition to issue-by-issue comparisons, we use two measures of regulatory str
 ---
 
 
-### Prescriptiveness and Scope of FSC-US and SFI 2008-2016
+### Scope and Prescriptiveness of FSC-US and SFI 2008-2016
 
 <center>
-```{r FSC-SFI-plot, fig.height= 10, fig.width=7.5}
+```{r FSC-SFI, fig.height= 10, fig.width=7.5}
 SFIvFSCnetChange$Measure %<>% str_replace("Increased", "Increased (+)")
 
 
@@ -406,11 +409,11 @@ grid.draw(egg::ggarrange(bar, tile, line,
 
 --- 
 
-### Prescriptiveness and Scope of FSC P&C and PEFC 2008-2015
+### Scope and Prescriptiveness of FSC P&C and PEFC 2008-2015
 
 
 
-```{r pefc-fsc-plots, fig.height= 10, fig.width=7.5}
+```{r FSC-PEFC, fig.height= 10, fig.width=7.5}
 PEFCvFSC$Measure %<>% str_replace("Increased", "Increased (+)")
 
 # line plot (line)
@@ -569,12 +572,6 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 
 ### 2010 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
 
-| | Converging | Parallell | Diverging |
-|:----|:----:|:----:|:----:|
-| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]`  | `r Issues$n[which(Issues$pattern == "Upward parallell")]`   | `r Issues$n[which(Issues$pattern == "Upward divergence")]`  |
-| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
-| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
-
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
 Upward parallell issues: `r Issues$issues[which(Issues$pattern =="Upward parallell")]`
@@ -587,8 +584,18 @@ Downwardly converging issues: `r Issues$issues[which(Issues$pattern =="Downward 
 
 
 
+2010
 
-### 2015 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
+| | Converging | Parallell | Diverging |
+|:----|:----:|:----:|:----:|
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]`  | `r Issues$n[which(Issues$pattern == "Upward parallell")]`   | `r Issues$n[which(Issues$pattern == "Upward divergence")]`  |
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
+
+
+---
+
+2015
 ```{r 2015}
 # Table
 Issues <- issues %>% filter(Year == 2015) %>% group_by(pattern)  %>% select(pattern, Issue) %>% distinct() %>% mutate(issues = paste(Issue, collapse = ": ")) %>% group_by(pattern, issues) %>% tally() %>% arrange(-n)
@@ -602,6 +609,9 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 | Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]` | `r Issues$n[which(Issues$pattern == "Upward parallell")]` | `r Issues$n[which(Issues$pattern == "Upward divergence")]` |
 | Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
 | Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
+
+
+### 2015 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
 
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
