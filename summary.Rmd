@@ -35,7 +35,7 @@ Competing certification regimes, the Forest Stewardship Council (FSC) and The Su
 
 
 ### U.S. Timberland by ownership and certification scheme
-```{r acres, fig.height= 2.6, fig.width=6.5}
+```{r acres, fig.height= 2.7, fig.width=6.6}
 
 acres <- read.csv(here("data/acres.csv"))
 
