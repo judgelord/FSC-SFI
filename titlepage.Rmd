@@ -32,4 +32,3 @@ bibliography: /users/judgelord/dissertation/mendeley.bib
 # biblio-style: apsr
 ---
 
-![](Figs/patterns-2010-2015.png)
