@@ -20,7 +20,7 @@ load(here("data/SFIvFSC.Rdata"))
 
 **Abstract**
 
-Scholars have given conflicting accounts of change in private regulations. We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to disentangle three often-conflated measures: scope, prescriptiveness, and performance levels. This framework allows scholars to better assess patterns policy change, including “racing to the bottom,” “ratcheting up,” “converging,” or “diverging.” Using our framework, we compare the two leading US forestry certification programs, revealing upward but diverging policy prescriptiveness over time. The program supported by environmental activists mostly added requirements that impose economic costs on firms, while the industry-backed program mostly added requirements that created economic benefits. While these results are consistent with the hypothesis that industry-backed programs tend to offer less costly types of regulatory stringency than activist-backed programs, we also find several unique patterns that previous scholarship had failed to uncover, let alone explain. These results demonstrate how disaggregating policy components can improve theory building and testing.
+Scholars present conflicting accounts of change in private regulations, including whether competing programs “race to the bottom,” “ratchet up,” “converge,” or “diverge.” We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to distinguish three often-conflated measures: policy scope, prescriptiveness, and performance levels. Using our framework, we compare two leading U.S. forestry certification programs, revealing an upward but divergent pattern in policy prescriptiveness. The program founded by activists generally added requirements that impose costs on firms, while the program established by the American Forest & Paper Association generally added requirements that benefit the sector. This is consistent with our hypothesis that industry-backed programs target less costly types of regulatory stringency than activist-backed programs. We also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing,
 
 ---
 
@@ -35,7 +35,7 @@ Competing certification regimes, the Forest Stewardship Council (FSC) and The Su
 
 
 ### U.S. Timberland by ownership and certification scheme
-```{r acres, fig.height= 2.7, fig.width=6.6}
+```{r acres, fig.height= 2.9, fig.width=6.7}
 
 acres <- read.csv(here("data/acres.csv"))
 
@@ -620,35 +620,18 @@ Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward conv
 
 ---
 
-
-
 ### Qualitative comparison of policy settings
 
 
 |  Issue  |  Activist-backed FSC-US  |  Industry-backed SFI  |
-|:----|:----|:----|
+|:------------------------|:--------------------------------------------|:--------------------------------------------|
+|Indigenous peoples' rights | Recognize and uphold rights, customs, culture including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | A written policy acknowledging a commitment to recognize and respect rights. |
+|Public Reporting and Consultation | Required on public and private lands. | Required on public lands. | 
 |Forest conversion to non-forest | Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits. | No specific policy.| 
-|Threatened and Endangered Species | Survey and report or assume the presence of vulnerable, imperiled, and critically imperiled. Maintain habitat & viable populations. | Program to protect threatened and endangered species and known sites. Protect viable occurrences of critically imperiled or imperiled species.
-|Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
 |Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old growth would naturally occur. | Support and participate in programs for old growth conservation in the region — no identification or restoration requirements.
-|Public Reporting and Consultation | Required on public and private lands. | Required on public
-lands. | 
-|Indigenous peoples' rights | UNDRIP + recognize and uphold rights, customs, and culture. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | Written policy acknowledging a commitment to recognize and respect rights|
-
-
-
-
-
-
-
-|Threatened and Endangered Species | Gap analysis, identify and establish representative sample areas, survey for listed, candidate, G1-G3, S1-S3, and N1-N3 designated species or assume presence, report findings. Permanent protection of representative sample of all habitats, conservation zones support viable populations. | Program to locate G1-G2 species through credible system, use NatureServe or equivalent. Protect or manage special sites and sites with special conservation value including vernal pools of ecological significance, and sites with species at risk. | 
-
-|Indigenous use rights | Access and use rights documented, identified on maps | Identify and protect culturally important sites. |
-|Indigenous consultation | Identify and contact American Indian groups via designated tribal representatives for legal or customary use rights, ensure no impact on rights, protocols jointly developed and signed by tribes in formal consultation, informed written consent, identify special sites and protected areas. | Confer with affected indigenous peoples on public lands.
-|Indigenous knowledge | Understand and respect traditional knowledge. | Identify knowledge used, fairly compensate for use. |
+|Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
+|Threatened and Endangered Species | Survey and report or assume the presence of vulnerable, imperiled, and critically imperiled. Maintain habitat & viable populations. | Program to protect threatened and endangered species and known sites. Protect viable occurrences of critically imperiled or imperiled species.|
 |Workers' right to organize | Freedom to associate and advocate |
 Develop dispute resolution. | Obey law. Train on worker rights. |
 |Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
 |Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA. Training on OSHA |
-|<img width=200/>|<img width=500/>|<img width=500/>|
-

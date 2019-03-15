@@ -1,5 +1,7 @@
 ---
-output: pdf_document
+output:   
+  pdf_document:
+    keep_tex: true
 ---
 
 
@@ -14,7 +16,10 @@ output: pdf_document
 |Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old growth would naturally occur. | Support and participate in programs for old growth conservation in the region — no identification or restoration requirements.
 |Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
 |Threatened and Endangered Species | Survey and report or assume the presence of vulnerable, imperiled, and critically imperiled. Maintain habitat & viable populations. | Program to protect threatened and endangered species and known sites. Protect viable occurrences of critically imperiled or imperiled species.|
-
+|Workers' right to organize | Freedom to associate and advocate |
+Develop dispute resolution. | Obey law. Train on worker rights. |
+|Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
+|Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA. Training on OSHA |
 
 
 
@@ -27,7 +32,3 @@ output: pdf_document
 |Indigenous use rights | Access and use rights documented, identified on maps | Identify and protect culturally important sites. |
 |Indigenous consultation | Identify and contact American Indian groups via designated tribal representatives for legal or customary use rights, ensure no impact on rights, protocols jointly developed and signed by tribes in formal consultation, informed written consent, identify special sites and protected areas. | Confer with affected indigenous peoples on public lands.
 |Indigenous knowledge | Understand and respect traditional knowledge. | Identify knowledge used, fairly compensate for use. |
-|Workers' right to organize | Freedom to associate and advocate |
-Develop dispute resolution. | Obey law. Train on worker rights. |
-|Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
-|Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA. Training on OSHA |

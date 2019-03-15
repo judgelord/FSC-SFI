@@ -1,13 +1,14 @@
 ---
 fontsize: 12pt
 geometry: margin = 1in
+documentclass: sagej
 output: 
   bookdown::pdf_document2:
     latex_engine: pdflatex
-    keep_tex: false
+    keep_tex: true
     template: ~/FSC-SFI/article-template.tex
     toc: false
-    number_sections: false
+    # number_sections: false
     fig_caption: true
     citation_package: natbib
 header-includes:
@@ -19,7 +20,7 @@ spacing: doublespacing
 # stretch: 3
 bibliography:  mendeley.bib
 biblio-style: apa
-# citecolor: black
+citecolor: black
 ---
 
 <!--
@@ -28,7 +29,7 @@ Scholars present conflicting accounts of change in private regulations, includin
 --> 
 
 # Introduction
-Private governance initiatives such as product certification programs have targeted farm and factory working conditions, greenhouse gas emissions, and fishery, mine, and forest management [@Auld2014; @Bartley2003; @Bozzi2012; @Hudson2003; @VanderVen2015; @Vince2017]. Many of these initiatives were founded by activists who were dissatisfied with public regulations. With tactics like boycotts as “sticks” and brand-boosting praise as “carrots,” activists create incentives for companies to comply with their preferred certification programs, thereby giving these programs rulemaking authority rooted in market power rather than governmental powers @Cashore2002]. In some sectors, such as forestry, activist-backed programs meet resistance from industry groups that launch competing certification programs to offer more “business-friendly” alternatives. This results in hotly contested debates between supporters of programs founded by activists and supporters of industry-backed alternatives. These debates center on the relative stringency of each program’s requirements. 
+Private governance initiatives such as product certification programs have targeted farm and factory working conditions, greenhouse gas emissions, and fishery, mine, and forest management [@Auld2014; @Bartley2003; @Bozzi2012; @Hudson2003; @VanderVen2015; @Vince2017]. Many of these initiatives were founded by activists who were dissatisfied with public regulations. With tactics like boycotts as “sticks” and brand-boosting praise as “carrots,” activists create incentives for companies to comply with their preferred certification programs, thereby giving these programs rulemaking authority rooted in market power rather than governmental powers [@Cashore2002]. In some sectors, such as forestry, activist-backed programs meet resistance from industry groups that launch competing certification programs to offer more “business-friendly” alternatives. This results in hotly contested debates between supporters of programs founded by activists and supporters of industry-backed alternatives. These debates center on the relative stringency of each program’s requirements. 
 
 In response to these emerging forms of regulation and ensuing public debates, scholars across political science, economics, and sociology have given sustained theoretical and empirical attention to the evolution of private regulation [@Grabs2018]. A key motivation behind this research is understanding whether the social and market forces behind private regulations lead to similar patterns observed in public regulations, such as a “race to the bottom” as governments attempt to attract capital, a “race to the middle” as shared expectations emerge, or a “race to the top” as companies operating in areas with more stringent regulations lobby to equalize requirements across jurisdictions [@Berger1996; @Rodrik2004; @Vogel1995].
 
@@ -73,7 +74,7 @@ Even the handful of scholars who have developed direct and precise measures of s
 
 Efforts to identify patterns of change face two common challenges. First, results vary depending on the policy components we study. @McDermott2008 identify 48 key types of substantive requirements in the forestry sector alone—selecting any limited combination of them may lead to different conclusions. If Overdevest and Zeitlin had chosen Cashore et al.’s set of issues or vice versa, each might have found the opposite pattern. 
 
-Second, binary indicators such as whether or not a program addresses a given topic—i.e. “is this issue in the program’s scope?”—fail to capture variation in degree—e.g., “how high is the threshold set” (what is the required frequency of public reporting or prohibited amount of pollution?) and “how prescriptive are they?” (How much is voluntary versus mandatory?). The scope of requirements, degree of prescriptiveness, and levels of thresholds are important but orthogonal dimensions of variation that may exhibit different patterns of change for different reasons. @Overdevest2014 assert that the industry-backed program moved in the direction of the activist-backed program within the scope of issues related to public reporting and consultation, while @Cashore2004 found that these competing programs did not converge in prescriptiveness on issues related to ecological protection. We can thus resolve the apparent conflict between Overdivest and Zeitlin’s study and Cashore et al.’s study by distinguishing between the scope of issues covered and the prescriptiveness of requirements as two distinct dimensions of regulatory stringency.  
+Second, binary indicators such as whether or not a program addresses a given topic—i.e. “is this issue in the program’s scope?”—fail to capture variation in degree—e.g., “how high is the threshold set” (what is the required frequency of public reporting or prohibited amount of pollution?) and “how prescriptive are they?” (How much is voluntary versus mandatory?). The scope of requirements, degree of prescriptiveness, and levels of thresholds are important but orthogonal dimensions of variation that may exhibit different patterns of change for different reasons. @Overdevest2014 assert that the industry-backed program moved in the direction of the activist-backed program within the scope of issues related to public reporting and consultation, while @Cashore2004 found that these competing programs did not converge in prescriptiveness on issues related to ecological protection. We can thus resolve the apparent conflict between Overdevest and Zeitlin’s study and Cashore et al.’s study by distinguishing between the scope of issues covered and the prescriptiveness of requirements as two distinct dimensions of regulatory stringency.  
 
 To address these challenges, we distinguish three types of regulatory stringency and illustrate how doing so enables scholars to compare programs across issues and over time more systematically. 
 
@@ -85,7 +86,43 @@ We focus on three dimensions of variation: (1) the comprehensiveness of a regula
 
 The first step for scholars who wish to make claims about stringency or direction of change involves three tasks: describing policy content according to policy settings, scope, and prescriptiveness (Table 2). Comparing across programs requires a second step: measuring relative stringency and change on each dimension (see Table 3). First, we elaborate on step one.
 
-![Table 2: Measures of Regulatory Stringnecy](Figs/table2.png)
+\begin{figure}
+\caption{Table 2: Measures of Regulatory Stringency}
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
+Program Level\strut
+\end{minipage} & \begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
+Issue Level\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Policy Ends\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+How \textbf{comprehensive} is the \textbf{scope} of issues
+addressed?\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+What are the \textbf{specific requirements (i.e.~policy settings)} on
+each issues? (e.g.~the specific size of stream buffer zones)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Policy Means\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+In aggregate, across all issues, how \textbf{prescriptive} is each
+regulation? To what extent (e.g.~on what portion of issues) are there
+mandatory and substantive thresholds?\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+1. How \textbf{prescriptive} is each requirement? 2. How are they
+enforeced?*\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+*Beyond the scope of this paper
+\end{figure}
 
 *Scope:* To assess a regulation's scope, we must inductively derive a set of distinct policy “issues” that are addressed by one or more regulatory texts in a given policy domain. We can then measure the comprehensiveness of each regulation’s scope by asking which of these issues it addresses. While this approach reduces the risk of omitting key issues on which regulations may vary, it is costly. Scholars may thus opt for a limited scope, as long as they clearly describe their scope relative to the potential set of comparisons. A comprehensive approach is necessary, however, to assess claims about the scope of regulations (such as the hypotheses from section 2.3). We can measure a regulation's scope in an absolute sense (how many issues it addresses), in a relative sense (how many more or fewer issues it addresses than its competitor), and in change over time (on how many issues were requirements added or subtracted).
 
@@ -93,7 +130,7 @@ The first step for scholars who wish to make claims about stringency or directio
 
 ![Table 3: Potential patterns of change with two regulations](Figs/patterns.png)
 
-*Policy settings:* Finally, the third type of stringency—specific performance levels (what policy scholars call “policy settings”)—allow us to interpret differences in scope or prescriptiveness substantively. For example, forestry certification programs have different requirements for how close loggers can harvest near streams. In this example, all standards prescribing minimum stream buffer widths are equally prescriptive since all are mandatory requirements, albeit with different thresholds. Yet buffer widths and other specific policy settings are a meaningful type of variation. Unfortunately, most specific policy settings, even prescriptive ones, cannot be quantified and are thus difficult to aggregate. Even numeric stream buffers are difficult to compare because they often vary in different landscape contexts, for example in mountainous or flat areas, and involve different levels of harvest restrictions based on different criteria, such as whether fish live in the stream (see Figure 6 in section 4). Measurement strategies that allow program-level aggregation cannot replace issue-specific qualitative comparison. It is crucial to both quantify absolute and relative differences and describe the most meaningful differences that capture the overall trends. We thus suggest that scholars combine aggregate measures with descriptive comparisons of important requirements, assessing each issue in an absolute sense, in a relative sense (if possible), and in how the required level of performance changed.
+*Policy settings:* Finally, the third type of stringency—specific performance levels (what policy scholars call “policy settings”)—allow us to interpret differences in scope or prescriptiveness substantively. For example, forestry certification programs have different requirements for how close loggers can harvest near streams. In this example, all standards prescribing minimum stream buffer widths are equally prescriptive since all are mandatory requirements, albeit with different thresholds. Yet buffer widths and other specific policy settings are a meaningful type of variation. Unfortunately, most specific policy settings, even prescriptive ones, cannot be quantified and are thus difficult to aggregate. Even numeric stream buffers are difficult to compare because they often vary in different landscape contexts, for example in mountainous or flat areas, and involve different levels of harvest restrictions based on different criteria, such as whether fish live in the stream (see Figure 5 in section 4). Measurement strategies that allow program-level aggregation cannot replace issue-specific qualitative comparison. It is crucial to both quantify absolute and relative differences and describe the most meaningful differences that capture the overall trends. We thus suggest that scholars combine aggregate measures with descriptive comparisons of important requirements, assessing each issue in an absolute sense, in a relative sense (if possible), and in how the required level of performance changed.
 
 At its most stylized, step one, comparing two hypothetical programs (A and B) in a policy space with two issues (Hazardous Chemicals and Worker Training) might look like this: A researcher examines regulations in this policy domain and inductively identifies a total of two issues. Both programs have some prescriptive requirements on both issues, so they are equal in scope. Program A bans using chemicals above certain quantitative toxicity thresholds, whereas Program B bans “hazardous” levels which one may interpret several ways, so Program A is more prescriptive on the issue of Chemicals. For policy settings, the two programs ban slightly different lists of chemicals, Program A focusing on ecologically harmful chemicals and program B targeting those most harmful to humans, so one can only compare their specific requirements on chemicals qualitatively. On the second issue, both programs require mandatory worker training programs, and neither specifies how many hours, so they are equally prescriptive on Training. Each program suggests a slightly different list of topics for training to cover. Program A focuses more on skills needed to avoid ecological harm, and Program B focuses more on worker safety, so again, one can only compare their policy settings qualitatively. Yet a pattern emerges: Program A, the overall more prescriptive program, is also more focused on ecological protection, possibly due to a strong influence from environmental activists. In contrast, program B is more focused on worker safety, possibly to reduce the risk that worker injuries at one firm will impose reputational or regulatory costs for the whole industry.
 
@@ -102,7 +139,7 @@ As this example illustrates, the combination of precise and comprehensive measur
 ## Step 2: Classifying Patterns of Change
 Drawing on @Baumgartner2002 and @Howlett2007, we also note the importance of the direction of change. Assessing patterns of change like punctuation or equilibrium requires measuring change on each dimension because there may be equilibrium on one dimension but punctuation on another. In absolute terms, requirements may be increasing, decreasing, or neither, and, in relative terms, competing regulations may be converging, in equilibrium, or diverging on each dimension over any given period (Table 3). Thus, in aggregate, nine relationships fully capture the possible dynamics for each dimension of change.  All of the concepts of regulatory stringency from Table 1 should be able to be expressed in terms of the dimension(s) to which a theory applies, the absolute directions of change they predict, and relative relationships they anticipate.
 
-*Conclusion:* This framework helps researchers accomplishes four key tasks that @Brunel2016 set out for a measure of regulatory stringency (1) measure change over time, (2) assess both relative and absolute magnitudes, (3) aggregate across multiple issue areas, and (4) it can be theoretically related to compliance costs. To these criteria, we add that any measurement approach should also capture qualitative differences in policy settings.  
+*Conclusion:* This framework helps researchers accomplish four key tasks that @Brunel2016 set out for a measure of regulatory stringency (1) measure change over time, (2) assess both relative and absolute magnitudes, (3) aggregate across multiple issue areas, and (4) it can be theoretically related to compliance costs. To these criteria, we add that any measurement approach should also capture qualitative differences in policy settings.  
 
 ## Theorizing in terms of scope, prescriptiveness, and policy settings
 Our core methodological critique is that different dimensions of stringency may exhibit different patterns of change. Precise and testable hypotheses about the causes and effects of change must distinguish among types of policy change. If different dimensions of regulatory stringency vary independently, a vast array of theories that use stringency as an explanatory or dependent variable must be revised to specify the dimension(s) to which they apply. Revisiting theories in terms of scope, prescriptiveness, and policy settings may yield different predictions on each dimension. It is beyond the scope of this paper to revisit all hypotheses in this vast literature in light of our methodological critique, but, for illustrative purposes, we offer examples of such a restatement for hypotheses rooted in compliance cost and differentiation. 
@@ -119,7 +156,7 @@ Our core methodological critique is that different dimensions of stringency may 
 
 We suggest that the relative stringency of an industry-backed program on a given issue depends on whether it results in net costs or net benefits to the industry. Activist-backed programs drive stringency on issues where requirements impose costs on firms in order to achieve social or ecological goals. We call these “costly issues.” On these issues, an industry-backed program must balance achieving legitimacy through perceived stringency with minimizing compliance costs. The result is likely to be a lower level of stringency than that of an activist-backed program, especially where industry-backed programs can more easily create an impression of stringency or where compliance costs are high.
 
-The opposite result is likely on issues where requirements provide net benefits to the industry. Here, activist-backed programs have little incentive to develop stringent requirements because activist pressure is redundant. These “business-friendly” issues are frequently addressed by industry associations. They include coordinating resources and solving collective action problems related to industry reputation (e.g. through public image campaigns) and capacity (e.g. by developing collective goods like technical knowledge or a skilled workforce). By "collective action," we merely mean actions across individuals that has net benefits but that requires a coordinating institution. Another business-friendly strategy to create perceptions of stringency, may be to add requirements to do things that firms would do anyway. If observers fail to distinguish among different types of stringency on different issues, such a strategy may be a low cost and effective way to shape perceptions of overall stringency.
+The opposite result is likely on issues where requirements provide net benefits to the industry. Here, activist-backed programs have little incentive to develop stringent requirements because activist pressure is redundant. These “business-friendly” issues are frequently addressed by industry associations. They include coordinating resources and solving collective action problems related to industry reputation (e.g. through public image campaigns) and capacity (e.g. by developing collective goods like technical knowledge or a skilled workforce). By "collective action," we merely mean actions across individuals that have net benefits but that requires a coordinating institution. Another business-friendly strategy to create perceptions of stringency may be to add requirements to do things that firms would do anyway. If observers fail to distinguish among different types of stringency on different issues, such a strategy may be a low cost and effective way to shape perceptions of overall stringency.
 
 *Revised differentiation hypotheses:* Where activist-backed and industry-backed private regulations compete, 
 
@@ -134,10 +171,10 @@ We illustrate our methods for measuring stringency through an analysis of forest
 
 Forest certification illustrates how market-based authority can involve formal decision-making modeled on government rulemaking processes, legalistic requirements, and powerful enforcement mechanisms. When product certification programs gain power with consumers and retailers, a timber company's contracts may depend on an audit of their compliance with hundreds of requirements. Noncompliance may be costly. For example, Resolute Forest Products claimed damages of $100 million CND related to auditor findings of non-conformance [@Tigar2017]. This scale of impact makes forest certification an important case. 
 
-For over 20 years the Forest Stewardship Council (FSC) and Sustainable Forestry Initiative (SFI), have been developing written Forest Management Standards (standards) that promote different conceptions of “sustainable” forest management. The SFI and FSC play a major role in regulating the forest products industry in the United States, regulating a third of commercially harvested timberland including most corporate-owned timberland (see Figure 2).  Many U.S. states support certification as a compliment or alternative to public regulation. For example some state regulators forgo inspections of FSC-certified forests as legal compliance is part of their FSC audit [@Judge-Lord2013]. 
+For over 20 years the Forest Stewardship Council (FSC) and Sustainable Forestry Initiative (SFI), have been developing written Forest Management Standards (standards) that promote different conceptions of “sustainable” forest management. The SFI and FSC play a major role in regulating the forest products industry in the United States, regulating a third of commercially harvested timberland including most corporate-owned timberland (see Figure 1).  Many U.S. states support certification as a compliment or alternative to public regulation. For example, some state regulators forgo inspections of FSC-certified forests as legal compliance is part of their FSC audit [@Judge-Lord2013]. 
 
 
-![Figure 2: U.S. Timberland by ownership and certification scheme](Figs/acres-1.png)
+![Figure 1: U.S. Timberland by ownership and certification scheme](Figs/acres-1.png)
 
 
 Origin of the FSC: The FSC was established as an international non-profit organization in 1993 by a group of environmental and social advocacy organizations, academics, indigenous groups, and companies. FSC's founders designed its rulemaking procedures as a “democratic” process where members vote on decision-making rules as well as substantive policy [@Meidinger2003]. FSC standards begin with a set of international “Principles and Criteria” (FSC–P&C) that are used by national-level organizations to develop more specific indicators.  Our analysis of the FSC in the U.S. thus assesses both the international P&C and the FSC-US national standard. 
@@ -157,11 +194,11 @@ To measure policy settings, we offer detailed issue-by-issue comparisons of perf
 Here we compare each standard to its previous version and the contemporary version from its competitor. We assess revisions in the FSC- International’s 2012 Revised Principles and Criteria 01-001 Version 5-0 (FSC–P&C), and we compare them to the PEFC’s Sustainable Forest Management Standards (1003:2010). Similarly, we compare the 2010 FSC-U.S. Forest Management Standard Version 1.0 to the FSC-US National Indicators and regional standards it replaced, and we compare these to the 2005-20092010–2014, and 2015-2019 SFI standards. Unless otherwise specified, “FSC-US” and “SFI” refer to the version of each standard in effect in 2016. We do not fully capture subnational variation. The FSC-US standard recognizes nine different sub-national regions. Some have additional indicators, meaning that, in some states, FSC standards were more prescriptive than our findings reflect (see online appendix).
 
 ### Comparing FSC’s and PEFC’s international requirements
-Scope: The FSC-P&C and PEFC maintained a similar scope of issues covered (see the top panel of Figure 3). The PEFC once covered slightly fewer issues than did the FSC-P&C, but its 2010 revisions added new requirements for eight key issues that it previously did not address, making the two generally aligned in the scope of issues covered. As of 2015, the FSC P&C covered three potentially “costly” issues that the PEFC still did not: carbon emissions, restrictions on conversion to plantations, and worker wage requirements (see the middle panel of Figure 3).  PEFC covers two issues relating to public perceptions that FSC-P&C do not: managing the aesthetic impacts of forestry and allowing public access. 
+Scope: The FSC-P&C and PEFC maintained a similar scope of issues covered (see the top panel of Figure 2). The PEFC once covered slightly fewer issues than did the FSC-P&C, but its 2010 revisions added new requirements for eight key issues that it previously did not address, making the two generally aligned in the scope of issues covered. As of 2015, the FSC P&C covered three potentially “costly” issues that the PEFC still did not: carbon emissions, restrictions on conversion to plantations, and worker wage requirements (see the middle panel of Figure 2).  PEFC covers two issues relating to public perceptions that FSC-P&C do not: managing the aesthetic impacts of forestry and allowing public access. 
 
-Prescriptiveness: Overall, the FSC maintained more prescriptive requirements in its Principles & Criteria than the PEFC benchmarks (the top panel of Figure 3), but the PEFC moved closer to the FSC-P&C in some key areas (the middle panel of Figure 3). These include additional requirements on issues including indigenous rights, community benefits, and public reporting and consultation (see the online appendix for specific language). The PEFC became at least as prescriptive as the FSC–P&C on over half of key issues. In absolute terms, the PEFC increased prescriptiveness on 19 key issues and decreased on none, whereas the FSC–P&C increased on 13 and decreased on four. Yet significant differences remain. The FSC-P&C contain more prescriptive language on most ecological criteria, including protected areas and restrictions on conversion to plantations. On the whole, both programs have more procedural requirements than substantive requirements (i.e. they are more focused on process than outcomes). Despite convergence in the PEFC’s revised requirements, the FSC-P&C remained more prescriptive than PEFC requirements on 17 of the 48 key issues whereas PEFC requirements are more prescriptive on nine issues, with both programs being equally prescriptive on 19 issues. Because the PEFC started at a lower level but increased prescriptiveness on more issues than did FSC P&C, the resulting pattern is an “upward convergence” (the bottom panel of Figure 3). 
+Prescriptiveness: Overall, the FSC maintained more prescriptive requirements in its Principles & Criteria than the PEFC benchmarks (the top panel of Figure 2), but the PEFC moved closer to the FSC-P&C in some key areas (the middle panel of Figure 2). These include additional requirements on issues including indigenous rights, community benefits, and public reporting and consultation (see the online appendix for specific language). The PEFC became at least as prescriptive as the FSC–P&C on over half of key issues. In absolute terms, the PEFC increased prescriptiveness on 19 key issues and decreased on none, whereas the FSC–P&C increased on 13 and decreased on four. Yet significant differences remain. The FSC-P&C contain more prescriptive language on most ecological criteria, including protected areas and restrictions on conversion to plantations. On the whole, both programs have more procedural requirements than substantive requirements (i.e. they are more focused on process than outcomes). Despite convergence in the PEFC’s revised requirements, the FSC-P&C remained more prescriptive than PEFC requirements on 17 of the 48 key issues whereas PEFC requirements are more prescriptive on nine issues, with both programs being equally prescriptive on 19 issues. Because the PEFC started at a lower level but increased prescriptiveness on more issues than did FSC P&C, the resulting pattern is an “upward convergence” (the bottom panel of Figure 2). 
 
-![Figure 3: Scope and Prescriptiveness of FSC P&C and PEFC 2008-2015](Figs/FSC-PEFC-1.png)
+![Figure 2: Scope and Prescriptiveness of FSC P&C and PEFC 2008-2015](Figs/FSC-PEFC-1.png)
 
 Policy settings: One particularly controversial issue is the conversion of natural forests to timber plantations. Both programs only allow conversion of natural forest to plantation under “justifiable circumstances,” which differ qualitatively between the two programs. For the FSC, this means that conversion has “clear, substantial, additional, secure, long-term conservation benefits.” For the PEFC it means that conversion must have “long-term conservation, economic, and social benefits.” They also differ regarding the extent of forest conversion allowed. The FSC-P&C allow companies to convert “limited areas” while the PEFC allows “small proportions of forest types.” Both standards specify that conversion must not damage culturally or socially significant areas, but whereas PEFC suggests that forests should only be certified if the conversion occurred before 2011, the FSC-P&C require that conversion occurred before 1994, significantly different thresholds.
 
@@ -172,21 +209,95 @@ Both programs cover similar ecological issues, with some qualitative differences
 Summary: Overall, while the PEFC added more requirements concerning indigenous rights and labor standards and came to cover a similar scope of issues to the FSC P&C, the FSC-P&C remained more prescriptive on social issues and significantly more prescriptive on ecological issues. Compared to the prescriptiveness of the FSC-US and SFI described below, the FSC–P&C and PEFC requirements exhibit more convergence on both scope and prescriptiveness (compare Figures 3 and 4) though many differences in policy settings remain.
 
 4.2.2 Comparing the FSC-US and SFI
-Scope: Consistent with the international level, the activist-backed FSC-US program and industry-backed SFI program in the United States address a similar scope of issues, but the FSC-US is more prescriptive on most (the top panel of Figure 4). As of 2016, the FSC-US did cover six potentially “costly” issues that the SFI did not; community benefit requirements, forest extent restrictions, required impact assessments, protected area restrictions, restoration requirements, and indigenous tenure protections (the middle panel of Figure 4). The SFI, in turn, covered one issue contributing to forestry research, that the FSC-US did not. Both programs added requirements on greenhouse gasses in 2010. SFI allows for the conversion of natural forests to plantations if ecological impacts are not significant and the converted forest type is not rare, but in 2015, SFI added a requirement to conduct an assessment of these impacts. Yet, the FSC-US still maintained more prescriptive requirements, only allowing certification of plantation forests if they were converted from natural forests before 1994. FSC-US also requires a portion of these plantations to be maintained as, or restored to, natural conditions.
+Scope: Consistent with the international level, the activist-backed FSC-US program and industry-backed SFI program in the United States address a similar scope of issues, but the FSC-US is more prescriptive on most (the top panel of Figure 3). As of 2016, the FSC-US did cover six potentially “costly” issues that the SFI did not; community benefit requirements, forest extent restrictions, required impact assessments, protected area restrictions, restoration requirements, and indigenous tenure protections (the middle panel of Figure 3). The SFI, in turn, covered one issue contributing to forestry research, that the FSC-US did not. Both programs added requirements on greenhouse gasses in 2010. SFI allows for the conversion of natural forests to plantations if ecological impacts are not significant and the converted forest type is not rare, but in 2015, SFI added a requirement to conduct an assessment of these impacts. Yet, the FSC-US still maintained more prescriptive requirements, only allowing certification of plantation forests if they were converted from natural forests before 1994. FSC-US also requires a portion of these plantations to be maintained as, or restored to, natural conditions.
 
-Prescriptiveness:  In 2008 the FSC-US was more prescriptive on 36 of 48 key issues, and the SFI was more prescriptive on five issues. These five are some of the most “business-friendly” issues: continual improvement of management planning, educating the public about forestry, contributions to forestry research, worker training, and efficient material utilization. In 2016 the FSC-US was more prescriptive on 37 key issues, and the SFI was more prescriptive on the same five issues. The two standards were equally prescriptive on five issues. This means that the FSC-US had the “most prescriptive” requirements—those as prescriptive or more than any other program—on 42 issues and the SFI had the most prescriptive requirements on 10 (the top panel of Figure 4).  
+Prescriptiveness:  In 2008 the FSC-US was more prescriptive on 36 of 48 key issues, and the SFI was more prescriptive on five issues. These five are some of the most “business-friendly” issues: continual improvement of management planning, educating the public about forestry, contributions to forestry research, worker training, and efficient material utilization. In 2016 the FSC-US was more prescriptive on 37 key issues, and the SFI was more prescriptive on the same five issues. The two standards were equally prescriptive on five issues. This means that the FSC-US had the “most prescriptive” requirements—those as prescriptive or more than any other program—on 42 issues and the SFI had the most prescriptive requirements on 10 (the top panel of Figure 3).  
 
-Counting changes made to the FSC-US and SFI standards between 2008 and 2016 reveals an “upward diverging” pattern, where the FSC-US became more prescriptive than did the SFI  (the bottom panel of Figure 4). Of 48 key issues, the FSC-US became more prescriptive in 20, whereas SFI became more prescriptive in 12, eight in 2010, one more in 2013, and three more in 2015.
+Counting changes made to the FSC-US and SFI standards between 2008 and 2016 reveals an “upward diverging” pattern, where the FSC-US became more prescriptive than did the SFI  (the bottom panel of Figure 3). Of 48 key issues, the FSC-US became more prescriptive in 20, whereas SFI became more prescriptive in 12, eight in 2010, one more in 2013, and three more in 2015.
 
-![Figure 4: Scope and Prescriptiveness of FSC-US and SFI 2008-2016](Figs/FSC-SFI-1.png)
+![Figure 3: Scope and Prescriptiveness of FSC-US and SFI 2008-2016](Figs/FSC-SFI-1.png)
 
-Policy Settings: Issues such as clearcut size limits and limits on harvesting near streams clearly illustrate enduring differences between the SFI and the FSC-US because policy settings on these issues can be compared both qualitatively and quantitatively. Qualitatively, the FSC-US increasingly restricts the size and shape of clearcuts to reflect "natural disturbance" and maintain ecological functions regardless of how it looks, whereas the SFI emphasizes "the visual impacts of forestry" and requires rapid site “green-up.” Quantitatively, the SFI limited clearcuts for all forest types to an average of 120 acres with no maximum and no limits for harvesting with 20 percent tree retention (i.e. intensive but not clearcut harvesting). In contrast, the FSC-US limits clearcuts to a 40-acre average and 80-acre maximum, with additional restrictions based on region and forest type. FSC-US also limits harvesting with 20 percent tree retention to a 100-acre average and 80-acre maximum, with additional restrictions based on region and forest type (Figure 5). For harvesting near streams, the FSC-US lists specific requirements for water quality, habitat, and other objectives with a focus on restoration. Additionally, most FSC-US regions have numeric minimum riparian buffer zones (Figure 6). In 2015, SFI expanded its definitions of riparian areas but continued to allow more discretion regarding what managers include in plans to protect water resources with no numerical minimums beyond those in state laws and best management practices. While other policy settings can only be compared qualitatively, the FSC-US clearly requires higher levels of performance on many social and ecological issues (Table 4)
+Policy Settings: Issues such as clearcut size limits and limits on harvesting near streams clearly illustrate enduring differences between the SFI and the FSC-US because policy settings on these issues can be compared both qualitatively and quantitatively. Qualitatively, the FSC-US increasingly restricts the size and shape of clearcuts to reflect "natural disturbance" and maintain ecological functions regardless of how it looks, whereas the SFI emphasizes "the visual impacts of forestry" and requires rapid site “green-up.” Quantitatively, the SFI limited clearcuts for all forest types to an average of 120 acres with no maximum and no limits for harvesting with 20 percent tree retention (i.e. intensive but not clearcut harvesting). In contrast, the FSC-US limits clearcuts to a 40-acre average and 80-acre maximum, with additional restrictions based on region and forest type. FSC-US also limits harvesting with 20 percent tree retention to a 100-acre average and 80-acre maximum, with additional restrictions based on region and forest type (Figure 4). For harvesting near streams, the FSC-US lists specific requirements for water quality, habitat, and other objectives with a focus on restoration. Additionally, most FSC-US regions have numeric minimum riparian buffer zones (Figure 5). In 2015, SFI expanded its definitions of riparian areas but continued to allow more discretion regarding what managers include in plans to protect water resources with no numerical minimums beyond those in state laws and best management practices. While other policy settings can only be compared qualitatively, the FSC-US clearly requires higher levels of performance on many social and ecological issues (Table 4)
 
-![Figure 5: Limits on Clearcut Size](Figs/clearcuts-1.png)
+![Figure 4: Limits on Clearcut Size](Figs/clearcuts-1.png)
 
-![Figure 6: Limits on Harvesting Near Streams](Figs/riparian-1.png)
+![Figure 5: Limits on Harvesting Near Streams](Figs/riparian-1.png)
 
-![Table 4: Qualitative levels of performance required](Figs/issues.png)
+\begin{figure}
+\caption{Table 4: Qualitative levels of performance required}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.20\columnwidth}\raggedright\strut
+Issue\strut
+\end{minipage} & \begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
+Activist-backed FSC-US\strut
+\end{minipage} & \begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
+Industry-backed SFI\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
+Indigenous peoples' rights\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Recognize and uphold rights, customs, culture including UNDRIP. No
+threat to rights or resources. Free, prior, and informed consent on
+public and private lands. Engage indigenous peoples and consult with
+affected groups. Cooperate to identify and protect significant sites.
+Compensate for indigenous knowledge and utilize as requested.\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+A written policy acknowledging a commitment to recognize and respect
+rights.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
+Public Reporting and Consultation\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Required on public and private lands.\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Required on public lands.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
+Forest conversion to non-forest\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Prohibited except limited areas where clear, substantial, additional,
+secure, long-term conservation benefits.\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+No specific policy.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
+Old growth forest\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Old growth is normally mapped as conservation forest. Only restoration
+management on public land. Legacy trees not harvested. Maintain
+structure, composition, and processes. A portion of the forest is
+restored where old growth would naturally occur.\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Support and participate in programs for old growth conservation in the
+region --- no identification or restoration requirements.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
+Protected areas\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Conserve or restore a representative area of natural ecosystems. Assess
+and maintain environmental values and necessary conservation
+measures.\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+No specific policy.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
+Threatened and Endangered Species\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Survey and report or assume the presence of vulnerable, imperiled, and
+critically imperiled. Maintain habitat \& viable populations.\strut
+\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+Program to protect threatened and endangered species and known sites.
+Protect viable occurrences of critically imperiled or imperiled
+species.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{figure}
 
 While both the FSC-US and SFI became more prescriptive, they did so to different degrees and in different areas. The SFI’s changes in 2010 emphasized issues related to industrial capacity (e.g. worker training requirements) and reputation (e.g. managing the visual impact of harvesting, communicating with stakeholders about logging, and educating the public about forestry), issues where SFI already had the most prescriptive requirements. Changes made the same year by the FSC-US emphasized conservation-oriented forestry while removing a training requirement.
 
@@ -209,11 +320,40 @@ On ecological goals, the FSC-US standard was significantly more stringent than t
 On more business-oriented goals such as efficiency (e.g. levels of cut tree utilization), industry capacity (e.g. workforce training and research), and industry reputation (e.g. public education and aesthetics), the conclusions are largely reversed. SFI is slightly broader in scope, requiring contributions to research where FSC does not, is more prescriptive, and requires increasingly demanding performance levels on many business-friendly issues. 
 
 ## Patterns of change
-The dominant patterns were equilibrium and upward divergence. In most years, neither program changed on any issue (the center cell in Figure 1, “equilibrium”). Most changes for both programs occurred in 2010 where the overall pattern was divergence (also called differentiation), rather than convergence or stability. The vast majority of changes (twenty-one of twenty-seven issues changed) fit a pattern where one program increased prescriptiveness while the other did not (or in one case, did increase to a lesser degree) and the program that increased stringency already had the more prescriptive requirements. On eighteen issues, the other program stayed the same, leading to upward divergence. On three issues, the less prescriptive program decreased prescriptiveness, leading to opposing divergence (see Table 5). 
+The dominant patterns were equilibrium and upward divergence. In most years, neither program changed on any issue (the center cell in Table 3, “equilibrium”). Most changes for both programs occurred in 2010 where the overall pattern was divergence (also called differentiation), rather than convergence or stability. The vast majority of changes (twenty-one of twenty-seven issues changed) fit a pattern where one program increased prescriptiveness while the other did not (or in one case, did increase to a lesser degree) and the program that increased stringency already had the more prescriptive requirements. On eighteen issues, the other program stayed the same, leading to upward divergence. On three issues, the less prescriptive program decreased prescriptiveness, leading to opposing divergence (see Table 5). 
 
 For all sixteen issues on which only the FSC-US added requirements, it already had the more prescriptive requirements, and almost all of these additions address ecological problems. Similarly, for three out of the four issues on which only the SFI added requirements, the SFI already had more prescriptive requirements. Qualitatively, these three issues—maximizing the utilization of cut trees, public education, and worker training—reflect concerns for the efficiency, reputation, and capacity of the forest products industry. Educating the public about forestry practices and products and training workers may not exclusively benefit individual firms. Because of the broad adoption of SFI standards, such requirements may provide collective benefits for the sector, in the form of a positive public image and skilled workforce.
 
-![Table 5: 2010 and 2015 Patterns of Change in Prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues](Figs/patterns-2010-2015.png)
+\begin{figure}
+\caption{Table 5: 2010 and 2015 Patterns of Change in Prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues}
+
+2010
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule
+& Converging & Parallell & Diverging\tabularnewline
+\midrule
+\endhead
+Increasing & 1 & 3 & 18\tabularnewline
+Opposing or Eqilibrium & 0 & 21 & 3\tabularnewline
+Decreasing & 2 & 0 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\centerline{2015}
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule
+& Converging & Parallell & Diverging\tabularnewline
+\midrule
+\endhead
+Increasing & 3 & 0 & 0\tabularnewline
+Opposing or Eqilibrium & 0 & 45 & 0\tabularnewline
+Decreasing & 0 & 0 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{figure}
 
 Convergence and parallel change were rare. An upward parallel change occurred on only three issues in 2010: forest management planning, controlling carbon emissions, and reporting and consultation, where both programs added requirements. We classify the addition of protections for riparian zones by both SFI and FSC-US as another case of upward divergence rather than upward parallel change because the requirements for riparian protection added by the FSC-US are more prescriptive. Upward convergence only occurred where FSC-US added requirements on the issue of “continual improvement” of harvesting operations, an issue usually associated more with the SFI. This outcome is interesting because scholars generally predict that private regulations that are less stringent overall will converge toward “benchmark” standards like FSC’s [@Overdevest2005; @Overdevest2010]. Instead, we find the FSC ratcheting up on an issue where its industry-backed competitor had more stringent requirements. Indeed, most studies overlook the possibility that industry-backed standards like the SFI may be more stringent on some issues. We see downward convergence only on Community Benefits and Tenure Rights where the more prescriptive FSC-US removed requirements, thus moving closer to SFI. No issues exhibited downward parallel or downward diverging trajectories. 
 

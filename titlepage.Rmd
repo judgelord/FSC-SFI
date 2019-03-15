@@ -20,7 +20,7 @@ geometry: margin = 1in
 output: 
   bookdown::pdf_document2:
     latex_engine: pdflatex
-    keep_tex: false
+    keep_tex: true
     template: ~/FSC-SFI/article-template.tex
     toc: false
     number_sections: true
@@ -31,4 +31,9 @@ spacing: doublespacing
 bibliography: /users/judgelord/dissertation/mendeley.bib
 # biblio-style: apsr
 ---
-
+policy change
+private authority
+forestry
+certification
+corporate social responsibility
+private governance
