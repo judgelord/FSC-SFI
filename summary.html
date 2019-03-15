@@ -96,6 +96,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -103,14 +106,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -147,7 +210,7 @@ $(document).ready(function () {
 
 <hr />
 <p><strong>Abstract</strong></p>
-<p>Scholars have given conflicting accounts of change in private regulations. We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to disentangle three often-conflated measures: scope, prescriptiveness, and performance levels. This framework allows scholars to better assess patterns policy change, including “racing to the bottom,” “ratcheting up,” “converging,” or “diverging.” Using our framework, we compare the two leading US forestry certification programs, revealing upward but diverging policy prescriptiveness over time. The program supported by environmental activists mostly added requirements that impose economic costs on firms, while the industry-backed program mostly added requirements that created economic benefits. While these results are consistent with the hypothesis that industry-backed programs tend to offer less costly types of regulatory stringency than activist-backed programs, we also find several unique patterns that previous scholarship had failed to uncover, let alone explain. These results demonstrate how disaggregating policy components can improve theory building and testing.</p>
+<p>Scholars present conflicting accounts of change in private regulations, including whether competing programs “race to the bottom,” “ratchet up,” “converge,” or “diverge.” We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to distinguish three often-conflated measures: policy scope, prescriptiveness, and performance levels. Using our framework, we compare two leading U.S. forestry certification programs, revealing an upward but divergent pattern in policy prescriptiveness. The program founded by activists generally added requirements that impose costs on firms, while the program established by the American Forest &amp; Paper Association generally added requirements that benefit the sector. This is consistent with our hypothesis that industry-backed programs target less costly types of regulatory stringency than activist-backed programs. We also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing,</p>
 <hr />
 <div id="context-regulating-foresty-in-the-u.s." class="section level2">
 <h2>Context: Regulating foresty in the U.S.</h2>
@@ -323,11 +386,11 @@ $(document).ready(function () {
 </div>
 <div id="qualitative-comparison-of-policy-settings" class="section level3">
 <h3>Qualitative comparison of policy settings</h3>
-<table style="width:25%;">
+<table style="width:100%;">
 <colgroup>
-<col width="8%"></col>
-<col width="8%"></col>
-<col width="8%"></col>
+<col width="22%"></col>
+<col width="38%"></col>
+<col width="38%"></col>
 </colgroup>
 <thead>
 <tr class="header">
@@ -338,18 +401,18 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Forest conversion to non-forest</td>
-<td align="left">Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits.</td>
-<td align="left">No specific policy.</td>
+<td align="left">Indigenous peoples’ rights</td>
+<td align="left">Recognize and uphold rights, customs, culture including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested.</td>
+<td align="left">A written policy acknowledging a commitment to recognize and respect rights.</td>
 </tr>
 <tr class="even">
-<td align="left">Threatened and Endangered Species</td>
-<td align="left">Survey and report or assume the presence of vulnerable, imperiled, and critically imperiled. Maintain habitat &amp; viable populations.</td>
-<td align="left">Program to protect threatened and endangered species and known sites. Protect viable occurrences of critically imperiled or imperiled species.</td>
+<td align="left">Public Reporting and Consultation</td>
+<td align="left">Required on public and private lands.</td>
+<td align="left">Required on public lands.</td>
 </tr>
 <tr class="odd">
-<td align="left">Protected areas</td>
-<td align="left">Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures.</td>
+<td align="left">Forest conversion to non-forest</td>
+<td align="left">Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits.</td>
 <td align="left">No specific policy.</td>
 </tr>
 <tr class="even">
@@ -358,23 +421,37 @@ $(document).ready(function () {
 <td align="left">Support and participate in programs for old growth conservation in the region — no identification or restoration requirements.</td>
 </tr>
 <tr class="odd">
-<td align="left">Public Reporting and Consultation</td>
-<td align="left">Required on public and private lands.</td>
-<td align="left">Required on public</td>
+<td align="left">Protected areas</td>
+<td align="left">Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures.</td>
+<td align="left">No specific policy.</td>
 </tr>
 <tr class="even">
-<td align="left">lands.</td>
+<td align="left">Threatened and Endangered Species</td>
+<td align="left">Survey and report or assume the presence of vulnerable, imperiled, and critically imperiled. Maintain habitat &amp; viable populations.</td>
+<td align="left">Program to protect threatened and endangered species and known sites. Protect viable occurrences of critically imperiled or imperiled species.</td>
+</tr>
+<tr class="odd">
+<td align="left">Workers’ right to organize</td>
+<td align="left">Freedom to associate and advocate</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Develop dispute resolution.</td>
+<td align="left">Obey law. Train on worker rights.</td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Indigenous peoples’ rights</td>
-<td align="left">UNDRIP + recognize and uphold rights, customs, and culture. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested.</td>
-<td align="left">Written policy acknowledging a commitment to recognize and respect rights</td>
+<td align="left">Wages</td>
+<td align="left">Meets local norms</td>
+<td align="left">Written commitment to comply with social law prevailing wage. Train on wage rules.</td>
+</tr>
+<tr class="even">
+<td align="left">Safety</td>
+<td align="left">posted safety guidelines, contracts include safety, records kept</td>
+<td align="left">Written commitment to comply with OSHA. Training on OSHA</td>
 </tr>
 </tbody>
 </table>
-<p>|Threatened and Endangered Species | Gap analysis, identify and establish representative sample areas, survey for listed, candidate, G1-G3, S1-S3, and N1-N3 designated species or assume presence, report findings. Permanent protection of representative sample of all habitats, conservation zones support viable populations. | Program to locate G1-G2 species through credible system, use NatureServe or equivalent. Protect or manage special sites and sites with special conservation value including vernal pools of ecological significance, and sites with species at risk. |</p>
-<p>|Indigenous use rights | Access and use rights documented, identified on maps | Identify and protect culturally important sites. | |Indigenous consultation | Identify and contact American Indian groups via designated tribal representatives for legal or customary use rights, ensure no impact on rights, protocols jointly developed and signed by tribes in formal consultation, informed written consent, identify special sites and protected areas. | Confer with affected indigenous peoples on public lands. |Indigenous knowledge | Understand and respect traditional knowledge. | Identify knowledge used, fairly compensate for use. | |Workers’ right to organize | Freedom to associate and advocate | Develop dispute resolution. | Obey law. Train on worker rights. | |Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. | |Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA. Training on OSHA | |<img width="200/">|<img width="500/">|<img width="500/">|</p>
 </div>
 </div>
 
