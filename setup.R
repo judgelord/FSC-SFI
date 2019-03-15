@@ -24,7 +24,7 @@ library(gtable)
 library(egg)
 library(glue)
 
-knitr::opts_chunk$set(echo = FALSE, 
+knitr::opts_chunk$set(echo = TRUE, 
                       cache = FALSE, 
                       include =FALSE,
                       fig.width=8.5, fig.align = 'center', fig.path='Figs/',
