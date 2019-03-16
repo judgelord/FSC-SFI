@@ -1,0 +1,34 @@
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
+Program Level\strut
+\end{minipage} & \begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
+Issue Level\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Policy Ends\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+How \textbf{comprehensive} is the \textbf{scope} of issues
+addressed?\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+What are the \textbf{specific requirements (i.e.~policy settings)} on
+each issues? (e.g.~the specific size of stream buffer zones)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
+Policy Means\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+In aggregate, across all issues, how \textbf{prescriptive} is each
+regulation? To what extent (e.g.~on what portion of issues) are there
+mandatory and substantive thresholds?\strut
+\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
+1. How \textbf{prescriptive} is each requirement? 2. How are they
+enforeced?*\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+*Beyond the scope of this paper
