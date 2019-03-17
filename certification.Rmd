@@ -25,24 +25,22 @@ citecolor: black
 
 <!--
 Abstract: [150 words]
-Scholars present conflicting accounts of change in private regulations, including whether competing programs “race to the bottom,” “ratchet up,” “converge,” or “diverge.” We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to distinguish three often-conflated measures: policy scope, prescriptiveness, and performance levels. Using our framework, we compare two leading U.S. forestry certification programs, revealing an upward but divergent pattern in policy prescriptiveness. The program founded by activists generally added requirements that impose costs on firms, while the program established by the American Forest & Paper Association generally added requirements that benefit the sector. This is consistent with our hypothesis that industry-backed programs target less costly types of regulatory stringency than activist-backed programs. We also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
+Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
 --> 
 
 # Introduction
-Private governance initiatives such as product certification programs have targeted farm and factory working conditions, greenhouse gas emissions, and fishery, mine, and forest management [@Auld2014; @Bartley2003; @Bozzi2012; @Hudson2003; @VanderVen2015; @Vince2017]. Many of these initiatives were founded by activists who were dissatisfied with public regulations. With tactics like boycotts as “sticks” and brand-boosting praise as “carrots,” activists create incentives for companies to comply with their preferred certification programs, thereby giving these programs rulemaking authority rooted in market power rather than governmental powers [@Cashore2002]. In some sectors, such as forestry, activist-backed programs meet resistance from industry groups that launch competing certification programs to offer more “business-friendly” alternatives. This results in hotly contested debates between supporters of programs founded by activists and supporters of industry-backed alternatives. These debates center on the relative stringency of each program’s requirements. 
+Private governance initiatives, such as product certification programs, have targeted farm and factory working conditions, greenhouse gas emissions, and fishery, mine, and forest management [@Auld2014; @Bartley2003; @Bozzi2012; @Hudson2003; @VanderVen2015; @Vince2017]. Many of these programs were founded by activists who were dissatisfied with public regulations. Using tactics such as boycotts as “sticks” and brand-boosting praise as “carrots,” activists attempt to pressure companies to comply with their preferred certification programs  [@Cashore2002]. When buyers add certification criteria to their purchasing policies and contracts, those certification programs gain power to regulate suppliers. In some sectors, such as forestry, activist-backed programs have met resistance from industry groups that ended up launching competing certification programs to offer more “business-friendly” alternatives. This results in hotly contested debates among supporters of activists and industry-backed alternatives. Much of these debates center on the relative stringency of each program’s regulatory requirements. 
 
-In response to these emerging forms of regulation and ensuing public debates, scholars across political science, economics, and sociology have given sustained theoretical and empirical attention to the evolution of private regulation [@Grabs2018]. A key motivation behind this research is understanding whether the social and market forces behind private regulations lead to similar patterns observed in public regulations, such as a “race to the bottom” as governments attempt to attract capital, a “race to the middle” as shared expectations emerge, or a “race to the top” as companies operating in areas with more stringent regulations lobby to equalize requirements across jurisdictions [@Berger1996; @Rodrik2004; @Vogel1995].
-
-While this scholarship has made great strides, it lacks consistent concepts of regulatory stringency and methods to compare policies over time. Some scholars rely on broad characterizations of regulatory stringency without offering a precise definition. Others base their characterizations on only a small subset of the issues that programs address. Such ambiguity, we argue, has led to seemingly contradictory findings, hindering efforts to compare private regulations and develop theories about why they change. To be sure, these questions interest students of both public policy and private governance, but whereas a rich public policy scholarship has emerged to measure and explain policy change as a dependent variable [@Green-Pedersen2007; @Hall1993; @Howlett2014], students of private governance have given much less attention to the concept of policy change.
+Concepts of regulatory stringency are also at the center of conflicting theoretical and empirical claims from scholars across political science, economics, and sociology about the potential effects of these programs and how and why they evolve. A key motivation behind this research is understanding whether the social and market forces behind private regulations lead to similar patterns observed in public regulations, such as a “race to the bottom” as governments attempt to attract capital, a “race to the middle” as shared expectations emerge, or a “race to the top” as companies operating in areas with more stringent regulations lobby to equalize requirements across jurisdictions [@Berger1996; @Rodrik2004; @Vogel1995]. While private governance scholars have made great strides [@Grabs2018], abstract, incomplete, and inconsistent measures regulatory stringency hinder efforts to compare these regulations and assess theories about why they change. We argue that more attention to measurement concepts can explain seemingly contradictory findings and will allow more tractable statements of theory. To be sure, these questions interest students of both public policy and private governance, but whereas a rich public policy scholarship has emerged to measure and explain policy change as a dependent variable [@Green-Pedersen2007; @Hall1993; @Howlett2014], students of private governance have given much less attention to the concept of policy change.
  
-To address this gap, we build on public policy concepts to offer a two-part framework to describe and compare regulations over time. Part one of this framework distinguishes three types of regulatory stringency: 1) How comprehensive is the scope of issues addressed? 2) How prescriptive are the requirements?  3) What are the specific levels of performance required? Part two offers a method to classify changes across programs, yielding nine possible patterns to describe both relative and absolute directions of policy change. This approach provides a common language to describe how various regulations in the same policy space may change over time. Such research is especially important where multiple programs, backed by different coalitions, compete to exercise regulatory authority. By distinguishing among types of regulatory stringency and patterns of change, many of the hypotheses advanced by the private governance literature can be restated in ways that are more conceptually precise and thus more tractable for empirical testing.
+To address this gap, we build on taxonomies from public policy schoarship to offer a two-part framework to describe and compare regulations over time. Part one of this framework distinguishes three types of regulatory stringency: 1) How comprehensive is the scope of issues addressed? 2) How prescriptive are the requirements?  3) What are the specific levels of performance required? Part two offers a method to classify changes across programs, yielding nine possible patterns to describe both relative and absolute directions of policy change. This approach provides a common language to describe how various regulations in the same policy space may change over time. Such research is especially important where multiple programs, backed by different coalitions, compete to exercise regulatory authority. By distinguishing among types of regulatory stringency and patterns of change, many of the hypotheses advanced by the private governance literature can be restated in ways that are more conceptually precise and thus more tractable for empirical testing.
 
-We proceed in the following steps. Section two maps the different concepts and measures of regulatory stringency in existing private governance scholarship. Section three presents our framework to distinguish three types of stringency and compare them across programs and over time. In section four, we use this framework to compare competing forest certification programs, one of the most institutionalized forms of private regulation. Overall, the activist-backed program is more prescriptive on more issues than the industry-backed program and has become more so over time.  Comparing the regulations from each other yields a pattern of “ratcheting up” but also of “diverging” prescriptiveness as the activist-backed group imposes increasingly stringent rules and the industry-backed group imposes rules that are increasingly less stringent. In particular, the activist-backed program increased requirements on ecological protection, while the industry-backed program increased requirements on issues relating to efficient business operations and public perceptions of forestry. However, in 2015 the industry-backed program introduced new requirements on three social and ecological issues that were historically emphasized by the activist-backed program. These results raise questions for future research, which we outline in section five.
+We proceed in the following steps. Section two maps the different concepts and measures of regulatory stringency in existing private governance scholarship. Section three presents our framework to distinguish three types of stringency and compare them across programs and over time. In section four, we use this framework to compare competing forest certification programs, one of the most institutionalized forms of private regulation. Section five discusses the implications of our results for theory and outlines steps for future research.
 
 # Regulatory stringency 
-Public policy scholarship has long been concerned with how different kinds of regulatory stringency might have different causes or effects [see @Brunel2016 for a review]. Private governance scholars’ limited attention to these questions is problematic because measuring regulatory stringency is necessary to assess theoretical debates about the role of policy content as both a dependent and explanatory variable. A measure of regulatory stringency as a dependent variable is necessary to test propositions about the way in which activist campaigns, market forces, and competition among alternative programs shape policy content. Conversely, a measure of regulatory stringency is also necessary to test propositions about how policy content shapes activist support, market adoption, impact, and how other programs respond.
+Measuring regulatory stringency is often necessary to assess how activist campaigns, market forces, and competition among programs shape policy content (i.e. as the dependent variable), and likewise, to assess how policy content shapes activist support, market adoption, impact, and how other programs respond (i.e. as the explanatory variable). 
 
-*Stringency as an explanatory variable:* Scholars who study how private regulations gain legitimacy, trust, or support from various audiences posit that regulatory stringency is a key explanatory variable. For example, @McDermott2012 argues that stringency may reduce trust by mandating formulaic, top-down approaches. @Atkinson2014 find that perceived stringency increases market demand for certified products, but @Prado2013 finds that it also reduces adoption by firms. @Meidinger2003 suggests that changes in stringency that disadvantage some firms or groups may catalyze these actors to create alternative private regulatory programs. Alternatively, those disadvantaged by changes to private regulation may then opt to pursue their aims through public policy [@Weimer2006]. Such consequences are consistent with broader findings from literatures on “corporate social responsibility” (CSR) initiatives, such as environmental management systems (EMS), industry codes of conduct, and third-party certification programs, which find that more costly requirements are less likely to be adopted [@Delmas2008; @Kollman2001; @Lyon2008]. 
+*Stringency as an explanatory variable:* Scholars who study how private regulations gain legitimacy, trust, or support from various audiences posit that regulatory stringency is a key explanatory variable for these outcomes. For example, @McDermott2012 argues that stringency may reduce trust by mandating formulaic, top-down approaches. @Atkinson2014 find that perceived stringency increases market demand for certified products, but @Prado2013 finds that it also reduces adoption by firms. @Meidinger2003 suggests that changes in stringency that disadvantage some firms or groups may catalyze these actors to create alternative private regulatory programs. Alternatively, those disadvantaged by changes to private regulation may then opt to pursue their aims through public policy [@Weimer2006]. Such consequences are consistent with broader findings from literatures on “corporate social responsibility” (CSR) initiatives, such as environmental management systems (EMS), industry codes of conduct, and third-party certification programs, which find that more costly requirements are less likely to be adopted [@Delmas2008; @Kollman2001; @Lyon2008]. 
 
 The effects of stringency on trust, legitimacy, compliance cost, and adoption matter because understanding the likely future impact of private regulations “on the ground” requires understanding their evolutionary trajectories [@VanderVen2018]. Even activist-backed programs that establish stringent requirements on one issue at one point in time may not do so on other issues and at other times [@LeBaron2018]. Nuanced gaps in otherwise stringent private regulations—“regulatory loopholes”—may also explain their lack of success in addressing problems like deforestation [@VanderVen2018]. Taken together, these studies suggest that changes in regulatory stringency may have a wide range of effects, but assessing them is often hampered by inadequate attention to defining and measuring stringency as an explanatory variable.
 
@@ -62,7 +60,7 @@ Taken together these studies posit a wide range of theories to explain change in
 ## Concepts & Measurement of Variation in Private Regulations 
 The diversity of private governance scholars’ conceptual and empirical approaches to measuring regulatory stringency makes this literature vibrant but confusing: Some scholars evoke vertical notions of variation, describing standards as high or low or more or less stringent [@Fischer2014; @Li2015]. Others evoke horizontal notions of variation, describing the width or breadth of issues covered [@Auld2014; @Heyes2017]. @Cashore2007 calls attention to variation in prescriptiveness versus flexibility, i.e., the extent to which regulations use mandatory and substantive performance thresholds. Other scholars combine concepts of breadth and prescriptiveness into one broader notion of stringency [@Fransen2011]. Some measure height in a relative sense, defining the “benchmark” as the higher standard [@Overdevest2005; @Overdevest2010]. These distinct dimensions of stringency are often conflated. For example, formal models often assign each program a single overall “quality” or “stringency” parameter that could be measured multiple ways yielding different results. And these are only a few of the many measures of stringency used in this literature, ranging from so broad that they conflate multiple concepts to so narrow that they measure only a few select components (see Table 1). 
 
-Overall, concepts of stringency in existing work tend to be either insufficiently precise to be consistently applied across programs, insufficiently comprehensive to yield consistent results, or completely absent.
+Overall, concepts of stringency in existing work tend to be either insufficiently precise to be consistently applied across programs, insufficiently comprehensive to yield consistent results, or completely absent. Similar problems plague public policy scholarship [@Brunel2016].
 
 ![Table 1: Concepts and measures of regulatory stringency](Figs/table1.png)
 
@@ -79,7 +77,7 @@ Second, binary indicators such as whether or not a program addresses a given top
 To address these challenges, we distinguish three types of regulatory stringency and illustrate how doing so enables scholars to compare programs across issues and over time more systematically. 
 
 # A Framework to classify change in private regulations 
-Students of public policy have long recognized the need to break policies into their component parts, finding different explanations for change for different policy goals and means to achieve them [@Cashore1997; @Hall1993; @Weimer2017]. While private governance scholars have shown that private regulations resemble public laws [@Meidinger2003, @Meidinger2006], they have paid less attention to distinctions between policy ends and means. Similarly, policy change, a core concept in public policy scholarship, remains underdeveloped in research on private regulation. We thus draw on public policy scholarship to address these gaps.
+Different types of regulatory stringency might have different causes or effects. Students of public policy have long recognized the need to break policies into their component parts, finding different explanations for change for different policy goals and means to achieve them [@Cashore1997; @Hall1993; @Weimer2017]. While private governance scholars have shown that private regulations resemble public laws [@Meidinger2003, @Meidinger2006], they have paid less attention to the distinction between policy ends and means. Similarly, policy change, another core concept in public policy scholarship, remains underdeveloped in research on private regulation. We thus draw on public policy scholarship to address these gaps by offering a framework to (1) measure different types stringency and (2) characterize change over time.
 
 ## Step 1: Measuring scope, prescriptiveness, and policy settings
 We focus on three dimensions of variation: (1) the comprehensiveness of a regulation’s scope (i.e. which policy problems it addresses), (2) the extent to which requirements are prescriptive versus flexible (i.e. whether they have mandatory and substantive thresholds), and (3) the levels of those thresholds or similarly specific policy settings. Our framework thus combines qualitative issue-by-issue comparison of policy settings with two measurement concepts, policy scope and prescriptiveness, that can be applied across issue areas and thus aggregated to measure overall stringency.  That is, by comparing the number of issues covered by a regulation and the number of prescriptive requirements on those issues, scholars can assess aggregate trends.
@@ -87,41 +85,8 @@ We focus on three dimensions of variation: (1) the comprehensiveness of a regula
 The first step for scholars who wish to make claims about stringency or direction of change involves three tasks: describing policy content according to policy settings, scope, and prescriptiveness (Table 2). Comparing across programs requires a second step: measuring relative stringency and change on each dimension (see Table 3). First, we elaborate on step one.
 
 \begin{figure}
-\caption{Table 2: Measures of Regulatory Stringency}
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.09\columnwidth}\raggedright\strut
-\strut
-\end{minipage} & \begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
-Program Level\strut
-\end{minipage} & \begin{minipage}[b]{0.41\columnwidth}\raggedright\strut
-Issue Level\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
-Policy Ends\strut
-\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
-How \textbf{comprehensive} is the \textbf{scope} of issues
-addressed?\strut
-\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
-What are the \textbf{specific requirements (i.e.~policy settings)} on
-each issues? (e.g.~the specific size of stream buffer zones)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.09\columnwidth}\raggedright\strut
-Policy Means\strut
-\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
-In aggregate, across all issues, how \textbf{prescriptive} is each
-regulation? To what extent (e.g.~on what portion of issues) are there
-mandatory and substantive thresholds?\strut
-\end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\raggedright\strut
-1. How \textbf{prescriptive} is each requirement? 2. How are they
-enforeced?*\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-*Beyond the scope of this paper
+\caption{Table 1: Concepts and measures of regulatory stringency}
+\input(tables/types-of-stringency.tex}
 \end{figure}
 
 *Scope:* To assess a regulation's scope, we must inductively derive a set of distinct policy “issues” that are addressed by one or more regulatory texts in a given policy domain. We can then measure the comprehensiveness of each regulation’s scope by asking which of these issues it addresses. While this approach reduces the risk of omitting key issues on which regulations may vary, it is costly. Scholars may thus opt for a limited scope, as long as they clearly describe their scope relative to the potential set of comparisons. A comprehensive approach is necessary, however, to assess claims about the scope of regulations (such as the hypotheses from section 2.3). We can measure a regulation's scope in an absolute sense (how many issues it addresses), in a relative sense (how many more or fewer issues it addresses than its competitor), and in change over time (on how many issues were requirements added or subtracted).
@@ -152,9 +117,9 @@ Our core methodological critique is that different dimensions of stringency may 
 
 - **H1.2:** An industry-backed regulation will be more likely to respond to changes in an activist backed regulation by converging in scope than in prescriptiveness or performance levels.
 
-*Differentiation:* Another core theoretical claim is that different coalitions will establish qualitatively different policies [@Botzem2012; @Hsueh2012]. By distinguishing types of stringency, we may identify qualitative differences in how stringency varies across programs.
+*Differentiation:* Another core theoretical claim is that different coalitions will establish qualitatively different policies [@Botzem2012; @Hsueh2012]. By distinguishing types of stringency, we can reflect on existing literature to identify qualitative differences in how stringency varies across programs.
 
-We suggest that the relative stringency of an industry-backed program on a given issue depends on whether it results in net costs or net benefits to the industry. Activist-backed programs drive stringency on issues where requirements impose costs on firms in order to achieve social or ecological goals. We call these “costly issues.” On these issues, an industry-backed program must balance achieving legitimacy through perceived stringency with minimizing compliance costs. The result is likely to be a lower level of stringency than that of an activist-backed program, especially where industry-backed programs can more easily create an impression of stringency or where compliance costs are high.
+For instance, we expect that the relative stringency of an industry-backed program on a given issue will depends on whether the requirements results in net benefits to the industry. In contrast, we would expect activist-backed programs to target issues where requirements impose costs on firms in order to achieve social or ecological goals. When responding to such requirements, an industry-backed program will be balancing the need to maintain legitimacy in the eyes of buyers with the need minimize compliance costs for the industry. The result is likely to be a lower level of stringency than that of an activist-backed program, even as they both change over time. We would also expect this difference to be broader on issues where industry-backed programs can more easily foster an impression of stringency or where compliance costs are relatively higher.
 
 The opposite result is likely on issues where requirements provide net benefits to the industry. Here, activist-backed programs have little incentive to develop stringent requirements because activist pressure is redundant. These “business-friendly” issues are frequently addressed by industry associations. They include coordinating resources and solving collective action problems related to industry reputation (e.g. through public image campaigns) and capacity (e.g. by developing collective goods like technical knowledge or a skilled workforce). By "collective action," we merely mean actions across individuals that have net benefits but that requires a coordinating institution. Another business-friendly strategy to create perceptions of stringency may be to add requirements to do things that firms would do anyway. If observers fail to distinguish among different types of stringency on different issues, such a strategy may be a low cost and effective way to shape perceptions of overall stringency.
 
@@ -224,79 +189,8 @@ Policy Settings: Issues such as clearcut size limits and limits on harvesting ne
 ![Figure 5: Limits on Harvesting Near Streams](Figs/riparian-1.png)
 
 \begin{figure}
-\caption{Table 4: Qualitative levels of performance required}
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\begin{minipage}[b]{0.20\columnwidth}\raggedright\strut
-Issue\strut
-\end{minipage} & \begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
-Activist-backed FSC-US\strut
-\end{minipage} & \begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
-Industry-backed SFI\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
-Indigenous peoples' rights\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Recognize and uphold rights, customs, culture including UNDRIP. No
-threat to rights or resources. Free, prior, and informed consent on
-public and private lands. Engage indigenous peoples and consult with
-affected groups. Cooperate to identify and protect significant sites.
-Compensate for indigenous knowledge and utilize as requested.\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-A written policy acknowledging a commitment to recognize and respect
-rights.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
-Public Reporting and Consultation\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Required on public and private lands.\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Required on public lands.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
-Forest conversion to non-forest\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Prohibited except limited areas where clear, substantial, additional,
-secure, long-term conservation benefits.\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-No specific policy.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
-Old growth forest\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Old growth is normally mapped as conservation forest. Only restoration
-management on public land. Legacy trees not harvested. Maintain
-structure, composition, and processes. A portion of the forest is
-restored where old growth would naturally occur.\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Support and participate in programs for old growth conservation in the
-region --- no identification or restoration requirements.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
-Protected areas\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Conserve or restore a representative area of natural ecosystems. Assess
-and maintain environmental values and necessary conservation
-measures.\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-No specific policy.\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright\strut
-Threatened and Endangered Species\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Survey and report or assume the presence of vulnerable, imperiled, and
-critically imperiled. Maintain habitat \& viable populations.\strut
-\end{minipage} & \begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-Program to protect threatened and endangered species and known sites.
-Protect viable occurrences of critically imperiled or imperiled
-species.\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
+\caption{Table 4: Qualitative levels of performance required }
+\input(tables/issues.tex}
 \end{figure}
 
 While both the FSC-US and SFI became more prescriptive, they did so to different degrees and in different areas. The SFI’s changes in 2010 emphasized issues related to industrial capacity (e.g. worker training requirements) and reputation (e.g. managing the visual impact of harvesting, communicating with stakeholders about logging, and educating the public about forestry), issues where SFI already had the most prescriptive requirements. Changes made the same year by the FSC-US emphasized conservation-oriented forestry while removing a training requirement.
@@ -313,47 +207,16 @@ The 2015 changes to the SFI standard reflect a different tack. In contrast to th
 ## Overall comparison
 By distinguishing different types of stringency on a comprehensive set of issues, our framework improves upon blunt measures of “high” or “low” based on generalizations or only a few issues. We now aggregate our issue-specific results to reflect on more general trends: 
 
-One way to group issues is by ecological goals, social goals, and business-oriented goals. For the purposes of evaluating our hypotheses, we consider business-oriented goals to be efforts that provide net utility to the industry while social and ecological goals generally inflict costs for broader aims. 
-
-On ecological goals, the FSC-US standard was significantly more stringent than the SFI standard on both scope and prescriptiveness dimensions. On social goals, results are more mixed. On scope, the FSC-US standard protects land tenure and requires that local communities benefit from harvesting in ways that were unmatched by SFI’s standard, but the SFI requires contributions for forestry research, which the FSC does not. Numerically, one could say that FSC-US had a broader scope of social benefits (depending on what issues one considers “social”), but the programs do present tradeoffs between conceptions of the public good. On prescriptiveness, the contrast is again more stark, with the FSC-US standard having significantly more prescriptive requirements on most social issues. On policy settings, the two standards have significant differences. On labor standards and indigenous rights, the FSC-US standard required higher wages and more attention to rights than the SFI standard did. In short, by conventional definitions of what counts as a social issue, by most qualitative comparisons, and certainly in terms of prescriptiveness, the FSC-US standard is more stringent than the SFI standard on social issues. 
+Overall our results are consistent with the expectation that activist based programs are likely to increase on more costly types of stringency. On ecological goals, the FSC-US standard was significantly more stringent than the SFI standard on both scope and prescriptiveness dimensions. On social goals, results are more mixed. On scope, the FSC-US standard protects land tenure and requires that local communities benefit from harvesting in ways that were unmatched by SFI’s standard, but the SFI requires contributions for forestry research, which the FSC does not. Numerically, one could say that FSC-US had a broader scope of social benefits (depending on what issues one considers “social”), but the programs do present tradeoffs between conceptions of the public good. On prescriptiveness, the contrast is again more stark, with the FSC-US standard having significantly more prescriptive requirements on most social issues. On policy settings, the two standards have significant differences. On labor standards and indigenous rights, the FSC-US standard required higher wages and more attention to rights than the SFI standard did. In short, by conventional definitions of what counts as a social issue, by most qualitative comparisons, and certainly in terms of prescriptiveness, the FSC-US standard is more stringent than the SFI standard on social issues. 
 
 On more business-oriented goals such as efficiency (e.g. levels of cut tree utilization), industry capacity (e.g. workforce training and research), and industry reputation (e.g. public education and aesthetics), the conclusions are largely reversed. SFI is slightly broader in scope, requiring contributions to research where FSC does not, is more prescriptive, and requires increasingly demanding performance levels on many business-friendly issues. 
 
 ## Patterns of change
-The dominant patterns were equilibrium and upward divergence. In most years, neither program changed on any issue (the center cell in Table 3, “equilibrium”). Most changes for both programs occurred in 2010 where the overall pattern was divergence (also called differentiation), rather than convergence or stability. The vast majority of changes (twenty-one of twenty-seven issues changed) fit a pattern where one program increased prescriptiveness while the other did not (or in one case, did increase to a lesser degree) and the program that increased stringency already had the more prescriptive requirements. On eighteen issues, the other program stayed the same, leading to upward divergence. On three issues, the less prescriptive program decreased prescriptiveness, leading to opposing divergence (see Table 5). 
+Upward divergence was the dominant pattern of change. In most years, neither program changed on any issue (the center cell in Table 3, “equilibrium”). Most changes for both programs occurred in 2010 where the overall pattern was divergence (also called differentiation), rather than convergence or stability. The vast majority of changes (twenty-one of twenty-seven issues changed) fit a pattern where one program increased prescriptiveness while the other did not (or in one case, did increase to a lesser degree) and the program that increased stringency already had the more prescriptive requirements. On eighteen issues, the other program stayed the same, leading to upward divergence. On three issues, the less prescriptive program decreased prescriptiveness, leading to opposing divergence (see Table 5). 
 
 For all sixteen issues on which only the FSC-US added requirements, it already had the more prescriptive requirements, and almost all of these additions address ecological problems. Similarly, for three out of the four issues on which only the SFI added requirements, the SFI already had more prescriptive requirements. Qualitatively, these three issues—maximizing the utilization of cut trees, public education, and worker training—reflect concerns for the efficiency, reputation, and capacity of the forest products industry. Educating the public about forestry practices and products and training workers may not exclusively benefit individual firms. Because of the broad adoption of SFI standards, such requirements may provide collective benefits for the sector, in the form of a positive public image and skilled workforce.
 
-\begin{figure}
-\caption{Table 5: 2010 and 2015 Patterns of Change in Prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues}
-
-2010
-
-\begin{longtable}[]{@{}lccc@{}}
-\toprule
-& Converging & Parallell & Diverging\tabularnewline
-\midrule
-\endhead
-Increasing & 1 & 3 & 18\tabularnewline
-Opposing or Eqilibrium & 0 & 21 & 3\tabularnewline
-Decreasing & 2 & 0 & 0\tabularnewline
-\bottomrule
-\end{longtable}
-
-\centerline{2015}
-
-\begin{longtable}[]{@{}lccc@{}}
-\toprule
-& Converging & Parallell & Diverging\tabularnewline
-\midrule
-\endhead
-Increasing & 3 & 0 & 0\tabularnewline
-Opposing or Eqilibrium & 0 & 45 & 0\tabularnewline
-Decreasing & 0 & 0 & 0\tabularnewline
-\bottomrule
-\end{longtable}
-
-\end{figure}
+[Table 5: 2010 and 2015 Patterns of Change in Prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues]
 
 Convergence and parallel change were rare. An upward parallel change occurred on only three issues in 2010: forest management planning, controlling carbon emissions, and reporting and consultation, where both programs added requirements. We classify the addition of protections for riparian zones by both SFI and FSC-US as another case of upward divergence rather than upward parallel change because the requirements for riparian protection added by the FSC-US are more prescriptive. Upward convergence only occurred where FSC-US added requirements on the issue of “continual improvement” of harvesting operations, an issue usually associated more with the SFI. This outcome is interesting because scholars generally predict that private regulations that are less stringent overall will converge toward “benchmark” standards like FSC’s [@Overdevest2005; @Overdevest2010]. Instead, we find the FSC ratcheting up on an issue where its industry-backed competitor had more stringent requirements. Indeed, most studies overlook the possibility that industry-backed standards like the SFI may be more stringent on some issues. We see downward convergence only on Community Benefits and Tenure Rights where the more prescriptive FSC-US removed requirements, thus moving closer to SFI. No issues exhibited downward parallel or downward diverging trajectories. 
 
@@ -389,7 +252,6 @@ Through the case of forestry standards in the U.S., we show what can be gained b
 This approach also has practical value. First, the power dynamics among groups that promote programs like the FSC or the SFI have created an environment in which competing claims about policy substance and how it has changed confuse buyers. The politics of private regulation revolve around "public comparisons that would resolve the debate about whose standards were higher" [@Overdevest2010]. We offer concepts to clarify what “higher” standards may mean. Second, it is impossible to measure the impact of a set of regulatory requirements without disentangling their component parts. Thus, our textual analysis is a necessary first step for efforts to assess impacts on the ground.
 
 Most importantly, our framework and analysis offer a model for careful measurement of policy change as a variable. It is tempting to take shortcuts by making broad generalizations or by selecting what is easy to measure or what others have highlighted. However, if private governance scholars are to build testable theories or collect the kinds of evidence needed to test existing theories, our study illustrates the benefits of defining policy change in ways that can be applied across programs and over time. Doing so will not only improve the quality of research and theory, it may also uncover entirely new puzzles and insights.
-
 
 
 
