@@ -1,0 +1,58 @@
+---
+documentclass: sagej
+classoption: preprint
+bibliography:  mendeley.bib
+biblio-style: sageapa
+# citecolor: black
+---
+
+
+Dear Tom:
+
+Thank you for again reading and providing helpful comments on our manuscript. We hope we have successfully addressed your concerns. We have adopted all of your suggestions except for the question about causal dynamics, which we hesitate to do without evidence. 
+
+*Taking your specific suggestions in order:*
+You suggested that we mention the 3 parts of our framework in the abstract. We now do so. 
+
+You requested more detail on policy settings. We have added several additional paragraphs qualitatively comparing policy settings as well as several new figures illustrating qualitative and quantitative differences. We include more detailed summaries in the online appendix B (appendix A is our raw data, which is even more detailed, but less accessible). 
+
+You suggested that we focus more on comparable issues such as clearcuts, riparian, species, old growth. We added figures 5 and 6 comparing policy settings on clearcuts and riparian buffers, as well as table 5 comparing policy settings on other key issues, including threatened species (these things can only be compared qualitatively). 
+
+You noted that figures containing information about policy settings have been dropped, and are not even referred to as being in an online appendix. We have brought back these figures and added more detailed references to the online appendix. 
+
+You suggested that we refer to @Brunel2016 on how to measure stringency. Thank you for bringing this interesting article to our attention. We reference it as an authoritative review of attempts to measure stringency in public regulation. The concept they call "multidimensionality" is what we mean when we say that each policy may cover a different scope of issues. We retain "issue scope" because we find it a clearer term. While the authors review a number of important conceptual challenges and how approaches to date fall short of their ideal, they do not offer a measurement framework per se. Furthermore, the other three challenges on which they focus (simultaneity, industrial composition, and capital vintage) are about the causes of stringency rather than its measurement. Instead, they offer some helpful criteria for a measurement framework. We cite these criteria and how our framework meets them:
+
+"Such a measure would be available annually in order to facilitate panel data models that address some sources of simultaneity. It would be cardinal, enabling assessment of magnitudes, and either available for various pollutants and media or combinable into a single overarching measure of multidimensional stringency. It would be theoretically related to the costs facilities incur when they abate pollution, but it would not be determined by industrial composition." (Brunel and Levinson 2016, pg. 62, emphasis added)
+
+This framework helps researchers accomplish four key tasks that @Brunel2016 set out for a measure of regulatory stringency (1) measure change over time, (2) assess both relative and absolute magnitudes, (3) aggregate across multiple issue areas, and (4) it can be theoretically related to compliance costs. To these criteria, we add that any measurement approach should also capture qualitative differences in policy settings.
+
+You asked that we be clear on where exactly a collective action problem arises and why and then tie this back to what the standards do. We added the following paragraphs before our statement of hypotheses 2.1 and 2.2 as well as a new subsection in the discussion (section 5.4) to clarify the relationship between what we now call "business-friendly" issues and collective action problems. In short, some business-friendly issues (those commonly addressed by industry associations) help organize the provision of collective goods for the industry). Other business-friendly issues simply require firms to do things they would do anyway (i.e. greenwashing). We have added the following in section 2.3:
+"We suggest that the relative stringency of an industry-backed program on a given issue depends on whether it results in net costs or net benefits to the industry. Activist-backed programs drive stringency on issues where requirements impose costs on firms in order to achieve social or ecological goals. We call these “costly issues.” On these issues, an industry-backed program must balance achieving legitimacy through perceived stringency with minimizing compliance costs. The result is likely to be a lower level of stringency than that of an activist-backed program, especially where industry-backed programs can more easily create an impression of stringency or where compliance costs are high.
+
+The opposite result is likely on issues where requirements provide net benefits to the industry. Here, activist-backed programs have little incentive to develop stringent requirements because activist pressure is redundant. These “business-friendly” issues are frequently addressed by industry associations. They include coordinating resources and solving collective action problems related to industry reputation (e.g. through public image campaigns) and capacity (e.g. by developing collective goods like technical knowledge or a skilled workforce). By "collective action," we merely mean actions across individuals that has net benefits but that requires a coordinating institution. Another business-friendly strategy to create perceptions of stringency, may be to add requirements to do things that firms would do anyway. If observers fail to distinguish among different types of stringency on different issues, such a strategy may be a low cost and effective way to shape perceptions of overall stringency."
+
+And this subsection: 
+5.4 Industry-backed certification programs as a form of collective action.
+Industry-backed certification programs as a form of collective action.
+Our finding that the SFI was more prescriptive and continued to become more prescriptive than the FSC-US on certain issues highlights how industry-backed certification programs can serve their industry in two ways. First, they provide individual firms with a service—market signals of "social responsibility" that require a credible third party. These signals would be more expensive to send by complying with an activist-backed regulation. Second, they provide a mechanism for the industry to improve its collective reputation and capacity by coordinating contributions to collective goods, a common function of industry associations. While change on costly issues likely driven by competition among standards, on business-friendly issues, activist pressure is not necessary. Indeed, firms often collaborate on the latter type of issues (e.g., industry standards, reputation, and capacity) through trade associations without pressure from activists.
+
+Regarding the first, @Cashore2004 point out that industry-backed alternatives aim to save firms money by offering a label that sends a “green” or “socially responsible” signal in the market without some of the more costly demands of activist-backed programs. Credible signals are often based, in part, on perceived stringency, but because perceived and actual stringency may differ, industry-backed programs can send “credible” signals while maintaining lower compliance costs. Labels like SFI are not necessarily “meaningless” or pure “greenwashing”—indeed a certain level of stringency is often required to maintain legitimacy—but exceeding this “floor” imposes costs on firms. On many issues, industry-backed programs may succeed in creating the necessary impression of equivalence to the stringency of activist-backed standards with substantially less prescriptive requirements. For example, the SFI requirements for “Forests of Exceptional Conservation Value” (FECV) are much less prescriptive than the FSC-US requirements for “High Conservation Value Forests” (HCVF), despite the similar name. By supporting alternative programs, firms collectively create institutions that help them maximize the impression of stringency while minimizing the costs of doing so. This dynamic describes most key issues in our study.  
+
+Regarding the second, the fact that SFI developed more prescriptive standards than did FSC-US on several issues is inconsistent with the predictions that competition between industry-backed and activist-backed competition will lead to a “race to the bottom” on all issues. It is also inconsistent with the prediction that activist-backed standards be more prescriptive on all issues. However, the substance of these issues suggests that these requirements are unrelated to competition with the FSC. SFI has the most prescriptive requirements for actions that firms may take anyway—like training and efficiency—or that may be driven by their own collective action problems—like managing the visual impact of harvesting and sector-level reputation.
+
+In sum, where the SFI has more prescriptive requirements than the FSC, it requires things that many firms may do anyway (e.g., train workers or educate the public), but have added collective benefits the more widely they are adopted. While unforeseen by existing theories, the fact that the SFI is more prescriptive on some issues is not surprising when we understand these issues as providing net benefits to the sector regardless of activist pressures or consumer demands.  
+
+
+You suggest interesting possible causes for the patterns we observe (e.g. the incentives of nonprofits or shifting market demand). Unfortunately, we do not have the data needed to comment on factors like market demand or shifts in stakeholder power within organizations. Thus, we cannot say which dynamic may be occurring, though we hope future scholars will investigate these potential causes. To adequately speculate on possible causes (i.e. outline potential research programs for future work) would require several pages. Our original submission posited four broad schools of thought and potential causes suggested by each. However, one of the reviewers found this speculation to be a poor fit, so we cut it. We believe that bringing back an abbreviated version of that section that only speculated on a few causes would be a disservice to the other equally valid lines of research.
+
+*Regarding your specific suggestions for the figures: *
+
+Regarding Figures 3 and 4 (now 2 and 3), you asked us to (1) be more clear about what they cover (2) clarify the plot legends and labels, (3) simplify the lines and colors. We hope our revised figures 2 and 3 succeed on these fronts. We also added an additional paragraph describing the important takeaways from each figure. 
+
+You also noted that the shading scale includes both absolute and relative measures. We have clarified these figures, but the scale remains similar. One could think of the shading as just an absolute scale from "no requirements" to the "most prescriptive of any standard." Or one could think of it as just a relative scale as (from "nothing to compare" to "less prescriptive" to "same or more"). We did change the middle category to "less prescriptive" to try to align the scale to be more relative. 
+
+Thank you again for your ongoing feedback. 
+
+Sincerely, 
+
+Devin, Connie, and Ben
