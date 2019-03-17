@@ -62,7 +62,7 @@ The diversity of private governance scholars’ conceptual and empirical approac
 
 Overall, concepts of stringency in existing work tend to be either insufficiently precise to be consistently applied across programs, insufficiently comprehensive to yield consistent results, or completely absent. Similar problems plague public policy scholarship [@Brunel2016].
 
-![Table 1: Concepts and measures of regulatory stringency](Figs/table1.png)
+\input{tables/review}
 
 In the absence of consistent measures of regulatory stringency, scholars have turned to proxy measures that can be more easily compared across programs. For example, @Darnall2010 suggest that a program’s sponsor is a signal of its stringency. In the broadest study to date, @VanderVen2015 uses another common proxy for stringency--compliance with perceived “best practices,” which are often also considered “benchmarks” for measuring stringency but are based on a variety of different notions of “rigor” and “credibility.” However, these approaches do not allow scholars to examine relationships between stringency and program sponsorship or between stringency and perceived stringency.
 
@@ -84,10 +84,7 @@ We focus on three dimensions of variation: (1) the comprehensiveness of a regula
 
 The first step for scholars who wish to make claims about stringency or direction of change involves three tasks: describing policy content according to policy settings, scope, and prescriptiveness (Table 2). Comparing across programs requires a second step: measuring relative stringency and change on each dimension (see Table 3). First, we elaborate on step one.
 
-\begin{figure}
-\caption{Table 1: Concepts and measures of regulatory stringency}
-\input(tables/types-of-stringency.tex}
-\end{figure}
+\input{tables/types-of-stringency}
 
 *Scope:* To assess a regulation's scope, we must inductively derive a set of distinct policy “issues” that are addressed by one or more regulatory texts in a given policy domain. We can then measure the comprehensiveness of each regulation’s scope by asking which of these issues it addresses. While this approach reduces the risk of omitting key issues on which regulations may vary, it is costly. Scholars may thus opt for a limited scope, as long as they clearly describe their scope relative to the potential set of comparisons. A comprehensive approach is necessary, however, to assess claims about the scope of regulations (such as the hypotheses from section 2.3). We can measure a regulation's scope in an absolute sense (how many issues it addresses), in a relative sense (how many more or fewer issues it addresses than its competitor), and in change over time (on how many issues were requirements added or subtracted).
 
@@ -188,10 +185,7 @@ Policy Settings: Issues such as clearcut size limits and limits on harvesting ne
 
 ![Figure 5: Limits on Harvesting Near Streams](Figs/riparian-1.png)
 
-\begin{figure}
-\caption{Table 4: Qualitative levels of performance required }
-\input(tables/issues.tex}
-\end{figure}
+\include{tables/issues.tex}
 
 While both the FSC-US and SFI became more prescriptive, they did so to different degrees and in different areas. The SFI’s changes in 2010 emphasized issues related to industrial capacity (e.g. worker training requirements) and reputation (e.g. managing the visual impact of harvesting, communicating with stakeholders about logging, and educating the public about forestry), issues where SFI already had the most prescriptive requirements. Changes made the same year by the FSC-US emphasized conservation-oriented forestry while removing a training requirement.
 
@@ -216,7 +210,7 @@ Upward divergence was the dominant pattern of change. In most years, neither pro
 
 For all sixteen issues on which only the FSC-US added requirements, it already had the more prescriptive requirements, and almost all of these additions address ecological problems. Similarly, for three out of the four issues on which only the SFI added requirements, the SFI already had more prescriptive requirements. Qualitatively, these three issues—maximizing the utilization of cut trees, public education, and worker training—reflect concerns for the efficiency, reputation, and capacity of the forest products industry. Educating the public about forestry practices and products and training workers may not exclusively benefit individual firms. Because of the broad adoption of SFI standards, such requirements may provide collective benefits for the sector, in the form of a positive public image and skilled workforce.
 
-[Table 5: 2010 and 2015 Patterns of Change in Prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues]
+\input{tables/patterns-2010-2015}
 
 Convergence and parallel change were rare. An upward parallel change occurred on only three issues in 2010: forest management planning, controlling carbon emissions, and reporting and consultation, where both programs added requirements. We classify the addition of protections for riparian zones by both SFI and FSC-US as another case of upward divergence rather than upward parallel change because the requirements for riparian protection added by the FSC-US are more prescriptive. Upward convergence only occurred where FSC-US added requirements on the issue of “continual improvement” of harvesting operations, an issue usually associated more with the SFI. This outcome is interesting because scholars generally predict that private regulations that are less stringent overall will converge toward “benchmark” standards like FSC’s [@Overdevest2005; @Overdevest2010]. Instead, we find the FSC ratcheting up on an issue where its industry-backed competitor had more stringent requirements. Indeed, most studies overlook the possibility that industry-backed standards like the SFI may be more stringent on some issues. We see downward convergence only on Community Benefits and Tenure Rights where the more prescriptive FSC-US removed requirements, thus moving closer to SFI. No issues exhibited downward parallel or downward diverging trajectories. 
 

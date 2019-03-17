@@ -1,4 +1,5 @@
 ---
+documentclass: sagej
 title: Do Private Regulations Ratchet Up?
 subtitle: How to distinguish types of regulatory stringency and patterns of change
 author: 
@@ -12,28 +13,22 @@ author:
   # affiliation: University of Wisconsin--Madison
   # footnote: 
 date: "`r format(Sys.time(), '%B %d, %Y')`"
+abstract: "Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
 # thanks: "Replication files are available on the author's Github account..."
-abstract: "Scholars present conflicting accounts of change in private regulations, including whether competing programs “race to the bottom,” “ratchet up,” “converge,” or “diverge.” We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to distinguish three often-conflated measures: policy scope, prescriptiveness, and performance levels. Using our framework, we compare two leading U.S. forestry certification programs, revealing an upward but divergent pattern in policy prescriptiveness. The program founded by activists generally added requirements that impose costs on firms, while the program established by the American Forest & Paper Association generally added requirements that benefit the sector. This is consistent with our hypothesis that industry-backed programs target less costly types of regulatory stringency than activist-backed programs. We also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
-# keywords: "R Markdown, knitr, R Markdown"
+keywords: "policy change, private authority, certification, corporate social responsibility, private governance"
 fontsize: 12pt
 geometry: margin = 1in
 output: 
   bookdown::pdf_document2:
     latex_engine: pdflatex
     keep_tex: true
-    template: ~/FSC-SFI/article-template.tex
+    template: article-template.tex
     toc: false
     number_sections: true
     fig_caption: true
     # citation_package: natbib
 spacing: doublespacing
 # stretch: 3
-bibliography: /users/judgelord/dissertation/mendeley.bib
+bibliography: mendeley.bib
 # biblio-style: apsr
 ---
-policy change
-private authority
-forestry
-certification
-corporate social responsibility
-private governance
