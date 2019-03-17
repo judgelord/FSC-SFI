@@ -1,0 +1,212 @@
+\documentclass[
+      12pt,
+        ]{article}
+
+
+
+
+
+
+% --- type and typeface? -----------------------
+
+% input
+\usepackage[utf8]{inputenc}
+
+% typography
+\usepackage{microtype}
+
+
+\usepackage[T1]{fontenc}
+
+
+% text block
+\usepackage{setspace}
+\usepackage[              margin = 1in 
+                        ]{geometry}
+
+\usepackage{enumitem}
+  \setlist{noitemsep}
+
+
+
+% decimal numbering for appendix figs and tabs
+
+
+% Deletes section counters
+% \setcounter{secnumdepth}{0}
+
+
+
+
+
+
+
+  \usepackage{longtable, booktabs}
+
+
+
+
+
+
+
+
+
+
+
+% 
+
+% \newtheorem{hypothesis}{Hypothesis}
+
+\makeatletter
+  \@ifpackageloaded{hyperref}{}{%
+    \ifxetex
+      % page size defined by xetex
+      % unicode breaks when used with xetex
+      \PassOptionsToPackage{hyphens}{url}\usepackage[setpagesize = false, 
+                                                     unicode = false, 
+                                                     xetex]{hyperref}
+    \else
+      \PassOptionsToPackage{hyphens}{url}\usepackage[unicode = true]{hyperref}
+    \fi
+  }
+
+  \@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+  }{
+    \usepackage[usenames,dvipsnames]{color}
+  }
+\makeatother
+
+\hypersetup{breaklinks = true,
+            bookmarks = true,
+            pdfauthor = {Devin Judge-Lord () and Constance L. McDermott () and Benjamin Cashore ()},
+             pdfkeywords  =  {policy change, private authority, certification, corporate social
+responsibility, private governance},  
+            pdftitle = {Do Private Regulations Ratchet Up?: How to distinguish types of regulatory stringency and patterns of change},
+            colorlinks = true,
+            citecolor = blue,
+            urlcolor = blue,
+            linkcolor = magenta,
+            pdfborder = {0 0 0}}
+
+% \urlstyle{same}  % don't use monospace font for urls
+
+
+% set default figure placement to htbp
+\makeatletter
+  \def\fps@figure{hbtp}
+\makeatother
+
+
+% optional footnotes as endnotes
+
+
+% ----- Pandoc wants this tightlist command ----------
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+}
+
+
+
+
+
+% --- title & section styles -----------------------
+
+
+% title, author, date
+  \title{Do Private Regulations Ratchet Up?: 
+           \\ How to distinguish types of regulatory stringency and patterns of change}
+
+  \author{ % author, option footnote, optional affiliation
+            Devin Judge-Lord 
+             \and 
+           % author, option footnote, optional affiliation
+            Constance L. McDermott 
+             \and 
+           % author, option footnote, optional affiliation
+            Benjamin Cashore 
+            }
+
+% auto-format date?
+  \date{March 17, 2019}
+
+
+% abstract
+\usepackage{abstract}
+  \renewcommand{\abstractname}{}    % clear the title
+  \renewcommand{\absnamepos}{empty} % originally center
+
+  \newcommand*{\authorfont}{\sffamily\selectfont}
+
+
+% section titles
+\usepackage[small, bf, sc]{titlesec}
+  % \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsubsection}{\itshape} 
+  \titleformat*{\paragraph}{\itshape} 
+  \titleformat*{\subparagraph}{\itshape}
+
+
+
+
+
+
+
+
+
+\begin{document}
+ 
+
+% --- PAGE: title and abstract -----------------------
+
+  \maketitle
+
+% \pagenumbering{gobble}
+
+
+
+  \begin{abstract}
+    \noindent Due to inconsistent measures of regulatory stringency, scholars offer
+conflicting accounts about whether competing private governance
+initiatives ``race to the bottom,'' ``ratchet up,'' ``converge,'' or
+``diverge.'' To remedy this, we offer a framework to distinguish three
+often-conflated measures: regulatory scope, prescriptiveness, and
+performance levels. We use our framework to compare competing U.S.
+forestry certification programs, one founded by environmental activists,
+the other by the American Forest \& Paper Association. We find
+``upward'' but also divergent policy prescriptiveness, with the
+activist-founded program adding requirements that impose costs on firms
+and the industry-backed program mostly adding requirements with net
+benefits to the sector. These results are consistent with the hypothesis
+that industry-backed programs emphasize less costly types of stringency
+than activist-backed programs. Furthermore, we find several more nuanced
+patterns of change that previous scholarship failed to anticipate,
+illustrating how disentangling types of stringency can improve theory
+building and testing. 
+
+          \hfill \\ 
+      \noindent \emph{Keywords}: policy change, private authority, certification, corporate social
+responsibility, private governance 
+    
+  \end{abstract}
+
+
+
+% --- PAGE: contents -----------------------
+
+
+
+
+% --- PAGE: body -----------------------
+
+
+
+\noindent 
+      \doublespacing 
+    
+% --- PAGE: endnotes -----------------------
+% --- PAGE: refs -----------------------
+\newpage
+\singlespacing 
+\end{document}

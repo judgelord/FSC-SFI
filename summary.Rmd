@@ -3,9 +3,10 @@ title: "Do Private Regulations Ratchet Up?"
 subtitle: "A comparative classification framework"
 output: 
 #    pdf_document:
-   html_document:
+#    keep_tex: true
+    html_document:
+#   code_folding: hide
     toc: true
-#    code_folding: hide
 editor_options: 
   chunk_output_type: console
 ---
@@ -98,7 +99,7 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 
 ## Comparing Forest Certification Programs
 
-We each program's stringency on 48 key social and environmental issues. For example, the FSC and SFI have different limits on the size of clearcuts and harvesting buffers arround streams. 
+We each program's stringency on 48 key social and environmental issues. For example, the FSC and SFI have different limits on the size of clearcuts and harvesting buffers around streams. 
 
 ### Limits on clearcut size
 ```{r clearcuts, fig.height=3, fig.width=5.5}
@@ -148,9 +149,9 @@ sfi <- d %>%
          !criteria %in% c("Overall focus", "Adjecent timber minimum age")) %>% 
   ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group=1)) + 
   geom_col( aes(y = max), width = .3, fill = "tan") +
-  geom_segment(aes(x = "Clearcut size limit", xend = "Clearcut size limit", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.4, "cm")), lineend = "butt", linejoin= "mitre") +
-    geom_segment(aes(x = "Harvest with 20% retention average", xend = "Harvest with 20% retention average", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.4, "cm")), lineend = "butt", linejoin= "mitre") +
-  geom_segment(aes(x = "Harvest with 20% retention limit", xend = "Harvest with 20% retention limit", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.4, "cm") ), lineend = "butt", linejoin= "mitre") +
+  geom_segment(aes(x = "Clearcut size limit", xend = "Clearcut size limit", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.3, "cm")), lineend = "butt", linejoin= "mitre") +
+    geom_segment(aes(x = "Harvest with 20% retention average", xend = "Harvest with 20% retention average", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.3, "cm")), lineend = "butt", linejoin= "mitre") +
+  geom_segment(aes(x = "Harvest with 20% retention limit", xend = "Harvest with 20% retention limit", y = 0, yend=115), size = 1.5, color = "tan", arrow = arrow(length = unit(0.3, "cm") ), lineend = "butt", linejoin= "mitre") +
   scale_color_identity() + 
   # geom_point( aes(y = 10), color="white", shape = "|")+
   # geom_point( aes(y = 20), color="white", shape = "|")+
@@ -531,7 +532,6 @@ grid.draw(egg::ggarrange(bar, tile, line,
 ```
 
 ---
-
 </center>
 $$\require{HTML}$$
 
@@ -546,6 +546,9 @@ $$\require{HTML}$$
 | Increasing | $\style{display: inline-block; transform: rotate(35deg)}{\nearrow}$  <br> $\nearrow$ | $\nearrow$ <br> $\nearrow$ | $\nearrow$ <br> $\style{display: inline-block; transform: rotate(35deg)}{\nearrow}$ |
 | Opposing or Eqilibrium | $\searrow$ <br> $\nearrow$ | $\longrightarrow$ <br> $\longrightarrow$ | $\nearrow$ <br> $\searrow$ |
 | Decreasing |$\searrow$ <br> $\style{display: inline-block; transform: rotate(-35deg)}{\searrow}$  | $\searrow$ <br> $\searrow$ | $\style{display: inline-block; transform: rotate(-35deg)}{\searrow}$  <br> $\searrow$ |
+
+---
+
 
 ---
 
@@ -625,13 +628,12 @@ Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward conv
 
 |  Issue  |  Activist-backed FSC-US  |  Industry-backed SFI  |
 |:------------------------|:--------------------------------------------|:--------------------------------------------|
-|Indigenous peoples' rights | Recognize and uphold rights, customs, culture including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | A written policy acknowledging a commitment to recognize and respect rights. |
+|Indigenous peoples' rights | Recognize and uphold rights, customs, culture, including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | A written policy acknowledging a commitment to recognize and respect rights. |
 |Public Reporting and Consultation | Required on public and private lands. | Required on public lands. | 
 |Forest conversion to non-forest | Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits. | No specific policy.| 
-|Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old growth would naturally occur. | Support and participate in programs for old growth conservation in the region — no identification or restoration requirements.
+|Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old growth would naturally occur. | Support and participate in programs for old growth conservation---no identification or restoration requirements.
 |Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
-|Threatened and Endangered Species | Survey and report or assume the presence of vulnerable, imperiled, and critically imperiled. Maintain habitat & viable populations. | Program to protect threatened and endangered species and known sites. Protect viable occurrences of critically imperiled or imperiled species.|
-|Workers' right to organize | Freedom to associate and advocate |
-Develop dispute resolution. | Obey law. Train on worker rights. |
-|Wages | Meets local norms | Written commitment to comply with social law prevailing wage. Train on wage rules. |
-|Safety | posted safety guidelines, contracts include safety, records kept | Written commitment to comply with OSHA. Training on OSHA |
+|Threatened and Endangered Species | Survey and report or assume vulnerable and imperiled species are present. Maintain habitat & viable populations. | Program to protect threatened and endangered species at known sites. Protect viable populations of imperiled species.|
+|Workers' right to organize | Workers are free to associate and advocate. Develop dispute resolution. | Obey laws. Train on worker rights. |
+|Wages | Written commitment to comply with social law prevailing wage. | Train on wage rules. |
+|Safety | Safety guidelines posted. Contracts include safety. Records kept. | Written commitment to comply with OSHA. Training on OSHA |
