@@ -13,9 +13,13 @@ output:
     citation_package: natbib
 header-includes:
 - \usepackage{caption}
-- \captionsetup[figure]{labelformat=empty}
+#- \captionsetup[figure]{labelformat=empty}
 - \usepackage{floatrow}
 - \floatsetup[figure]{capposition=top}
+- \floatsetup[table]{capposition=top}
+- \usepackage{multirow}
+- \usepackage[utf8]{inputenc}
+- \usepackage{rotating} 
 spacing: doublespacing
 # stretch: 3
 bibliography:  mendeley.bib
@@ -90,7 +94,7 @@ The first step for scholars who wish to make claims about stringency or directio
 
 *Prescriptiveness:* Second, we measure the extent to which each requirement is prescriptive, i.e., has substantive and mandatory features like performance thresholds (see Table 3 adapted from @Cashore2007). Because "prescriptive versus flexible" refers to how each issue is addressed, not the ends of the policy, we can compare prescriptiveness across different substantive requirements. Prescriptiveness is a continuum from discretionary guidelines, which allow maximum flexibility, to procedural requirements that define processes that must be followed but do not prescribe outcomes, to mandatory substantive requirements, which prescribe precise actions, such as quantitative performance thresholds. In contrast to mandatory thresholds, even mandatory requirements to follow local “best management practices” are less prescriptive because these practices may not include substantive requirements. Discretionary practices, processes, or plans are even less prescriptive. On each issue, we code requirements in an absolute sense—as “no prescriptive requirements” or “some prescriptive requirements”—and then, if the latter, in a relative sense—whether they are “more prescriptive” than another regulation or “most prescriptive” (requiring as much as or more than any other regulation). Coding prescriptiveness across issues creates an additional measure of policy scope: how many key issues have “some prescriptive standards.” Coding prescriptiveness across programs creates a measure of the relative level of prescriptive requirements. Additionally, we classify changes as becoming more prescriptive or less prescriptive on each issue, thus capturing the direction of change in prescriptiveness.
 
-![Table 3: Potential patterns of change with two regulations](Figs/patterns.png)
+\input{tables/patterns}
 
 *Policy settings:* Finally, the third type of stringency—specific performance levels (what policy scholars call “policy settings”)—allow us to interpret differences in scope or prescriptiveness substantively. For example, forestry certification programs have different requirements for how close loggers can harvest near streams. In this example, all standards prescribing minimum stream buffer widths are equally prescriptive since all are mandatory requirements, albeit with different thresholds. Yet buffer widths and other specific policy settings are a meaningful type of variation. Unfortunately, most specific policy settings, even prescriptive ones, cannot be quantified and are thus difficult to aggregate. Even numeric stream buffers are difficult to compare because they often vary in different landscape contexts, for example in mountainous or flat areas, and involve different levels of harvest restrictions based on different criteria, such as whether fish live in the stream (see Figure 5 in section 4). Measurement strategies that allow program-level aggregation cannot replace issue-specific qualitative comparison. It is crucial to both quantify absolute and relative differences and describe the most meaningful differences that capture the overall trends. We thus suggest that scholars combine aggregate measures with descriptive comparisons of important requirements, assessing each issue in an absolute sense, in a relative sense (if possible), and in how the required level of performance changed.
 
