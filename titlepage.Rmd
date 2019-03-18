@@ -1,21 +1,21 @@
 ---
-documentclass: sagej
 title: Do Private Regulations Ratchet Up?
 subtitle: How to distinguish types of regulatory stringency and patterns of change
 author: 
 - name: Devin Judge-Lord
-  # affiliation: University of Wisconsin--Madison
+  affiliation: University of Wisconsin--Madison
   # footnote: Ph.D. Candidate, Political Science, University of Wisconsin--Madison
 - name: Constance L. McDermott
-  # affiliation: University of Wisconsin--Madison
+  affiliation: Oxford University
   # footnote: 
 - name: Benjamin Cashore
-  # affiliation: University of Wisconsin--Madison
+  affiliation: Yale University
   # footnote: 
-date: "`r format(Sys.time(), '%B %d, %Y')`"
-abstract: "Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
+# date: "`r format(Sys.time(), '%B %d, %Y')`"
+abstract: "Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
 # thanks: "Replication files are available on the author's Github account..."
 keywords: "policy change, private authority, certification, corporate social responsibility, private governance"
+documentclass: sagej
 fontsize: 12pt
 geometry: margin = 1in
 output: 

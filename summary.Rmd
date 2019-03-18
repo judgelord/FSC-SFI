@@ -1,6 +1,6 @@
 ---
 title: "Do Private Regulations Ratchet Up?"
-subtitle: "A comparative classification framework"
+subtitle: "How to distinguish types of regulatory stringency and patterns of change"
 output: 
 #    pdf_document:
 #    keep_tex: true
@@ -21,7 +21,7 @@ load(here("data/SFIvFSC.Rdata"))
 
 **Abstract**
 
-Scholars present conflicting accounts of change in private regulations, including whether competing programs “race to the bottom,” “ratchet up,” “converge,” or “diverge.” We find this to be a symptom of inconsistent measures of regulatory stringency. To remedy this, we offer a framework to distinguish three often-conflated measures: policy scope, prescriptiveness, and performance levels. Using our framework, we compare two leading U.S. forestry certification programs, revealing an upward but divergent pattern in policy prescriptiveness. The program founded by activists generally added requirements that impose costs on firms, while the program established by the American Forest & Paper Association generally added requirements that benefit the sector. This is consistent with our hypothesis that industry-backed programs target less costly types of regulatory stringency than activist-backed programs. We also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing,
+Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
 
 ---
 
@@ -573,7 +573,17 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 ```
 
 
-### 2010 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
+### Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
+
+
+2010
+
+| | Converging | Parallell | Diverging |
+|:----|:----:|:----:|:----:|
+| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]`  | `r Issues$n[which(Issues$pattern == "Upward parallell")]`   | `r Issues$n[which(Issues$pattern == "Upward divergence")]`  |
+| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
+| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
+
 
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
@@ -585,15 +595,6 @@ Opposing diverging issues: `r Issues$issues[which(Issues$pattern =="Opposing div
 
 Downwardly converging issues: `r Issues$issues[which(Issues$pattern =="Downward convergence")]`
 
-
-
-2010
-
-| | Converging | Parallell | Diverging |
-|:----|:----:|:----:|:----:|
-| Increasing | `r Issues$n[which(Issues$pattern == "Upward convergence")]`  | `r Issues$n[which(Issues$pattern == "Upward parallell")]`   | `r Issues$n[which(Issues$pattern == "Upward divergence")]`  |
-| Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
-| Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
 
 
 ---
@@ -613,8 +614,6 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 | Opposing or Eqilibrium | `r Issues$n[which(Issues$pattern == "Opposing convergence")]` | `r Issues$n[which(Issues$pattern == "Equilibrium")]` | `r Issues$n[which(Issues$pattern == "Opposing divergence")]` |
 | Decreasing | `r Issues$n[which(Issues$pattern == "Downward convergence")]` | `r Issues$n[which(Issues$pattern == "Downward parallell")]` | `r Issues$n[which(Issues$pattern == "Downward divergence")]` |
 
-
-### 2015 Patterns of change in prescriptiveness among U.S. Forestry Certification Programs (FSC-US and SFI) on 48 Key Issues
 
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
