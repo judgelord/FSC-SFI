@@ -23,6 +23,8 @@ load(here("data/SFIvFSC.Rdata"))
 
 Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
 
+Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
+
 ---
 
 ## Context: Regulating foresty in the U.S.
@@ -33,7 +35,7 @@ Competing certification regimes, the Forest Stewardship Council (FSC) and The Su
 ![](images/sfilogo.jpeg) 
 ![](images/fscwood.jpg) 
 
-
+---
 
 ### U.S. Timberland by ownership and certification scheme
 ```{r acres, fig.height= 2.9, fig.width=6.7}
