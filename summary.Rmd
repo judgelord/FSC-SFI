@@ -276,8 +276,10 @@ grid.draw(egg::ggarrange(sfi, fsc,
 
 In addition to issue-by-issue comparisons, we use two measures of regulatory stringency that can be aggregated across issues: the scope of issues addressed and the prescriptiveness of requirements on each issue. 
 
-### Policy Prescriptiveness
+### Types of Stringency
+![](Figs/table2.png)
 
+### Policy Prescriptiveness
 
 |  | Discretionary |  Non-discretionary | 
 |:----|:----:|:----:|
@@ -413,8 +415,6 @@ grid.draw(egg::ggarrange(bar, tile, line,
 --- 
 
 ### Scope and Prescriptiveness of FSC P&C and PEFC 2008-2015
-
-
 
 ```{r FSC-PEFC, fig.height= 10, fig.width=7.5}
 PEFCvFSC$Measure %<>% str_replace("Increased", "Increased (+)")
