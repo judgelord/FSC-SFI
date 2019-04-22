@@ -117,6 +117,9 @@
   \usepackage{rotating}
 
 % optional footnotes as endnotes
+  \usepackage{endnotes}
+  \renewcommand{\enotesize}{\normalsize}
+  \let\footnote = \endnote
 
 
 % ----- Pandoc wants this tightlist command ----------
@@ -215,17 +218,17 @@ capital, a ``race to the middle'' as shared expectations emerge, or a
 ``race to the top'' as companies operating in areas with more stringent
 regulations lobby to equalize requirements across jurisdictions
 \citep{Berger1996, Rodrik2004, Vogel1995}. While private governance
-scholars have made great strides \citep{Grabs2018}, imprecise,
-incomplete, and inconsistent measures regulatory stringency hinder
-efforts to compare these regulations and assess theories about why they
-change. We argue that more attention to measurement concepts can explain
-seemingly contradictory findings and will allow more tractable
-statements of theory. To be sure, these questions interest students of
-both public policy and private governance, but whereas a rich public
-policy scholarship has emerged to measure and explain policy change as a
-dependent variable \citep{Green-Pedersen2007, Hall1993, Howlett2014},
-students of private governance have given much less attention to the
-concept of policy change.
+scholars have made great strides, imprecise, incomplete, and
+inconsistent measures of regulatory stringency hinder efforts to compare
+these regulations and assess theories about why they change. We argue
+that more attention to measurement can explain seemingly contradictory
+findings and allow for more tractable statements of theory. To be sure,
+concepts of regulatory stringency interest students of both public
+policy and private governance, but whereas a rich public policy
+scholarship has emerged to measure and explain public policy change
+\citep{Green-Pedersen2007, Hall1993, Howlett2014}, the literature on
+private governance gives much less attention to the concept of policy
+change.
 
 To address this gap, we build on taxonomies from public policy
 scholarship to offer a two-part framework to describe and compare
@@ -238,30 +241,29 @@ describe both relative and absolute directions of policy change. This
 approach provides a common language to describe how various regulations
 in the same policy space may change over time. Such research is
 especially important where multiple programs, backed by different
-coalitions, compete to exercise regulatory authority. By distinguishing
-among types of regulatory stringency and patterns of change, many of the
-hypotheses advanced by the private governance literature can be restated
-in ways that are more conceptually precise and thus more tractable for
-empirical testing.
+coalitions, compete to exercise regulatory authority. Distinguishing
+among types of regulatory stringency and patterns of change leads to
+hypotheses that are more conceptually precise and thus more tractable
+for empirical testing than those advanced by extant literature.
 
 We proceed in the following steps. Section two maps the different
 concepts and measures of regulatory stringency in existing private
 governance scholarship. Section three presents our framework to
 distinguish three types of stringency and compare them across programs
-and over time. In section four, we use this framework to compare
-competing forest certification programs, one of the most
-institutionalized forms of private regulation. Section five discusses
-the implications of our results for theory and outlines steps for future
-research.
+and over time. Section four applies the framework to compare competing
+certification programs in the U.S. forestry sector, arguably one of the
+most institutionalized cases of private regulation. Section five
+discusses the implications of our results for theory and outlines steps
+for future research.
 
 \section{Regulatory stringency}\label{regulatory-stringency}
 
 Measuring regulatory stringency is often necessary to assess how
 activist campaigns, market forces, and competition among programs shape
-policy content (i.e., as the dependent variable), and likewise, to
-assess how policy content shapes activist support, market adoption,
-impact, and how other programs respond (i.e., as the explanatory
-variable).
+policy content (i.e., regulatory requirements as the dependent
+variable), and likewise, to assess how policy content shapes activist
+support, market adoption, impact, and how other programs respond (i.e.,
+regulatory requirements as the explanatory variable).
 
 \emph{Stringency as an explanatory variable:} Scholars who study how
 private regulations gain legitimacy, trust, or support from various
@@ -410,7 +412,7 @@ insufficiently comprehensive to yield consistent results, or completely
 absent. Similar problems plague public policy scholarship
 \citep{Brunel2016}.
 
-\input{tables/review}
+\input{review}
 
 In the absence of consistent measures of regulatory stringency, scholars
 have turned to proxy measures. For example, \citet{Darnall2010} suggest
@@ -433,37 +435,35 @@ activist-backed private regulations are more likely to align with ``best
 practices'' but does not find support for the prediction that
 industry-backed regulations are less likely to do so. The latter finding
 seems to contradict findings by \citet{Cashore2004} that industry-backed
-programs set less stringent requirements. This is due to differences in
-measurement; Cashore et al. focus on substantive prescriptiveness rather
-than procedural ``best practices.''
-
-Even the handful of scholars who have developed direct and precise
-measures of stringency (the top of Table \ref{review}) tend to fall
-short because they only focus on a few salient components, rather than
-attempting to specify a full range of relevant comparisons. This
-approach can lead to conflicting results if scholars select different
-policy components as indicators of stringency. For example,
-\citet{Cashore2004} examine prescriptiveness on seven issues related to
-ecological protection (plantations, chemicals, clearcuts, exotics,
-reserves, streamside riparian zones, and genetically modified organisms)
-and find large enduring differences between activist-backed and
-industry-backed regulations. In contrast, \citet{Overdevest2014} find
-that these same private regulations ``all moved closer'' by assessing
-whether or not each program addressed six other features---two
-substantive requirements on firm behavior (public reporting and
-stakeholder consultation), two on compliance mechanisms (auditing and
-supply chain tracking), and another two on decision-making and marketing
-strategy---finding policy convergence on all six. Here, different
-measurement strategies led to different conclusions that appear to
-support conflicting theories of change.
+programs set less stringent requirements. However, this is due to
+differences in measurement; Cashore et al. focus on the substantive
+prescriptiveness of regulations governing operations, while van der Ven
+focuses on stakeholder engagement and others forms of procedural ``best
+practices.''
 
 Efforts to identify patterns of change face two common challenges.
-First, results vary depending on the policy components we study.
-\citet{McDermott2008} identify 48 key types of substantive requirements
-in the forestry sector alone---selecting any limited combination of them
-may lead to different conclusions. If Overdevest and Zeitlin had chosen
-Cashore et al.'s set of issues or vice versa, each might have found the
-opposite pattern.
+First, results vary depending on the policy components we study. Even
+the handful of scholars who have developed direct and precise measures
+of stringency (the top of Table \ref{review}) tend to only focus on a
+select number of salient components, rather than attempting to assess
+the entire range of requirements that regulations address. This approach
+can lead to conflicting results if scholars select different policy
+components as indicators of stringency. For example, \citet{Cashore2004}
+examine prescriptiveness on seven issues related to ecological
+protection (plantations, chemicals, clearcuts, exotics, reserves,
+streamside riparian zones, and genetically modified organisms) and find
+large enduring differences between activist-backed and industry-backed
+regulations. In contrast, \citet{Overdevest2014} find that these same
+private regulations ``all moved closer'' by assessing whether or not
+each program addressed six other features---two substantive requirements
+on firm behavior (public reporting and stakeholder consultation), two on
+compliance mechanisms (auditing and supply chain tracking), and another
+two on decision-making and marketing strategy---finding policy
+convergence on all six. Here, different measurement strategies led to
+different conclusions that appear to support conflicting theories of
+policy change. It is entirely plausible that if Overdevest and Zeitlin
+had chosen Cashore et al.'s set of issues or vice versa, each might have
+found the opposite pattern.
 
 Second, binary indicators such as whether or not a program addresses a
 given topic---i.e. ``is this issue in the program's scope?''---fail to
@@ -478,32 +478,21 @@ industry-backed program moved in the direction of the activist-backed
 program within the scope of issues related to public reporting and
 consultation, while \citet{Cashore2004} found that these competing
 programs did not converge in prescriptiveness on issues related to
-ecological protection. We can thus resolve the apparent conflict between
-Overdevest and Zeitlin's study and Cashore et al.'s study by
-distinguishing between the scope of issues covered and the
-prescriptiveness of requirements as two distinct dimensions of
-regulatory stringency.
+ecological protection. However, this apparent conflict between
+Overdevest and Zeitlin's study and Cashore et al.'s study is largely
+resolved by distinguishing findings about the scope of issues covered
+versus the prescriptiveness of regulatory requirements.
 
-To address these challenges, we distinguish three types of regulatory
-stringency and illustrate how doing so enables scholars to compare
-programs across issues and over time more systematically.
+Recognizing that findings about regulatory change vary in part owing to
+selection and measurement decisions leads us to distinguish three types
+of regulatory stringency to facilitate more systematic comparisons over
+time.
 
 \section{A Framework to classify change in private
 regulations}\label{a-framework-to-classify-change-in-private-regulations}
 
-Different types of regulatory stringency might have different causes or
-effects. Students of public policy have long recognized the need to
-break policies into their component parts, finding different
-explanations for change for different policy goals and means to achieve
-them \citep{Cashore1997, Hall1993, Weimer2017}. While private governance
-scholars have shown that private regulations resemble public laws
-\citep[\citet{Meidinger2006}]{Meidinger2003}, they have paid less
-attention to the distinction between policy ends and means. Similarly,
-policy change, another core concept in public policy scholarship,
-remains underdeveloped in research on private regulation. We thus draw
-on public policy scholarship to address these gaps by offering a
-framework to (1) measure different types stringency and (2) characterize
-change over time.
+We address these gaps by offering a framework to (1) measure three types
+of stringency and (2) characterize change over time.
 
 \subsection{Step 1: Measuring scope, prescriptiveness, and policy
 settings}\label{step-1-measuring-scope-prescriptiveness-and-policy-settings}
@@ -527,51 +516,64 @@ according to policy settings, scope, and prescriptiveness (Table
 step: measuring relative stringency and change on each dimension (see
 Table \ref{patterns}). First, we elaborate on step one.
 
-\input{tables/types-of-stringency}
+\input{types-of-stringency}
 
-\emph{Scope:} To assess a regulation's scope, we must inductively derive
-a set of distinct policy ``issues'' that are addressed by one or more
-regulatory texts in a given policy domain. We can then measure the
-comprehensiveness of each regulation's scope by asking which of these
-issues it addresses. While this approach reduces the risk of omitting
-key issues on which regulations may vary, it is costly. Scholars may
-thus opt for a limited scope, as long as they clearly describe their
-scope relative to the potential set of comparisons. A comprehensive
-approach is necessary, however, to assess claims about the scope of
-regulations (such as the hypotheses from section 2.3). We can measure a
-regulation's scope in an absolute sense (how many issues it addresses),
-in a relative sense (how many more or fewer issues it addresses than its
-competitor), and in change over time (on how many issues were
-requirements added or subtracted).
+\emph{Scope:} Given the differences within and across programs,
+assessing the relative scope of issues they address requires inductively
+deriving a full range of policy issues addressed by one or more
+regulatory texts in a given policy domain. All comparisons of scope are
+conditional on such a set that establishes the ``denominator'' for in
+the portion issues addressed by each program at each point in time.
+Scholars often give too little attention to this set of relevant
+comparisons given its importance for results. Once a researcher
+establishes a comprehensive set of issues, they can turn to assess the
+extent to which each regulation covers this set of issues. \footnote{While
+  assessing a comprehensive set of issues reduces the risk of omitting
+  key issues on which regulations may vary, it is often time consuming
+  and costly. Scholars may thus opt for a limited scope, as long as they
+  clearly describe their scope relative to the potential set of
+  comparisons. A comprehensive approach is necessary, however, to assess
+  claims about the scope of regulations (such as the hypotheses from
+  section 2.3).} With issue scope as a measurement concept, one can
+assess a regulation's absolute requirements (i.e., how many key issues
+it addresses); its relative requirements (i.e., how many more or fewer
+issues does it it address than its competitor), and in change over time
+(i.e.~how many changes occurred between time 1 and time 2).
 
 \emph{Prescriptiveness:} Second, we measure the extent to which each
 requirement is prescriptive, i.e., has substantive and mandatory
-features like performance thresholds (see Table \ref{prescriptiveness}
-adapted from \citet{Cashore2007}). Because ``prescriptive versus
-flexible'' refers to how each issue is addressed, not the ends of the
-policy, we can compare prescriptiveness across different substantive
-requirements. Prescriptiveness is a continuum from discretionary
-guidelines, which allow maximum flexibility, to procedural requirements
-that define processes that must be followed but do not prescribe
-outcomes, to mandatory substantive requirements, which prescribe precise
-actions, such as quantitative performance thresholds. In contrast to
-mandatory thresholds, even mandatory requirements to follow local ``best
-management practices'' are less prescriptive because these practices may
-not include substantive requirements. Discretionary practices,
-processes, or plans are even less prescriptive. On each issue, we code
-requirements in an absolute sense---as ``no prescriptive requirements''
-or ``some prescriptive requirements''---and then, if the latter, in a
-relative sense---whether they are ``more prescriptive'' than another
-regulation or ``most prescriptive'' (requiring as much as or more than
-any other regulation). Coding prescriptiveness across issues creates an
+features such as performance thresholds (see Table
+\ref{prescriptiveness} adapted from \citet{Cashore2007}). In forestry,
+thresholds may include a maximum size of permitted clearcuts or minimum
+size of buffer zones around streams. Because ``prescriptive versus
+flexible'' refers to how each issue is addressed (whether a regulation
+has mandatory thresholds), not the ends of the policy (the levels of
+those thresholds), we can compare prescriptiveness across different
+substantive requirements. Prescriptiveness is a continuum. Discretionary
+guidelines, practices, processes, or plans are least prescriptive
+because they allow maximum flexibility. Procedural requirements that
+prescribe processes that must be followed but do not prescribe outcomes
+are somewhat prescriptive. Mandatory substantive requirements, such as
+quantitative performance thresholds, are most prescriptive because they
+prescribe precise actions and outcomes. Compared to mandatory
+performance thresholds, even mandatory requirements to follow local
+``best management practices'' are less prescriptive because these
+practices may not include substantive requirements.
+
+On each issue, our framework identifies both absolute and relative
+measures of prescriptiveness, and relatively. This leads to three
+possibilities: ``no prescriptive requirements'' or ``some prescriptive
+requirements''---and then, if the latter, in a relative sense---whether
+they are ``most prescriptive'' (requiring as much as or more than any
+other regulation). Coding prescriptiveness across issues creates an
 additional measure of policy scope: how many key issues have ``some
 prescriptive standards.'' Coding prescriptiveness across programs
 creates a measure of the relative level of prescriptive requirements.
-Additionally, we classify changes as becoming more prescriptive or less
-prescriptive on each issue, thus capturing the direction of change in
-prescriptiveness.
+Additionally, our framework classifies changes as becoming more
+prescriptive or less prescriptive on each issue, thus capturing the
+direction of change in prescriptiveness.
 
-\input{tables/prescriptiveness}
+\input{prescriptiveness}
 
 \emph{Policy settings:} Finally, the third type of stringency---specific
 performance levels (what policy scholars call ``policy
@@ -651,7 +653,7 @@ terms of the dimension(s) to which the theory applies, the absolute
 directions of change they predict, and relative relationships they
 anticipate.
 
-\input{tables/patterns}
+\input{patterns}
 
 \emph{Conclusion:} This framework for measuring regulatory stringency
 helps researchers accomplish several important tasks. For example,
@@ -816,7 +818,7 @@ forests as legal compliance is part of their FSC audit
 
 \begin{figure}
 \centering
-\includegraphics{Figs/acres-1.png}
+\includegraphics{acres-1.png}
 \caption{U.S. Timberland by ownership and certification scheme}
 \end{figure}
 
@@ -951,7 +953,7 @@ convergence'' (the bottom panel of Figure 2).
 
 \begin{figure}
 \centering
-\includegraphics{Figs/FSC-PEFC-1.png}
+\includegraphics{FSC-PEFC-1.png}
 \caption{Scope and Prescriptiveness of FSC P\&C and PEFC 2008-2015}
 \end{figure}
 
@@ -1057,7 +1059,7 @@ three more in 2015.
 
 \begin{figure}
 \centering
-\includegraphics{Figs/FSC-SFI-1.png}
+\includegraphics{FSC-SFI-1.png}
 \caption{Scope and Prescriptiveness of FSC-US and SFI 2008-2016}
 \end{figure}
 
@@ -1091,17 +1093,17 @@ ecological issues (Table \ref{issues}).
 
 \begin{figure}
 \centering
-\includegraphics{Figs/clearcuts-1.png}
-\caption{Limits on Clearcut Size}
+\includegraphics{clearcuts-1.png}
+\caption{Limits on Clearcut Size\label{clearcuts}}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics{Figs/riparian-1.png}
-\caption{Limits on Harvesting Near Streams}
+\includegraphics{riparian-1.png}
+\caption{Limits on Harvesting Near Streams\label{riparian}}
 \end{figure}
 
-\input{tables/issues}
+\input{issues}
 
 While both the FSC-US and SFI became more prescriptive, they did so to
 different degrees and in different areas. The SFI's changes in 2010
@@ -1184,29 +1186,26 @@ respect indigenous rights.
 
 By distinguishing different types of stringency on a comprehensive set
 of issues, our framework improves upon blunt measures of ``high'' or
-``low'' based on generalizations or only a few issues. We now aggregate
-our issue-specific results to reflect on more general trends:
+``low'' based on generalizations or on only a few issues.
 
 Overall our results are consistent with the expectation that activist
-based programs are likely to increase on more costly types of
-stringency. On ecological goals, the FSC-US standard was significantly
-more stringent than the SFI standard on both scope and prescriptiveness
-dimensions. On social goals, results are more mixed. On scope, the
-FSC-US standard protects land tenure and requires that local communities
-benefit from harvesting in ways that were unmatched by SFI's standard,
-but the SFI requires contributions for forestry research, which the FSC
-does not. Numerically, one could say that FSC-US had a broader scope of
-social benefits (depending on what issues one considers ``social''), but
-the programs do present tradeoffs between conceptions of the public
-good. On prescriptiveness, the contrast is again more stark, with the
-FSC-US standard having significantly more prescriptive requirements on
-most social issues. On policy settings, the two programs have
-significant differences. On labor standards and indigenous rights, the
-FSC-US standard required higher wages and more attention to rights than
-the SFI standard did. In short, by conventional definitions of what
-counts as a social issue, by most qualitative comparisons, and certainly
-in terms of prescriptiveness, the FSC-US standard is more stringent than
-the SFI standard on social issues.
+based programs have higher levels of more costly types of stringency. On
+ecological goals, the FSC-US standard was significantly more stringent
+than the SFI standard on both scope and prescriptiveness dimensions. On
+social goals, results are more mixed. On scope, the FSC-US standard
+protects land tenure and requires that local communities benefit from
+harvesting in ways that were unmatched by SFI's standard. Numerically,
+FSC-US had a broader scope of social benefits, but the programs do
+present tradeoffs between conceptions of the public good. On
+prescriptiveness, the contrast is more stark, with the FSC-US standard
+having significantly more prescriptive requirements on most social
+issues. On policy settings, the two programs have significant
+differences. On labor standards and indigenous rights, the FSC-US
+required higher wages and more attention to rights than the SFI did. In
+short, by conventional definitions of what counts as a social issue, by
+most qualitative comparisons, and certainly in terms of
+prescriptiveness, the FSC-US standard is more stringent than the SFI
+standard on social issues.
 
 On more business-oriented goals such as efficiency (e.g.~levels of cut
 tree utilization), industry capacity (e.g.~workforce training and
@@ -1218,44 +1217,32 @@ performance levels on many business-friendly issues.
 
 \subsection{Patterns of change}\label{patterns-of-change}
 
-Upward divergence was the dominant pattern of change. In most years,
-neither program changed on any issue (the center cell in Table
-\ref{patterns}, ``equilibrium''). Most changes for both programs
-occurred in 2010 where the overall pattern was divergence (also called
-differentiation), rather than convergence or stability. The vast
-majority of changes (twenty-one of twenty-seven issues changed) fit a
-pattern where one program increased prescriptiveness while the other did
-not (or in one case, did increase to a lesser degree) and the program
-that increased stringency already had the more prescriptive
-requirements. On eighteen issues, the other program stayed the same,
-leading to upward divergence. On three issues, the less prescriptive
-program decreased prescriptiveness, leading to opposing divergence (see
-Table \ref{patterns-2010-2015}).
+In most years between 2008 and 2016, neither program changed on any
+issue (the center cell in Table \ref{patterns}, ``equilibrium'').
 
-For all sixteen issues on which only the FSC-US added requirements, it
-already had the more prescriptive requirements, and almost all of these
-additions address ecological problems. Similarly, for three out of the
-four issues on which only the SFI added requirements, the SFI already
-had more prescriptive requirements. Qualitatively, these three
-issues---maximizing the utilization of cut trees, public education, and
-worker training---reflect concerns for the efficiency, reputation, and
-capacity of the forest products industry. Educating the public about
-forestry practices and products and training workers may not exclusively
-benefit individual firms. Because of the broad adoption of SFI
-standards, such requirements may provide collective benefits for the
-sector, in the form of a positive public image and skilled workforce.
+Where they did change, upwardly diverging prescriptiveness was the
+dominant pattern. Most changes for both programs occurred in 2010 where
+the overall pattern was divergence (also called differentiation), rather
+than convergence or stability. For all sixteen issues on which only the
+FSC-US added requirements, it already had the more prescriptive
+requirements, and almost all of these additions address ecological
+problems. Similarly, for three out of the four issues on which only the
+SFI added requirements, the SFI already had more prescriptive
+requirements.
 
-\input{tables/patterns-2010-2015}
+The vast majority of changes (twenty-one of twenty-seven issues changed)
+fit a pattern where one program increased prescriptiveness while the
+other did not (or in one case, increased to a lesser degree) and the
+program that increased stringency already had the more prescriptive
+requirements. On eighteen issues, the less prescriptive program stayed
+the same, leading to upward divergence. On three issues, the less
+prescriptive program decreased prescriptiveness, leading to opposing
+divergence (see Table \ref{patterns-2010-2015}).
 
-Convergence and parallel change were rare. An upward parallel change
-occurred on only three issues in 2010: forest management planning,
-controlling carbon emissions, and reporting and consultation, where both
-programs added requirements. We classify the addition of protections for
-riparian zones by both SFI and FSC-US as another case of upward
-divergence rather than upward parallel change because the requirements
-for riparian protection added by the FSC-US are more prescriptive than
-those added by the SFI. Upward convergence only occurred where FSC-US
-added requirements on the issue of ``continual improvement'' of
+\input{patterns-2010-2015}
+
+Convergence was rare. In 2010, upward convergence only occurred where
+FSC-US added requirements on the issue of ``continual improvement'' of
 harvesting operations, an issue usually associated more with the SFI.
 This outcome is interesting because scholars generally predict that less
 stringent private regulations will converge toward ``benchmark''
@@ -1266,24 +1253,26 @@ studies overlook the possibility that industry-backed standards like the
 SFI may be more stringent on some issues and thus fail to theorize about
 dynamics that could cause this. We see downward convergence only on the
 issues of ``community benefits'' and ``tenure rights,'' where the more
-prescriptive FSC-US removed requirements, thus moving closer to SFI. No
-issues exhibited downward parallel or downward diverging trajectories.
+prescriptive FSC-US removed requirements, thus moving closer to SFI.
 
-Since the significant revisions of both programs in 2010, only SFI has
-updated its national-level requirements, mostly in 2015. In contrast to
-the 2010 changes, the pattern in 2015 is a moderate upward convergence.
-SFI increased prescriptiveness on three issues where it did not already
-have the most prescriptive requirements. While a smaller scale of change
+Parallel change was also rare. An upward parallel change occurred on
+only three issues in 2010: forest management planning, controlling
+carbon emissions, and reporting and consultation, where both programs
+added requirements. We classify the addition of protections for riparian
+zones by both SFI and FSC-US as another case of upward divergence rather
+than upward parallel change because the requirements for riparian
+protection added by the FSC-US are more prescriptive than those added by
+the SFI. No issues exhibited downward parallel change, as ``race to the
+bottom'' theory anticipates.
+
+After the significant revisions of both programs in 2010, only the SFI
+updated its requirements, mostly in 2015. In contrast to the 2010
+changes, the pattern in 2015 was a moderate upward convergence. SFI
+increased prescriptiveness on three issues where it did not already have
+the most prescriptive requirements. While a much smaller scale of change
 than 2010, this upward convergence is notable because it focuses on
 regulating toxic chemicals, plantations, and harvesting on tribal lands,
 which likely have net costs rather than benefits for the industry.
-
-Overall, the dominant pattern of change from 2008 to 2016 is upwardly
-diverging prescriptiveness and no change in scopes. Qualitatively, the
-upward diverging trend results from the activist-backed FSC increasing
-prescriptiveness on ecological protection and the industry-backed SFI on
-issues that provide net benefits to the forestry sector. These results
-in hand, we can compare them to the hypotheses presented in section 2.3.
 
 \subsection{Implications for theory}\label{implications-for-theory}
 
@@ -1291,114 +1280,116 @@ Applying our framework to the case of forestry certification reveals how
 one could reach different conclusions by looking at different dimensions
 of change. If focusing only on program scope, one would find little
 support for any theory predicting change---either convergence or
-divergence. If focusing just on prescriptiveness on ecological issues,
+divergence. If focusing only on prescriptiveness on ecological issues,
 one would find divergence, with the activist-backed FSC-US becoming more
 prescriptive at a faster rate than the industry-backed SFI. But if
-focusing only on prescriptiveness of issues of industry capacity and
-reputation, one would find the opposite, with the SFI becoming more
-prescriptive at a faster rate than the FSC-US.
+focusing only on prescriptiveness on industry capacity and reputation
+issues, one would find the opposite, with the SFI becoming more
+prescriptive at a faster rate than the FSC-US. While certainly
+inconsistent with ``race-to-the-bottom'' theories, the upward by
+diverging trajectories of the SFI and FSC-US do not exactly fit a ``race
+to the top'' either.
 
-Anticipating such possibilities (indeed the literature is rife with such
-seemingly contradictory results), we restated several leading hypotheses
-in ways that distinguish scope and prescriptiveness in section 2.3
-(Example Hypotheses 1.1 and 1.2) and distinguish costly and
-business-friendly issues--- (Example Hypotheses 2.1 and 2.2). While
-fully testing any causal explanations of policy change is beyond the
-scope of this paper (our focus is measuring the dependent variable), we
-can reflect on whether our measurements are consistent with these
-restated hypotheses.
+Our results do support, with some caveats, hypotheses 1.1, 2.1 , and 2.2
+outlined in Section 2.3. We ended up with no evidence either way on
+hypothesis 1.2.
 
-Assuming that changes in scope are less costly than changes in
-prescriptiveness, our findings are somewhat consistent with Example
-Hypothesis 1.1. Across social, ecological, and business issues, the
-activist-backed program and industry-backed program slightly converged
-on scope and clearly did not converge on prescriptiveness. If ``talk is
-cheap,'' but prescriptive requirements are costly, it makes sense that
-an industry-backed program would add language similar to that of an
-activist-driven standard without adopting costly mandatory performance
-thresholds. We found such a pattern on many issues. This result suggests
-that studies aiming to test theories rooted in the cost of compliance
-must distinguish measurements of their dependent variable based on the
-dimensions of scope or prescriptiveness.
+Regarding H1.1, the industry-backed program often had language similar
+to that of an activist-driven standard (i.e., had a similar scope), but
+often lacked mandatory performance thresholds (i.e., did not have
+similar prescriptiveness). If ``talk is cheap,'' but prescriptive
+requirements are costly, it makes sense that an industry-backed program
+would cover similar issues as its competitor without adopting costly
+performance thresholds. This result suggests that any test of theories
+about the cost of compliance must distinguish between measures of
+stringency based on policy scope or prescriptiveness. Regarding H1.2, we
+cannot tell whether changes in scope are more likely to be matched by
+competing programs because neither program changed significantly in the
+scope of issues addressed. Both programs did begin regulating carbon
+emissions in 2010, but it is unclear if this change in scope is one
+program reacting to the other or both programs responding to a third
+causal factor.
 
-Our findings are also somewhat consistent with Hypothesis 1.2, again
-more clearly for prescriptiveness than for the scope of issues
-addressed. We observe overall divergence on prescriptiveness, most
-clearly on ecological issues. As neither program changed significantly
-in the scope of issues addressed, we cannot tell whether changes in
-scope are more likely to be matched by competing programs. Both programs
-did add requirements regulating carbon emissions in 2010, but it is
-unclear if this change in scope is one program reacting to the other or
-both programs responding to a third causal factor.
-
-Our findings most clearly align with hypotheses 2.1 and 2.2. The
-activist-backed FSC-US has a slightly more comprehensive scope and much
-more prescriptive requirements on activist-driven issues, while the
-industry-backed SFI standard has a more comprehensive scope and more
-prescriptive requirements on issues more related to industry collective
-action problems. Additional research should further test these and other
-hypotheses, using similarly precise and comprehensive measures of
-regulatory stringency.
+Regarding H2.1, we find differentiation between the FSC-US and the SFI;
+the activist-backed program was more comprehensive in scope and more
+prescriptive on issues that cost firms', while the industry-backed
+program was more comprehensive in scope and more prescriptive on issues
+that create net utility for the industry. Hypothesis 2.2 posits that the
+same kind of differentiation will drive change. This aligns with changes
+to the FSC-US and SFI in 2010, but less so in 2015. More research is
+needed to further test these and other hypotheses, using similarly
+precise and comprehensive measures of regulatory stringency.
+Specifically, while ``race to the top'' theories anticipate the general
+upward direction we observe, more attention is needed to programs may
+increase prescriptiveness on different issues.
 
 \subsection{Industry-backed certification programs as a form of
 collective
 action}\label{industry-backed-certification-programs-as-a-form-of-collective-action}
 
-Our finding that the SFI was more prescriptive and continued to become
-more prescriptive than the FSC-US on certain issues highlights how
+Our finding that the SFI and FSC-US were each more prescriptive and
+continued to become more prescriptive on different issues highlights how
 industry-backed certification programs can serve their industry in two
-ways. First, they provide individual firms with a service---market
-signals of ``social responsibility'' that require a credible third
+ways. First, they provide individual firms with a service---a market
+signal of ``social responsibility'' that requires a credible third
 party. These signals would be more expensive to send by complying with
 an activist-backed regulation. Second, they provide a mechanism for the
 industry to improve its collective reputation and capacity by
 coordinating contributions to collective goods, a common function of
-industry associations. While change on costly issues likely driven by
-competition among standards, on business-friendly issues, activist
-pressure is not necessary. Indeed, firms often collaborate on the latter
-type of issues (e.g., industry standards, reputation, and capacity)
-through trade associations without pressure from activists.
+industry associations.
 
-Regarding the first, \citet{Cashore2004} point out that industry-backed
-alternatives aim to save firms money by offering a label that sends a
-``green'' or ``socially responsible'' signal in the market without some
-of the more costly demands of activist-backed programs. Credible signals
-are often based, in part, on perceived stringency, but because perceived
-and actual stringency may differ, industry-backed programs can send
-``credible'' signals while maintaining lower compliance costs. Labels
-like SFI are not necessarily ``meaningless'' or pure
-``greenwashing''---indeed a certain level of stringency is often
-required to maintain legitimacy---but exceeding this ``floor'' imposes
-costs on firms. On many issues, industry-backed programs may succeed in
-creating the necessary impression of equivalence to the stringency of
-activist-backed standards with substantially less prescriptive
-requirements. For example, the SFI requirements for ``Forests of
-Exceptional Conservation Value'' (FECV) are much less prescriptive than
-the FSC-US requirements for ``High Conservation Value Forests'' (HCVF),
-despite the similar name. By supporting alternative programs, firms
-collectively create institutions that help them maximize the impression
-of stringency while minimizing the costs of doing so. This dynamic
-describes most key issues in our study.
+Regarding the first, industry-backed alternative programs were created
+to save firms money by offering a label that sends ``green'' or
+``socially responsible'' signals in the market without some of the more
+costly demands of activist-backed programs. Such signals are often based
+on perceived stringency, which may vary from actual stringency.
+\footnote{While our framework clarifies differences in actual stringency
+  between activist- and industry- backed programs, which program one
+  prefers will still depend on one's problem definitions and values.
+  What we do know is that, on many issues, industry-backed programs
+  address the same issues as activist-backed programs with language that
+  might give the impression of equivalence in stringency but contain
+  substantially fewer prescriptive requirements. We show that seemingly
+  similar looking language requires very different levels of
+  performance. For example, the SFI requirements for ``Forests of
+  Exceptional Conservation Value'' (FECV) are much less prescriptive
+  than the FSC-US requirements for ``High Conservation Value Forests''
+  (HCVF), despite their similar language (also see (e.g.~Figures
+  \ref{riparian} and \ref{clearcuts} and Table \ref{issues}). The extent
+  to which this helps firms coordinate to maximize the impression of
+  stringency while minimizing the costs of doing so is a question for
+  future research.} Nevertheless, maintaining credibility may require
+some prescriptive requirements on costly issues. On these issues levels
+of prescriptiveness and change are likely driven by competition with
+activist-backed standards.
 
 Regarding the second, the fact that SFI developed more prescriptive
-standards than did FSC-US on several issues is inconsistent with the
+standards than the FSC-US on several issues is inconsistent with the
 predictions that competition between industry-backed and activist-backed
 competition will lead to a ``race to the bottom'' on all issues. It is
-also inconsistent with the prediction that activist-backed standards be
-more prescriptive on all issues. However, the substance of these issues
-suggests that these requirements are unrelated to competition with the
-FSC. SFI has the most prescriptive requirements for actions that firms
-may take anyway---like training and efficiency---or that may be driven
-by their own collective action problems---like managing the visual
-impact of harvesting and sector-level reputation.
+also inconsistent with the prediction that activist-backed standards
+will be more prescriptive on all issues. However, the substance of these
+issues suggests that these requirements are unrelated to competition
+with the FSC. Instead, SFI had the most prescriptive requirements for
+actions that firms may take anyway---like training and maximizing
+efficiency---or that may be driven by their own collective action
+problems---like managing the visual impact of harvesting and
+sector-level reputation. Likewise, the three issues on which only the
+SFI changed---maximizing the utilization of cut trees, public education,
+and worker training---reflect concerns for the efficiency, reputation,
+and capacity of the forest products industry. Educating the public about
+forestry and training workers may not exclusively benefit individual
+firms, but given the broad adoption of SFI standards, such requirements
+may provide collective benefits for the sector in the form of a positive
+public image and skilled workforce.
 
-In sum, where the SFI has more prescriptive requirements than the FSC,
-it requires things that many firms may do anyway (e.g., train workers or
-educate the public), but have added collective benefits the more widely
-they are adopted. While unforeseen by existing theories, the fact that
-the SFI is more prescriptive on some issues is not surprising when we
-understand these issues as providing net benefits to the sector
-regardless of activist pressures or consumer demands.
+In sum, where the SFI developed more prescriptive requirements than the
+FSC, it required things that firms may do anyway (e.g., train workers or
+educate the public), but have additional collective benefits the more
+widely they are adopted. While unforeseen by existing theories, the fact
+that the SFI is more prescriptive on some issues is less surprising if
+these requirements provide net benefits to the sector regardless of
+activist pressures or consumer demands.
 
 \section{Conclusion}\label{conclusion}
 
@@ -1459,6 +1450,8 @@ programs and over time. Doing so will not only improve the quality of
 research and theory, it may also uncover entirely new puzzles and
 insights.
 % --- PAGE: endnotes -----------------------
+  \newpage 
+  \theendnotes
 % --- PAGE: refs -----------------------
 \newpage
 \singlespacing 
