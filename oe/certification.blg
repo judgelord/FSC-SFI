@@ -1,69 +1,50 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: certification.aux
-The style file: biblatex.bst
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 15008 items from 5000.
-Database file #1: certification-blx.bib
-Database file #2: certification.bib
-Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Biblatex version: 3.8
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Too many commas in name 1 of "MIT Press 238 Main St., Suite 500, Cambridge, MA 02142-1046 USA journals-info@mit.edu" for entry Gulbrandsen2004
-while executing---line 2749 of file biblatex.bst
-You've used 72 entries,
-            6268 wiz_defined-function locations,
-            1837 strings with 73311 characters,
-and the built_in function-call counts, 404827 in all, are:
-= -- 26425
-> -- 8544
-< -- 3052
-+ -- 8795
-- -- 2944
-* -- 30495
-:= -- 35352
-add.period$ -- 0
-call.type$ -- 72
-change.case$ -- 1975
-chr.to.int$ -- 68
-cite$ -- 142
-duplicate$ -- 43971
-empty$ -- 38612
-format.name$ -- 4589
-if$ -- 85880
-int.to.chr$ -- 0
-int.to.str$ -- 210
-missing$ -- 0
-newline$ -- 2860
-num.names$ -- 4274
-pop$ -- 23565
+The style file: apa.bst
+Database file #1: certification.bib
+Warning--empty note in LeBaron2018
+Warning--empty note in Poret2016
+Warning--empty note in VanderVen2018
+You've used 71 entries,
+            1940 wiz_defined-function locations,
+            957 strings with 17061 characters,
+and the built_in function-call counts, 26821 in all, are:
+= -- 2692
+> -- 885
+< -- 61
++ -- 276
+- -- 276
+* -- 2390
+:= -- 4623
+add.period$ -- 213
+call.type$ -- 71
+change.case$ -- 482
+chr.to.int$ -- 71
+cite$ -- 74
+duplicate$ -- 1030
+empty$ -- 1960
+format.name$ -- 405
+if$ -- 5203
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 72
+newline$ -- 354
+num.names$ -- 221
+pop$ -- 353
 preamble$ -- 1
-purify$ -- 2296
+purify$ -- 489
 quote$ -- 0
-skip$ -- 15204
+skip$ -- 808
 stack$ -- 0
-substring$ -- 40287
-swap$ -- 13617
-text.length$ -- 1939
-text.prefix$ -- 73
-top$ -- 1
-type$ -- 2433
-warning$ -- 0
-while$ -- 4362
+substring$ -- 2047
+swap$ -- 183
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 410
+warning$ -- 3
+while$ -- 250
 width$ -- 0
-write$ -- 2789
-(There was 1 error message)
+write$ -- 914
+(There were 3 warnings)

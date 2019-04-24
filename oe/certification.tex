@@ -108,13 +108,6 @@
   \def\fps@figure{hbtp}
 \makeatother
 
-  \usepackage{caption}
-  \usepackage{floatrow}
-  \floatsetup[figure]{capposition=top}
-  \floatsetup[table]{capposition=top}
-  \usepackage{multirow}
-  \usepackage[utf8]{inputenc}
-  \usepackage{rotating}
 
 % optional footnotes as endnotes
   \usepackage{endnotes}
@@ -161,7 +154,12 @@
 
 
 
-
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
+\usepackage{multirow}
+\usepackage{rotating} 
+\usepackage{caption}
 
 
 
@@ -197,21 +195,29 @@ emissions, and fishery, mine, and forest management
 Many of these programs were founded by activists who were dissatisfied
 with public regulations. Using tactics such as boycotts as ``sticks''
 and brand-boosting praise as ``carrots,'' activists attempt to pressure
-companies to comply with their preferred certification programs
-\citep{Cashore2002}. When buyers add certification criteria to their
-purchasing policies and contracts, those certification programs gain
-power to regulate how commodities are produced. In some sectors, such as
-forestry, activist-backed programs have met resistance from industry
-groups that ended up launching competing certification programs to offer
-more ``business-friendly'' alternatives. Debates among supporters of
-activists and industry-backed alternatives ensued, often about the
-relative stringency of each program's regulatory requirements.
+companies to comply with certification programs that go beyond the
+requirements of public laws \citep{Cashore2002}. When buyers add
+certification criteria to their purchasing policies and contracts, those
+certification programs gain power to regulate how commodities are
+produced. Industry groups often resist these efforts at private
+(i.e.~non-state) regulation, in some cases launching competing
+certification programs to offer more ``business-friendly'' alternatives.
+
+Debates among supporters of activist-backed programs and industry-backed
+alternatives often center on the relative stringency of each program's
+regulatory requirements. Compared to governments, which enjoy sovereign
+authority, it is especially vital for private organizations to achieve
+and maintain legitimacy in the eyes of both those they aim to empower
+and those they seek to regulate
+\citep{Bartley2007, Bodansky1999, Cashore2002}. One way they achieve and
+maintain legitimacy is through claims about the stringency of their
+requirements.
 
 Concepts of regulatory stringency are also at the center of conflicting
 theoretical and empirical claims from scholars across political science,
 economics, and sociology about the potential effects of these programs
 and how and why they evolve. A key motivation behind this research is
-understanding whether the social and market forces behind private
+understanding whether the social and market forces driving private
 regulations lead to similar patterns observed in public regulations,
 such as a ``race to the bottom'' as governments attempt to attract
 capital, a ``race to the middle'' as shared expectations emerge, or a
@@ -219,19 +225,19 @@ capital, a ``race to the middle'' as shared expectations emerge, or a
 regulations lobby to equalize requirements across jurisdictions
 \citep{Berger1996, Rodrik2004, Vogel1995}. While private governance
 scholars have made great strides, imprecise, incomplete, and
-inconsistent measures of regulatory stringency hinder efforts to compare
-these regulations and assess theories about why they change. We argue
-that more attention to measurement can explain seemingly contradictory
-findings and allow for more tractable statements of theory. To be sure,
-concepts of regulatory stringency interest students of both public
-policy and private governance, but whereas a rich public policy
-scholarship has emerged to measure and explain public policy change
-\citep{Green-Pedersen2007, Hall1993, Howlett2014}, the literature on
-private governance gives much less attention to the concept of policy
-change.
+inconsistent measures of regulatory stringency have hindered efforts to
+compare these regulations and assess theories about why they change. We
+argue that more attention to measurement can explain seemingly
+contradictory findings and allow for more tractable statements of
+theory. To be sure, concepts of regulatory stringency interest students
+of both public policy and private governance, but whereas a rich public
+policy scholarship has emerged to measure and explain public policy
+change \citep{Green-Pedersen2007, Hall1993, Howlett2014}, private
+governance scholarship gives much less attention to the concept of
+policy change.
 
-To address this gap, we build on taxonomies from public policy
-scholarship to offer a two-part framework to describe and compare
+To address this gap, we build on taxonomies from the public policy
+literature to offer a two-part framework to describe and compare
 regulations over time. Part one of this framework distinguishes three
 types of regulatory stringency: 1) How comprehensive is the scope of
 issues addressed? 2) How prescriptive are the requirements? 3) What are
@@ -270,19 +276,18 @@ private regulations gain legitimacy, trust, or support from various
 audiences posit that regulatory stringency is a key explanatory variable
 for these outcomes. For example, \citet{McDermott2012} argues that
 stringency may reduce trust by mandating formulaic, top-down approaches.
-\citet{Atkinson2014} find that perceived stringency increases market
-demand for certified products, but \citet{Prado2013} finds that it also
-reduces adoption by firms. \citet{Meidinger2003} suggests that changes
-in stringency that disadvantage some firms or groups may catalyze these
-actors to create alternative private regulatory programs. Alternatively,
-those disadvantaged by changes to private regulation may then opt to
-pursue their aims through public policy \citep{Weimer2006}. Such
-consequences are consistent with broader findings from literatures on
-``corporate social responsibility'' (CSR) initiatives, such as
-environmental management systems (EMS), industry codes of conduct, and
-third-party certification programs, which find that more costly
-requirements are less likely to be adopted
-\citep{Delmas2008, Kollman2001, Lyon2008}.
+Perceived stringency may increase market demand for certified products
+\citep{Atkinson2014}, but finds may also reduces adoption by firms
+\citep{Prado2013}. Changes in stringency that disadvantage some firms or
+groups may catalyze these actors to create alternative private
+regulatory programs \citep{Meidinger2003}. Alternatively, those
+disadvantaged by changes to private regulation may then opt to pursue
+their aims through public policy \citep{Weimer2006}. Such outcomes would
+be consistent with broader findings from literatures on ``corporate
+social responsibility'' (CSR) initiatives, such as environmental
+management systems (EMS), industry codes of conduct, and third-party
+certification programs, which find that more costly requirements are
+less likely to be adopted \citep{Delmas2008, Kollman2001, Lyon2008}.
 
 The effects of stringency on trust, legitimacy, compliance cost, and
 adoption matter because understanding the likely future impact of
@@ -294,23 +299,15 @@ in time may not do so on other issues and at other times
 regulations---``regulatory loopholes''---may also explain their lack of
 success in addressing problems like deforestation \citep{VanderVen2018}.
 Together, these studies suggest that changes in regulatory stringency
-may have a wide range of effects, but assessing them is often hampered
-by inadequate attention to defining and measuring stringency as an
-explanatory variable.
+\emph{may} have a wide range of effects. Sadly, assessing them has been
+hampered by inadequate attention to defining and measuring stringency as
+an explanatory variable.
 
-Stringency as a dependent variable: Regulatory stringency is also the
-primary variable of interest in studies of the reverse causal
-relationships: how ideological, economic, political, and social forces
-shape and constrain the policy content of private regulations
-\citep{Bartley2003, Cashore2004, Fischer2014}. Here, regulatory
-stringency is the dependent variable. Unlike governments, which enjoy
-sovereign authority, private organizations must achieve and maintain
-legitimacy in the eyes of both those they aim to empower and those they
-seek to regulate \citep{Bartley2007, Bodansky1999, Cashore2002}, and one
-way they do this through claims about the stringency of their
-requirements.
-
-Scholars theorize that various forces either promote or hinder stringent
+\emph{Stringency as a dependent variable:} Regulatory stringency is also
+a key variable in studies of the reverse causal relationships: how
+ideological, economic, political, and social forces shape and constrain
+policy content \citep{Bartley2003, Cashore2004, Fischer2014}. Scholars
+theorize that various forces either promote or hinder stringent
 regulation. For example, ideas about the political responsibilities of
 businesses shape both activist demands for private governance and firms'
 responses to private governance efforts \citep{Bartley2003, Djelic2017}.
@@ -360,8 +357,8 @@ compliance costs or market demand. Game-theoretic models
 \citep{Cashore2004} both suggest that asymmetric incentives lead
 competing programs to adopt different levels of stringency in
 equilibrium. Where an activist-backed regulation competes with an
-industry-backed regulation, these theories predict a stable equilibrium
-where the activist-backed regulation is more stringent.
+industry-backed regulation, these theories predict that the
+activist-backed program will ultimately be more stringent.
 
 Assessing theories that aim to explain changes in regulatory stringency
 has been hampered by inadequate attention to the dependent variable they
@@ -391,20 +388,20 @@ vibrant but confusing: Some scholars evoke vertical notions of
 variation, describing standards as high or low or more or less stringent
 \citep{Fischer2014, Li2015}. Others evoke horizontal notions of
 variation, describing the width or breadth of issues covered
-\citep{Auld2014, Heyes2017}. \citet{Cashore2007} calls attention to
+\citep{Auld2014, Heyes2017}. \citet{Cashore2007} call attention to
 variation in prescriptiveness versus flexibility, i.e., the extent to
 which regulations use mandatory and substantive performance thresholds.
-Other scholars combine concepts of breadth and prescriptiveness into one
-broader notion of stringency \citep{Fransen2011}. Some measure height in
-a relative sense, defining the ``benchmark'' as the higher standard
-\citep{Overdevest2005, Overdevest2010}. These distinct dimensions of
+Others measure height in a relative sense, defining the ``benchmark'' as
+the higher standard \citep{Overdevest2005, Overdevest2010}. Still others
+combine concepts of breadth and prescriptiveness into one broader notion
+of stringency \citep{Fransen2011}. These distinct dimensions of
 stringency are often conflated. For example, formal models often assign
 each program a single overall ``quality'' or ``stringency'' parameter
-that could be measured multiple ways yielding different results. And
-these are only a few of the many measures of stringency used in this
-literature, ranging from so broad that they conflate multiple concepts
-to so narrow that they measure only a few select components (see Table
-\ref{review}).
+that could be measured multiple ways yielding different empirical
+results. And these are only a few of the many measures of stringency
+used in this literature, ranging from so broad that they conflate many
+of these concepts to so narrow that they measure only a few select
+components of just one (see Table \ref{review}).
 
 Overall, concepts of stringency in existing work tend to be either
 insufficiently precise to be consistently applied across programs,
@@ -427,9 +424,9 @@ between stringency and perceived stringency.
 
 More importantly, different approaches to measuring regulatory
 stringency prevent us from adjudicating between claims that competing
-regulatory schemes will ``race to the bottom,'' ``ratchet up,''
-``converge,'' or ``diverge.'' Indeed, different measurement strategies
-explain the seemly contradictory evidence in favor or each theory. While
+programs will ``race to the bottom,'' ``ratchet up,'' ``converge,'' or
+``diverge.'' Indeed, different measurement strategies explain the seemly
+contradictory evidence in favor or each theory. While
 \citet{VanderVen2015} does find support for the prediction that
 activist-backed private regulations are more likely to align with ``best
 practices'' but does not find support for the prediction that
@@ -441,22 +438,23 @@ prescriptiveness of regulations governing operations, while van der Ven
 focuses on stakeholder engagement and others forms of procedural ``best
 practices.''
 
-Efforts to identify patterns of change face two common challenges.
-First, results vary depending on the policy components we study. Even
-the handful of scholars who have developed direct and precise measures
-of stringency (the top of Table \ref{review}) tend to only focus on a
-select number of salient components, rather than attempting to assess
-the entire range of requirements that regulations address. This approach
-can lead to conflicting results if scholars select different policy
-components as indicators of stringency. For example, \citet{Cashore2004}
-examine prescriptiveness on seven issues related to ecological
-protection (plantations, chemicals, clearcuts, exotics, reserves,
-streamside riparian zones, and genetically modified organisms) and find
-large enduring differences between activist-backed and industry-backed
-regulations. In contrast, \citet{Overdevest2014} find that these same
-private regulations ``all moved closer'' by assessing whether or not
-each program addressed six other features---two substantive requirements
-on firm behavior (public reporting and stakeholder consultation), two on
+Two common challenges have hindered efforts to identify patterns of
+change. First, results vary depending on the policy components studied.
+Even the handful of scholars who have developed direct and precise
+measures of stringency (the top of Table \ref{review}) tend to only
+focus on a few salient policy components, rather than attempting to
+assess the entire range of requirements that regulations address. This
+approach can lead to conflicting results if scholars select different
+policy components as indicators of stringency. For example, to compare
+forestry certification programs, \citet{Cashore2004} assess
+prescriptiveness on seven issues related to ecological protection
+(plantations, chemicals, clearcuts, exotics, reserves, streamside
+riparian zones, and genetically modified organisms) and find large
+enduring differences between activist-backed and industry-backed
+programs. In contrast, \citet{Overdevest2014} find that these same
+program ``all moved closer'' by assessing whether or not each program
+addressed six other features---two substantive requirements on firm
+behavior (public reporting and stakeholder consultation), two on
 compliance mechanisms (auditing and supply chain tracking), and another
 two on decision-making and marketing strategy---finding policy
 convergence on all six. Here, different measurement strategies led to
@@ -475,24 +473,28 @@ prescriptiveness, and levels of thresholds are important but orthogonal
 dimensions of variation that may exhibit different patterns of change
 for different reasons. \citet{Overdevest2014} assert that the
 industry-backed program moved in the direction of the activist-backed
-program within the scope of issues related to public reporting and
-consultation, while \citet{Cashore2004} found that these competing
-programs did not converge in prescriptiveness on issues related to
-ecological protection. However, this apparent conflict between
-Overdevest and Zeitlin's study and Cashore et al.'s study is largely
-resolved by distinguishing findings about the scope of issues covered
-versus the prescriptiveness of regulatory requirements.
+program within the \emph{scope} of issues related to public reporting
+and consultation, while \citet{Cashore2004} found that these competing
+programs did not converge in \emph{prescriptiveness} on issues related
+to ecological protection. The apparent conflict between Overdevest and
+Zeitlin's study and Cashore et al.'s study is thus largely resolved by
+distinguishing findings about the scope of issues covered versus the
+prescriptiveness of regulatory requirements.
 
-Recognizing that findings about regulatory change vary in part owing to
-selection and measurement decisions leads us to distinguish three types
-of regulatory stringency to facilitate more systematic comparisons over
-time.
+If selection and measurement decisions explain variation in findings,
+the remedy is methods that allow more systematic comparisons. We address
+this need by offering a framework to (1) measure three types of
+stringency and (2) characterize change over time.
 
 \section{A Framework to classify change in private
 regulations}\label{a-framework-to-classify-change-in-private-regulations}
 
-We address these gaps by offering a framework to (1) measure three types
-of stringency and (2) characterize change over time.
+The first step for scholars who wish to make claims about stringency
+involves three tasks: describing policy content according to policy
+settings, scope, and prescriptiveness (Table \ref{types-of-stringency}).
+Comparing across programs requires a second step: measuring relative
+stringency and change on each dimension (see Table \ref{patterns}).
+First, we elaborate on step one.
 
 \subsection{Step 1: Measuring scope, prescriptiveness, and policy
 settings}\label{step-1-measuring-scope-prescriptiveness-and-policy-settings}
@@ -509,32 +511,25 @@ aggregated to measure overall stringency. That is, by comparing the
 number of issues covered by a regulation and the number of prescriptive
 requirements on those issues, scholars can assess aggregate trends.
 
-The first step for scholars who wish to make claims about stringency or
-direction of change involves three tasks: describing policy content
-according to policy settings, scope, and prescriptiveness (Table
-\ref{types-of-stringency}). Comparing across programs requires a second
-step: measuring relative stringency and change on each dimension (see
-Table \ref{patterns}). First, we elaborate on step one.
-
 \input{types-of-stringency}
 
 \emph{Scope:} Given the differences within and across programs,
 assessing the relative scope of issues they address requires inductively
 deriving a full range of policy issues addressed by one or more
 regulatory texts in a given policy domain. All comparisons of scope are
-conditional on such a set that establishes the ``denominator'' for in
-the portion issues addressed by each program at each point in time.
-Scholars often give too little attention to this set of relevant
-comparisons given its importance for results. Once a researcher
+conditional on such a set that establishes the ``denominator'' in the
+portion issues addressed by each program at each point in time. Scholars
+often give too little attention to this set of relevant comparisons
+given its importance in determining results. Once a researcher
 establishes a comprehensive set of issues, they can turn to assess the
-extent to which each regulation covers this set of issues. \footnote{While
+extent to which each regulation covers this set of issues.\footnote{While
   assessing a comprehensive set of issues reduces the risk of omitting
   key issues on which regulations may vary, it is often time consuming
   and costly. Scholars may thus opt for a limited scope, as long as they
   clearly describe their scope relative to the potential set of
   comparisons. A comprehensive approach is necessary, however, to assess
   claims about the scope of regulations (such as the hypotheses from
-  section 2.3).} With issue scope as a measurement concept, one can
+  section 2.3).} With the measurement concept of issue scope, one can
 assess a regulation's absolute requirements (i.e., how many key issues
 it addresses); its relative requirements (i.e., how many more or fewer
 issues does it it address than its competitor), and in change over time
@@ -544,33 +539,34 @@ issues does it it address than its competitor), and in change over time
 requirement is prescriptive, i.e., has substantive and mandatory
 features such as performance thresholds (see Table
 \ref{prescriptiveness} adapted from \citet{Cashore2007}). In forestry,
-thresholds may include a maximum size of permitted clearcuts or minimum
+thresholds include the maximum size of permitted clearcuts or minimum
 size of buffer zones around streams. Because ``prescriptive versus
 flexible'' refers to how each issue is addressed (whether a regulation
 has mandatory thresholds), not the ends of the policy (the levels of
-those thresholds), we can compare prescriptiveness across different
-substantive requirements. Prescriptiveness is a continuum. Discretionary
-guidelines, practices, processes, or plans are least prescriptive
-because they allow maximum flexibility. Procedural requirements that
-prescribe processes that must be followed but do not prescribe outcomes
-are somewhat prescriptive. Mandatory substantive requirements, such as
-quantitative performance thresholds, are most prescriptive because they
-prescribe precise actions and outcomes. Compared to mandatory
-performance thresholds, even mandatory requirements to follow local
-``best management practices'' are less prescriptive because these
-practices may not include substantive requirements.
+those thresholds), we can compare prescriptiveness across substantive
+requirements.
+
+Prescriptiveness is a continuum. Discretionary guidelines, practices,
+processes, or plans are least prescriptive because they allow maximum
+flexibility. Procedural requirements that prescribe processes that must
+be followed but do not prescribe outcomes are somewhat prescriptive.
+Mandatory and substantive requirements, such as quantitative performance
+thresholds, are most prescriptive because they prescribe precise actions
+and outcomes. Compared to mandatory performance thresholds, even
+mandatory requirements to follow local ``best management practices'' are
+less prescriptive because these practices may not include substantive
+requirements.
 
 On each issue, our framework identifies both absolute and relative
-measures of prescriptiveness, and relatively. This leads to three
-possibilities: ``no prescriptive requirements'' or ``some prescriptive
-requirements''---and then, if the latter, in a relative sense---whether
-they are ``most prescriptive'' (requiring as much as or more than any
-other regulation). Coding prescriptiveness across issues creates an
-additional measure of policy scope: how many key issues have ``some
-prescriptive standards.'' Coding prescriptiveness across programs
-creates a measure of the relative level of prescriptive requirements.
-Additionally, our framework classifies changes as becoming more
-prescriptive or less prescriptive on each issue, thus capturing the
+measures of prescriptiveness. This leads to three possibilities: ``no
+prescriptive requirements'' or ``some prescriptive requirements''---and
+then, if the latter, whether they are ``most prescriptive'' (requiring
+as much as or more than any other regulation). Coding prescriptiveness
+across issues creates an additional measure of policy scope: how many
+key issues have ``some prescriptive standards.'' Coding prescriptiveness
+across programs creates a measure of the relative level of prescriptive
+requirements. Additionally, our framework classifies changes as becoming
+more prescriptive or less prescriptive on each issue, thus capturing the
 direction of change in prescriptiveness.
 
 \input{prescriptiveness}
@@ -587,8 +583,8 @@ other specific policy settings are a meaningful type of variation.
 Unfortunately, most specific policy settings, even prescriptive ones,
 cannot be quantified and are thus difficult to aggregate. Even numeric
 stream buffers are difficult to compare because they often vary in
-different landscape contexts, for example in mountainous or flat areas,
-and involve different levels of harvest restrictions based on different
+different contexts, for example in mountainous or flat areas, and
+involve different levels of harvest restrictions based on different
 criteria, such as whether fish live in the stream (see Figure 5 in
 section 4). Measurement strategies that allow program-level aggregation
 cannot replace issue-specific qualitative comparison. It is crucial to
@@ -602,28 +598,28 @@ performance changed.
 At its most stylized, step one, comparing two hypothetical programs (A
 and B) in a policy space with two issues (Hazardous Chemicals and Worker
 Training) might look like this: A researcher examines regulations in
-this policy domain and inductively identifies a total of two issues.
-Both programs have some prescriptive requirements on both issues, so
-they are equal in scope. Program A bans using chemicals above certain
+this policy area and inductively identifies a total of two issues. Both
+programs have some prescriptive requirements on both issues, so they are
+equal in scope. Program A bans using chemicals above certain
 quantitative toxicity thresholds, whereas Program B bans ``hazardous''
-levels which one may interpret several ways, so Program A is more
+levels which auditors could interpret several ways, so Program A is more
 prescriptive on the issue of Chemicals. For policy settings, the two
 programs ban slightly different lists of chemicals, Program A focusing
 on ecologically harmful chemicals and program B targeting those most
-harmful to humans, so one can only compare their specific requirements
-on chemicals qualitatively. On the second issue, both programs require
-mandatory worker training programs, and neither specifies how many
-hours, so they are equally prescriptive on Training. Each program
-suggests a slightly different list of topics for training to cover.
-Program A focuses more on skills needed to avoid ecological harm, and
-Program B focuses more on worker safety, so again, one can only compare
-their policy settings qualitatively. Yet a pattern emerges: Program A,
-the overall more prescriptive program, is also more focused on
-ecological protection, possibly due to a strong influence from
-environmental activists. In contrast, program B is more focused on
-worker safety, possibly to reduce the risk that worker injuries at one
-firm will impose reputational or regulatory costs for the whole
-industry.
+harmful to humans, so the researcher can only compare their specific
+requirements on chemicals qualitatively. On the second issue, both
+programs require mandatory worker training programs, and neither
+specifies how many hours, so they are equally prescriptive on Training.
+Each program suggests a slightly different list of topics for training
+to cover. Program A focuses more on skills needed to avoid ecological
+harm, and Program B focuses more on worker safety, so again, the
+researcher can only compare their policy settings qualitatively. Yet a
+pattern emerges: Program A, the overall more prescriptive program, is
+also more focused on ecological protection, possibly due to being more
+influenced by environmental activists. In contrast, program B is more
+focused on worker safety, possibly to reduce the risk that worker
+injuries at one firm will impose reputational or regulatory costs for
+the whole industry.
 
 As this example illustrates, the combination of precise and
 comprehensive measurement can avoid problems with using any one approach
@@ -638,14 +634,14 @@ overall conclusions.
 \subsection{Step 2: Classifying Patterns of
 Change}\label{step-2-classifying-patterns-of-change}
 
-Drawing on \citet{Baumgartner2002} and \citet{Howlett2007}, we also note
-the importance of the direction of change. Assessing patterns of change
-like punctuation or equilibrium requires measuring change on each
-dimension because there may be equilibrium on one dimension but
-punctuation on another. In absolute terms, requirements may be
-increasing, decreasing, or neither, and, in relative terms, competing
-regulations may be converging, in equilibrium, or diverging on each
-dimension over any given period (Table \ref{patterns}). Thus, in
+Building on \citet{Baumgartner2002} and \citet{Howlett2007}, we also
+emphasize the importance of the direction of policy change. Assessing
+patterns of change like punctuation or equilibrium requires measuring
+change on each dimension of stringency because there may be equilibrium
+on one dimension but punctuation on another. In absolute terms,
+stringency may be increasing, decreasing, or neither, and, in relative
+terms, regulations may be converging, in equilibrium, or diverging on
+each dimension over any given period (Table \ref{patterns}). Thus, in
 aggregate, nine relationships fully capture the possible dynamics for
 each dimension of change. All of the theories about regulatory
 stringency from Table \ref{review} should be able to be expressed in
@@ -661,8 +657,9 @@ helps researchers accomplish several important tasks. For example,
 (1) measure change over time, (2) assess both relative and absolute
 magnitudes, (3) aggregate across multiple issue areas, and (4) be
 theoretically relatable to compliance costs. To these criteria, we add
-that any measurement approach should also capture qualitative
-differences in policy settings.
+that any measurement approach should also (5) capture qualitative
+differences in policy settings. Step one satisfies these five criteria
+and step two goes on to classify relative change over time.
 
 \subsection{Theorizing in terms of scope, prescriptiveness, and policy
 settings}\label{theorizing-in-terms-of-scope-prescriptiveness-and-policy-settings}
