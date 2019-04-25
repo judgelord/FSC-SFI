@@ -2,23 +2,30 @@
 fontsize: 12pt
 mainfont: times
 geometry: margin = 1in
-documentclass: article
-classoption: 
-bibliography: certification.bib
+documentclass: sagej
+classoption: Review
+bibliography:  certification.bib
 biblio-style: apa
 citecolor: black
-output: 
+output: #word_document
   bookdown::pdf_document2:
     latex_engine: pdflatex
     keep_tex: true
     template: article-template.tex
     toc: false
+    # number_sections: false
     fig_caption: true
     citation_package: natbib
+header-includes:
+#- \captionsetup[figure]{labelformat=empty}
 spacing: doublespacing
 endnotes: true
-# abstract: "Inconsistent measures of regulatory stringency have produced conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We apply our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-backed program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with intrinsic benefits to firms. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. By disaggregating types of stringency, we also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how our framework can improve theory building and testing.""
 ---
+
+<!--
+Abstract: [150 words]
+Inconsistent measures of regulatory stringency have produced conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We apply our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-backed program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with intrinsic benefits to firms. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. By disaggregating types of stringency, we also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how our framework can improve theory building and testing.
+--> 
 
 # Introduction
 Private governance initiatives, such as product certification programs, have targeted farm and factory working conditions, greenhouse gas emissions, and fishery, mine, and forest management [@Auld2014; @Bartley2003; @Bozzi2012; @Hudson2003; @VanderVen2015; @Vince2017]. Many of these programs were founded by activists who were dissatisfied with public regulations. Using tactics such as boycotts as “sticks” and brand-boosting praise as “carrots,” activists attempt to pressure companies to comply with certification programs that go beyond the requirements of public laws [@Cashore2002]. When buyers add certification criteria to their purchasing policies and contracts, those certification programs gain power to regulate how commodities are produced. Industry groups often resist these efforts at private (i.e. non-state) regulation, in some cases launching competing certification programs to offer more “business-friendly” alternatives. 
