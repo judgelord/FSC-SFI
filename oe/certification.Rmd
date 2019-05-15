@@ -1,7 +1,7 @@
 ---
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-fontsize: 12pt
-mainfont: times
+# fontsize: 12pt
+# mainfont: times
 geometry: margin = 1in
 documentclass: sagej
 classoption: Review
@@ -14,11 +14,8 @@ output: #word_document
     keep_tex: true
     template: article-template.tex
     toc: false
-    # number_sections: false
     fig_caption: true
     citation_package: natbib
-header-includes:
-#- \captionsetup[figure]{labelformat=empty}
 spacing: doublespacing
 endnotes: true
 
