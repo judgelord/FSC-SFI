@@ -1,4 +1,5 @@
 ---
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 fontsize: 12pt
 mainfont: times
 geometry: margin = 1in
@@ -20,12 +21,25 @@ header-includes:
 #- \captionsetup[figure]{labelformat=empty}
 spacing: doublespacing
 endnotes: true
----
 
-<!--
-Abstract: [150 words]
-Inconsistent measures of regulatory stringency have produced conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We apply our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-backed program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with intrinsic benefits to firms. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. By disaggregating types of stringency, we also find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how our framework can improve theory building and testing.
---> 
+title: Do Private Regulations Ratchet Up?
+subtitle: How to distinguish types of regulatory stringency and patterns of change
+
+author: 
+- name: Devin Judge-Lord
+  affiliation: University of Wisconsin--Madison
+- name: Constance L. McDermott
+  affiliation: Oxford University
+- name: Benjamin Cashore
+  affiliation: Yale University
+
+abstract: "Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
+
+keywords: policy change, private authority, certification, corporate social responsibility, private governance
+
+thanks: "We are grateful to reviewers of earlier versions of this paper presented to the American Politics Workshop at the University of Wisconsin-Madison, the Association of Public Policy Analysis and Management (APPAM) Annual Research Conference, and the Association of Environmental Studies and Sciences Annual Meeting. We are also grateful to extensive feedback on a 2014 draft of the analytic framework and the underlying data tables from officials from the Forest Stewardship Council (FSC), the Sustainable Forestry Initiative (SFI), and the Program for the Endorsement of Forest Certification (PEFC). We are grateful for funding from the Fox Foundation, Procter & Gamble, Staples, Office Depot, and Arup. We also thank Erica Pohnan and Akiva Fishman for research and editing assistance. The authors are fully responsible for data collection, analysis, and any errors. Comments welcome: JudgeLord@Wisc.edu. The most version of this paper is available at https://judgelord.github.io/FSC-SFI/oe/certification.pdf."
+---
+\newpage
 
 # Introduction
 Private governance initiatives, such as product certification programs, have targeted farm and factory working conditions, greenhouse gas emissions, and fishery, mine, and forest management [@Auld2014; @Bartley2003; @Bozzi2012; @Hudson2003; @VanderVen2015; @Vince2017]. Many of these programs were founded by activists who were dissatisfied with public regulations. Using tactics such as boycotts as “sticks” and brand-boosting praise as “carrots,” activists attempt to pressure companies to comply with certification programs that go beyond the requirements of public laws [@Cashore2002]. When buyers add certification criteria to their purchasing policies and contracts, those certification programs gain power to regulate how commodities are produced. Industry groups often resist these efforts at private (i.e. non-state) regulation, in some cases launching competing certification programs to offer more “business-friendly” alternatives. 
