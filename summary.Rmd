@@ -1,7 +1,7 @@
 ---
 title: "Do Private Regulations Ratchet Up?"
 subtitle: "How to distinguish types of regulatory stringency and patterns of change"
-output: 
+output: #powerpoint_presentation
 #    pdf_document:
 #    keep_tex: true
     html_document:
@@ -17,13 +17,14 @@ source(here::here("setup.R"))
 load(here("data/SFIvFSC.Rdata"))
 ```
 
+
 --- 
 
 **Abstract**
 
 Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
 
-Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
+Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf) (Forthcoming in [Organization & Environment ](https://journals.sagepub.com/home/oae)).
 
 ---
 
@@ -112,18 +113,6 @@ fsc <- d %>%
          !criteria %in% c("Overall focus", "Adjecent timber minimum age")) %>% 
   ggplot(aes(x = criteria, ymin= min, ymax=max, label = text, group = 1)) + 
   geom_col( aes(y = max), width = .3, fill = "tan") +
-  #   geom_point( aes(y = 10), color="white", shape = "|")+
-  # geom_point( aes(y = 20), color="white", shape = "|")+
-  #   geom_point( aes(y = 30), color="white", shape = "|")+
-  #   geom_point( aes(y = 40), color="white", shape = "|")+
-  #   geom_point( aes(y = 50), color="white", shape = "|")+
-  #   geom_point( aes(y = 60), color="white", shape = "|")+
-  #   geom_point( aes(y = 70), color="white", shape = "|")+
-  #   geom_point( aes(y = 80), color="white", shape = "|")+
-  #   geom_point( aes(y = 90), color="white", shape = "|")+
-  #   geom_point( aes(y = 100), color="white", shape = "|")+
-  #   geom_point( aes(y = 110), color="white", shape = "|")+
-  # geom_point( aes(y = 120), color="white", shape = "|")+
   geom_point( aes(y = 140), shape = "")+
   geom_point( aes(y = min), shape = "|", size =3) + 
   geom_point( aes(y = max), shape = "|", size =3) + 
@@ -271,6 +260,22 @@ grid.draw(egg::ggarrange(sfi, fsc,
 
 ```
 
+---
+
+### Qualitative comparison of selected policy settings
+
+
+|  Issue  |  Activist-backed FSC-US  |  Industry-backed SFI  |
+|:------------------------|:--------------------------------------------|:--------------------------------------------|
+|Indigenous peoples' rights | Recognize and uphold rights, customs, culture, including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | A written policy acknowledging a commitment to recognize and respect rights. |
+|Public Reporting and Consultation | Required on public and private lands. | Required on public lands. | 
+|Forest conversion to non-forest | Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits. | No specific policy.| 
+|Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old growth would naturally occur. | Support and participate in programs for old growth conservation---no identification or restoration requirements.
+|Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
+|Threatened and Endangered Species | Survey and report or assume vulnerable and imperiled species are present. Maintain habitat & viable populations. | Program to protect threatened and endangered species at known sites. Protect viable populations of imperiled species.|
+|Workers' right to organize | Workers are free to associate and advocate. Develop dispute resolution. | Obey laws. Train on worker rights. |
+|Wages | Written commitment to comply with social law prevailing wage. | Train on wage rules. |
+|Safety | Safety guidelines posted. Contracts include safety. Records kept. | Written commitment to comply with OSHA. Training on OSHA |
 
 ---
 
@@ -411,10 +416,15 @@ grid.draw(egg::ggarrange(bar, tile, line,
                          heights = c(.4, 2, .4)))   
 ```
 
+</center>
+
+Overall, each program had distinct areas in which its requirements were more prescriptive. For the FSC, these requirements tended to demand that forest operations “resemble natural processes” and “maintain ecosystem function.” This language appeared more frequently and forcefully in the 2010 standard concerning issues including clearcutting, riparian management, HCVFs, protected areas, old-growth forests, snags and downed wood, residual trees, genetic diversity, plantations, restoration, natural disturbance, non-timber forest products, soil protection, road building, and management planning. In contrast, the SFI was most prescriptive on issues such as material utilization, research, training, education, and public reporting and consultation.  The eight key issues on which the SFI increased prescriptiveness in 2010 also reflect the SFI’s focus on industry capacity and reputation. These included aesthetics, public reporting, education, training, and utilization. 
 
 --- 
 
 ### Scope and Prescriptiveness of FSC P&C and PEFC 2008-2015
+
+<center>
 
 ```{r FSC-PEFC, fig.height= 10, fig.width=7.5}
 PEFCvFSC$Measure %<>% str_replace("Increased", "Increased (+)")
@@ -533,23 +543,21 @@ grid.draw(egg::ggarrange(bar, tile, line,
                     heights = c(.4, 2, .4)))   
 ```
 
----
 </center>
+
+Overall, while the PEFC added more requirements concerning indigenous rights and labor standards and came to cover a similar scope of issues to the FSC P&C, the FSC-P&C remained more prescriptive on social issues and significantly more prescriptive on ecological issues. Compared to the prescriptiveness of the FSC-US and SFI described below, the FSC–P&C and PEFC requirements exhibited more convergence on both scope and prescriptiveness, though many differences in policy settings remained.
+
+---
+
 $$\require{HTML}$$
 
-
-
 ## Patterns of Change
-
-
 
 |  | Converging | Parallell | Diverging |
 |:----|:----:|:----:|:----:|
 | Increasing | $\style{display: inline-block; transform: rotate(35deg)}{\nearrow}$  <br> $\nearrow$ | $\nearrow$ <br> $\nearrow$ | $\nearrow$ <br> $\style{display: inline-block; transform: rotate(35deg)}{\nearrow}$ |
 | Opposing or Eqilibrium | $\searrow$ <br> $\nearrow$ | $\longrightarrow$ <br> $\longrightarrow$ | $\nearrow$ <br> $\searrow$ |
 | Decreasing |$\searrow$ <br> $\style{display: inline-block; transform: rotate(-35deg)}{\searrow}$  | $\searrow$ <br> $\searrow$ | $\style{display: inline-block; transform: rotate(-35deg)}{\searrow}$  <br> $\searrow$ |
-
----
 
 
 ---
@@ -619,22 +627,28 @@ Issues %<>% full_join(filter(zeros, !pattern %in% Issues$pattern))
 
 Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward convergence")]`
 
+---
 
+In most years between 2008 and 2016, neither the FSC nor the SFI changed on any issue (the center cell in the above tables, “equilibrium”).
+
+When they did change, upwardly diverging prescriptiveness was the dominant pattern. Most changes for both programs occurred in 2010 where the overall pattern was divergence, rather than convergence or stability. For all sixteen issues on which only the FSC-US added requirements, it already had the more prescriptive requirements, and almost all of these additions address ecological problems. Similarly, for three out of the four issues on which only the SFI added requirements, the SFI already had more prescriptive requirements. 
+
+The vast majority of changes (twenty-one of twenty-seven issues changed) fit a pattern where one program increased prescriptiveness while the other did not (or in one case, increased to a lesser degree) and the program that increased stringency already had the more prescriptive requirements. On eighteen issues, the less prescriptive program stayed the same, leading to upward divergence. On three issues, the less prescriptive program decreased prescriptiveness, leading to opposing divergence.
+
+Convergence was rare. In 2010, upward convergence only occurred where FSC-US added requirements on the issue of “continual improvement” of harvesting operations, an issue usually associated more with the SFI. This outcome is interesting because scholars generally predict that less stringent private regulations will converge toward “benchmark” standards like FSC’s. Instead, we find the FSC-US ratcheting up prescriptiveness on an issue where its industry-backed competitor had more stringent requirements. Indeed, most studies overlook the possibility that industry-backed standards like the SFI may be more stringent on some issues and thus fail to theorize about dynamics that could cause this. We see downward convergence only on the issues of "community benefits" and "tenure rights," where the more prescriptive FSC-US removed requirements, thus moving closer to SFI. 
+
+Parallel change was also rare. An upward parallel change occurred on only three issues in 2010: forest management planning, controlling carbon emissions, and reporting and consultation, where both programs added requirements. We classify the addition of protections for riparian zones by both SFI and FSC-US as another case of upward divergence rather than upward parallel change because the requirements for riparian protection added by the FSC-US were more prescriptive than those added by the SFI. No issues exhibited downward parallel change, as “race to the bottom” theory anticipates.
+
+After the significant revisions of both programs in 2010, only the SFI updated its requirements, mostly in 2015. In contrast to the 2010 changes, the pattern in 2015 was a moderate upward convergence. SFI increased prescriptiveness on three issues where it did not already have the most prescriptive requirements. While a much smaller scale of change than 2010, this upward convergence is notable because it focuses on regulating toxic chemicals, plantations, and harvesting on tribal lands, which likely have net costs rather than benefits for the industry. 
 
 
 ---
 
-### Qualitative comparison of policy settings
+Scholars have made substantial progress in developing theories of how economic and political forces shape the substance of private regulations, and how these different requirements then affect levels of adoption and compliance. We have argued that testing these theories requires more precise statements of the types of policy substance to which they apply and research that measures change across programs and over time. Our framework for measuring regulatory stringency, and for using longitudinal data to classify patterns of change, offers a foundation for further research about how competing regulatory programs compare, how they evolve, and why. There is no perfect way to compare incommensurate policies. We have nonetheless made our best effort to offer a method to do so. By applying this method, we have systematically quantified differences that can be quantified and described as richly as possible those comparisons that one can only make qualitatively.
 
+Through the case of forestry standards in the U.S., we show what can be gained by careful measurement of regulatory stringency and policy change across a comprehensive scope of issues in a specific domain. Our results show different patterns depending on whether one looks at policy scope, prescriptiveness, or specific policy settings. Careful measurement uncovered trends that previous scholarship has missed and which contradict the predictions of several dominant theories. It also reveals that apparent empirical debates in the literature are the result of research design choices. Some scholars chose a few key issues and found convergence. Others looked broadly and did not see it. We have looked both precisely and broadly and found both conclusions were correct but incomplete. Activist-backed and industry-backed programs converged in policy scope on a few issues, but overall, their scopes have seen little change. Furthermore, we found these programs to have diverged overall on prescriptiveness, because, while both standards “ratcheted up,” they did so at different rates and on different policy issues. We hope that this deep dive into defining regulatory stringency and policy change in one domain not only enables scholarship on the causes of public and private regulation in forestry but that it also offers a model for similar research in other policy domains. 
 
-|  Issue  |  Activist-backed FSC-US  |  Industry-backed SFI  |
-|:------------------------|:--------------------------------------------|:--------------------------------------------|
-|Indigenous peoples' rights | Recognize and uphold rights, customs, culture, including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | A written policy acknowledging a commitment to recognize and respect rights. |
-|Public Reporting and Consultation | Required on public and private lands. | Required on public lands. | 
-|Forest conversion to non-forest | Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits. | No specific policy.| 
-|Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old growth would naturally occur. | Support and participate in programs for old growth conservation---no identification or restoration requirements.
-|Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
-|Threatened and Endangered Species | Survey and report or assume vulnerable and imperiled species are present. Maintain habitat & viable populations. | Program to protect threatened and endangered species at known sites. Protect viable populations of imperiled species.|
-|Workers' right to organize | Workers are free to associate and advocate. Develop dispute resolution. | Obey laws. Train on worker rights. |
-|Wages | Written commitment to comply with social law prevailing wage. | Train on wage rules. |
-|Safety | Safety guidelines posted. Contracts include safety. Records kept. | Written commitment to comply with OSHA. Training on OSHA |
+This approach also has practical value. First, the power dynamics among groups that promote programs like the FSC or the SFI have created an environment in which competing claims about what exactly each program requires and how this has changed confuse buyers. The politics of private regulation revolve around debates over which standards are higher. We offer concepts to clarify what “higher” standards may mean. Second, it is impossible to measure the impact of a set of regulatory requirements without disentangling their component parts. Thus, our analysis of written requirements is a necessary first step for efforts to assess the effects on the ground.
+
+Most importantly, our framework and analysis offer a model for careful measurement of policy change as a variable. It is tempting to take shortcuts by making broad generalizations or by selecting what is easy to measure or what others have highlighted. However, if we aim to build testable theories or collect the kinds of evidence needed to test existing theories, our study illustrates the benefits of defining policy change in ways that can be applied across programs and over time. Doing so will not only improve the quality of research and theory, it may also uncover entirely new puzzles and insights.
+
