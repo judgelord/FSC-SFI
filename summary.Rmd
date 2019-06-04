@@ -416,6 +416,31 @@ grid.draw(egg::ggarrange(bar, tile, line,
                          heights = c(.4, 2, .4)))   
 ```
 
+
+```{r FSC-SFI-trend, fig.width=3.5, fig.height=4}
+line + 
+  geom_segment(aes(#color = Program, 
+                   #linetype = Program,
+                   x = 2008, y = 0, xend =2016, 
+                   yend = ifelse(Program == "Activist-backed FSC-US", 21,12)), arrow = arrow(length = unit(0.1, "npc"))) + 
+  theme(panel.border = element_rect(fill = NA)) + 
+  facet_wrap("Program", ncol = 1, scales = "free_x") + 
+  labs(title = "Absolute Change 
+in Prescriptiveness
+(Number of issues changed)",
+y = "")
+```
+
+```{r FSC-SFI-bar, fig.width=3.5, fig.height=4}
+bar + 
+  scale_x_continuous(breaks = seq(2008,2016, by = 1), labels = seq(2008,2016, by = 1))  + 
+  theme(axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)) + 
+  facet_wrap("Program", ncol = 1, scales = "free_x")  +
+  labs(title = "Relative Scope 
+and Prescriptiveness
+(Number of issues)",
+y = "")
+```
 </center>
 
 Overall, each program had distinct areas in which its requirements were more prescriptive. For the FSC, these requirements tended to demand that forest operations “resemble natural processes” and “maintain ecosystem function.” This language appeared more frequently and forcefully in the 2010 standard concerning issues including clearcutting, riparian management, HCVFs, protected areas, old-growth forests, snags and downed wood, residual trees, genetic diversity, plantations, restoration, natural disturbance, non-timber forest products, soil protection, road building, and management planning. In contrast, the SFI was most prescriptive on issues such as material utilization, research, training, education, and public reporting and consultation.  The eight key issues on which the SFI increased prescriptiveness in 2010 also reflect the SFI’s focus on industry capacity and reputation. These included aesthetics, public reporting, education, training, and utilization. 
