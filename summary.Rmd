@@ -6,10 +6,12 @@ output: #powerpoint_presentation
 #    keep_tex: true
     html_document:
 #   code_folding: hide
-    toc: true
+#      toc: true
+#      toc_float: true
 editor_options: 
   chunk_output_type: console
 ---
+
 
 ```{r setup, include=FALSE}
 source(here::here("setup.R"))
@@ -20,11 +22,13 @@ load(here("data/SFIvFSC.Rdata"))
 
 --- 
 
+### Forthcoming in *Organization and the Environment* [Special Issue on Social Movements and Private Environmental Governance](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
+
 **Abstract**
 
 Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
 
-Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf) (Forthcoming in [Organization & Environment ](https://journals.sagepub.com/home/oae)).
+
 
 ---
 
@@ -102,7 +106,7 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 
 ## Comparing Forest Certification Programs
 
-We each program's stringency on 48 key social and environmental issues. For example, the FSC and SFI have different limits on the size of clearcuts and harvesting buffers around streams. 
+We compare each program's stringency on 48 key social and environmental issues. For example, the FSC and SFI have different limits on the size of clearcuts and harvesting buffers around streams. 
 
 ### Limits on clearcut size
 ```{r clearcuts, fig.height=3, fig.width=5.5}
@@ -698,6 +702,8 @@ After the significant revisions of both programs in 2010, only the SFI updated i
 
 
 ---
+
+## Conclusion
 
 Scholars have made substantial progress in developing theories of how economic and political forces shape the substance of private regulations, and how these different requirements then affect levels of adoption and compliance. We have argued that testing these theories requires more precise statements of the types of policy substance to which they apply and research that measures change across programs and over time. Our framework for measuring regulatory stringency, and for using longitudinal data to classify patterns of change, offers a foundation for further research about how competing regulatory programs compare, how they evolve, and why. There is no perfect way to compare incommensurate policies. We have nonetheless made our best effort to offer a method to do so. By applying this method, we have systematically quantified differences that can be quantified and described as richly as possible those comparisons that one can only make qualitatively.
 
