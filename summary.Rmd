@@ -22,7 +22,7 @@ load(here("data/SFIvFSC.Rdata"))
 
 --- 
 
-### Forthcoming in *Organization and the Environment* [Special Issue on Social Movements and Private Environmental Governance](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
+### Forthcoming in *Organization & Environment* [Special Issue on Social Movements and Private Environmental Governance](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
 
 **Abstract**
 
