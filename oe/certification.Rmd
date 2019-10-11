@@ -154,7 +154,7 @@ Forest certification illustrates how market-based authority can involve formal d
 
 For over 20 years the Forest Stewardship Council (FSC) and Sustainable Forestry Initiative (SFI), have been developing written Forest Management Standards (standards) that promote different concepts of “sustainable” forest management. The SFI and FSC play a significant role in regulating the forest products industry in the United States, regulating a third of commercially harvested timberland including most corporate-owned timberland (see Figure 1).  Many U.S. states support certification as a compliment or alternative to public regulation. For example, some state regulators forgo inspections of FSC-certified forests as legal compliance is part of their FSC audit [@Judge-Lord2013]. 
 
-![U.S. timberland by ownership and certification scheme](acres-1.png)
+![U.S. timberland by ownership and certification scheme](../Figs/acres-1.png)
 
 *Origin of the FSC:* The FSC was established as an international nonprofit organization in 1993 by a group of environmental and social advocacy organizations, academics, indigenous groups, and companies. FSC's founders designed its rulemaking procedures as a “democratic” process where members vote on decision-making rules as well as substantive policy [@Meidinger2003]. FSC standards begin with a set of international “Principles and Criteria” (FSC–P&C) that are used by national-level organizations to develop more specific indicators.  Our analysis of the FSC in the United States thus assesses both the international FSC-P&C and the FSC-US national standard. 
 
