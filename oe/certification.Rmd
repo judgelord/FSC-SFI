@@ -8,7 +8,7 @@ classoption: Review
 bibliography:  certification.bib
 biblio-style: apa
 citecolor: black
-output: #word_document
+output: # word_document
   bookdown::pdf_document2:
     latex_engine: pdflatex
     keep_tex: true
@@ -18,6 +18,9 @@ output: #word_document
     citation_package: natbib
 spacing: doublespacing
 endnotes: true
+
+
+thanks: "Forthcoming in *Organization & Environment* [2019 Special Issue on Social Movements and Private Environmental Governance](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). We thank two anonymous reviewers and the editor for comments that greatly improved this analysis. We are also grateful for feedback from participants at conferences including the 2018 American Politics Workshop at the University of Wisconsin-Madison, the 2016 Association of Public Policy Analysis and Management (APPAM) Annual Research Conference, and the 2015 Association of Environmental Studies and Sciences Annual Meeting. We are also grateful for extensive feedback on a 2014 draft of the analytic framework and empirical application, from officials with the Forest Stewardship Council (FSC), the Sustainable Forestry Initiative (SFI), and the Program for the Endorsement of Forest Certification (PEFC). This research was made possible by funding from the Fox Foundation, Procter & Gamble, Staples, Office Depot, and Arup. We also thank Erica Pohnan, Akiva Fishman, Shaan Amin, and Evan Ramzipoor for research and editing assistance. The authors are fully responsible for data collection, analysis, and any errors."
 
 title: Do Private Regulations Ratchet Up?
 subtitle: How to distinguish types of regulatory stringency
@@ -29,8 +32,6 @@ author:
   affiliation: Yale University
 - name: Constance L. McDermott
   affiliation: Oxford University
-
-thanks: "Forthcoming in *Organization & Environment* [2019 Special Issue on Social Movements and Private Environmental Governance](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). We thank two anonymous reviewers and the editor for comments that greatly improved this analysis. We are also grateful for feedback from participants at conferences including the 2018 American Politics Workshop at the University of Wisconsin-Madison, the 2016 Association of Public Policy Analysis and Management (APPAM) Annual Research Conference, and the 2015 Association of Environmental Studies and Sciences Annual Meeting. We are also grateful for extensive feedback on a 2014 draft of the analytic framework and empirical application, from officials with the Forest Stewardship Council (FSC), the Sustainable Forestry Initiative (SFI), and the Program for the Endorsement of Forest Certification (PEFC). This research was made possible by funding from the Fox Foundation, Procter & Gamble, Staples, Office Depot, and Arup. We also thank Erica Pohnan, Akiva Fishman, Shaan Amin, and Evan Ramzipoor for research and editing assistance. The authors are fully responsible for data collection, analysis, and any errors."
 
 abstract: "Due to inconsistent concepts of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework for more systematic comparisons across programs and over time. We distinguish three often-conflated measures of stringency: regulatory scope, prescriptiveness, and performance levels. Applying this framework, we compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the national industry association. We find ‘upwardly divergent’ policy prescriptiveness: both programs increased in prescriptiveness but this increase was greater for the activist-backed program. Furthermore, requirements added by the activist-backed program were more likely to impose costs on firms than requirements added by the industry-backed program, many of which may even benefit firms. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. They also reveal patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing."
 
