@@ -301,8 +301,7 @@ In addition to issue-by-issue comparisons, we use two measures of regulatory str
 
 <center>
 ```{r FSC-SFI, fig.height= 10, fig.width=7.5}
-SFIvFSCnetChange$Measure %<>% str_replace("Increased", "Increased (+)")
-
+SFIvFSCnetChange$Measure %<>% str_replace("Increased", "Increased (+)") 
 
 ## line plot (line)
 line <- SFIvFSCnetChange %>%
@@ -456,7 +455,10 @@ Overall, each program had distinct areas in which its requirements were more pre
 <center>
 
 ```{r FSC-PEFC, fig.height= 10, fig.width=7.5}
-PEFCvFSC$Measure %<>% str_replace("Increased", "Increased (+)")
+PEFCvFSC$Measure %<>% str_replace("Increased", "Increased (+)") 
+
+PEFCvFSC %<>% mutate(Change08 = ifelse(Year > 2011 & Program == "Activist-backed FSC P&C", 13, Change08))
+
 
 # line plot (line)
 line <- PEFCvFSC %>% 
@@ -464,7 +466,7 @@ line <- PEFCvFSC %>%
   filter(Program %in% c( "Activist-backed FSC P&C", "Industry-backed PEFC"),
   Measure == "Increased (+)") %>% 
   ggplot() + 
-  geom_step(aes(x = Year, y = Change08, linetype = Measure, color = Measure)) + 
+  geom_step(aes(x = Year, y = Change, linetype = Measure, color = Measure)) + 
         scale_color_viridis_d(begin = .5, end = .2, option = "B") +
   facet_grid(. ~ Program) + 
   geom_text(data = data.frame(Program = "Industry-backed PEFC"), 
@@ -473,7 +475,7 @@ label = "Increased on
 2008-2015", x = 2015, y = 16, vjust = 1, hjust = 1, size = 3) + 
   geom_text(data = data.frame(Program = "Activist-backed FSC P&C"),
 label = "Increased on 13
-issues 2008-2015", x = 2015, y = 18, vjust = 1, hjust = 1, size = 3) + 
+issues 2008-2015", x = 2015, y = 20, vjust = 1, hjust = 1, size = 3) + 
   labs(title = "Absolute Change in Prescriptiveness",
        y = "Number of issues changed",
        color = "Prescriptiveness", linetype = "Prescriptiveness") +
