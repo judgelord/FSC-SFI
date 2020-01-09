@@ -22,12 +22,11 @@ load(here("data/SFIvFSC.Rdata"))
 
 --- 
 
-### Forthcoming in *Organization & Environment* [Special Issue on Social Movements and Private Environmental Governance](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
+### Forthcoming in [*Organization & Environment*](https://journals.sagepub.com/doi/full/10.1177/1086026619853783). Download the paper [here](https://github.com/judgelord/FSC-SFI/raw/master/certification.pdf).
 
 **Abstract**
 
-Due to inconsistent measures of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework to distinguish three often-conflated measures: regulatory scope, prescriptiveness, and performance levels. We use our framework to compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the American Forest & Paper Association. We find “upward” but also divergent policy prescriptiveness, with the activist-founded program adding requirements that impose costs on firms and the industry-backed program mostly adding requirements with net benefits to the sector. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. Furthermore, we find several more nuanced patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
-
+Due to inconsistent concepts of regulatory stringency, scholars offer conflicting accounts about whether competing private governance initiatives “race to the bottom,” “ratchet up,” “converge,” or “diverge.” To remedy this, we offer a framework for more systematic comparisons across programs and over time. We distinguish three often-conflated measures of stringency: regulatory scope, prescriptiveness, and performance levels. Applying this framework, we compare competing U.S. forestry certification programs, one founded by environmental activists and their allies, the other by the national industry association, the American Forest & Paper Association. We find ‘upwardly divergent’ policy prescriptiveness: both programs increased in prescriptiveness but this increase was greater for the activist-backed program. Furthermore, requirements added by the activist-backed program were more likely to impose costs on firms than requirements added by the industry-backed program, many of which may even benefit firms. These results are consistent with the hypothesis that industry-backed programs emphasize less costly types of stringency than activist-backed programs. They also reveal patterns of change that previous scholarship failed to anticipate, illustrating how disentangling types of stringency can improve theory building and testing.
 
 
 ---
@@ -594,7 +593,7 @@ line +
   geom_segment(aes(#color = Program, 
                    #linetype = Program,
                    x = 2008, y = 0, xend =2015, 
-                   yend = ifelse(Program == "Activist-backed FSC-P&C", 13,18)), arrow = arrow(length = unit(0.1, "npc"))) + 
+                   yend = ifelse(Program == "Activist-backed FSC P&C", 13,18)), arrow = arrow(length = unit(0.1, "npc"))) + 
   theme(panel.border = element_rect(fill = NA)) + 
   facet_wrap("Program", ncol = 1, scales = "free_x") + 
   labs(title = "Absolute Change 
