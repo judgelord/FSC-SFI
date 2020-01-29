@@ -42,7 +42,7 @@ Competing certification regimes, the Forest Stewardship Council (FSC) and The Su
 ---
 
 ### U.S. Timberland by ownership and certification scheme
-```{r acres, fig.height= 2.9, fig.width=6.7}
+```{r acres, fig.height= 2.9, fig.width=6.7, dpi=600, retina=1}
 
 acres <- read.csv(here("data/acres.csv"))
 
@@ -108,7 +108,7 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
 We compare each program's stringency on 48 key social and environmental issues. For example, the FSC and SFI have different limits on the size of clearcuts and harvesting buffers around streams. 
 
 ### Limits on clearcut size
-```{r clearcuts, fig.height=3, fig.width=5.5}
+```{r clearcuts, fig.height=3, fig.width=5.5, dpi=600, retina=1}
 d <- read_csv("data/clearcuts.csv")
 
 fsc <- d %>% 
@@ -180,7 +180,7 @@ grid.draw(egg::ggarrange(sfi, fsc,
 ```
 
 ### Limits on harvesting near streams
-```{r riparian, fig.height=7, fig.width=8}
+```{r riparian, fig.height=7, fig.width=8, dpi=600, retina=1}
 d <- read_csv("data/riparian-buffers.csv") %>% 
   mutate(Criteria = glue("{criteria2} {criteria}", .na = "")) %>%
   mutate(Standard = glue("{program} {region}", .na = "")) %>%
@@ -300,7 +300,7 @@ In addition to issue-by-issue comparisons, we use two measures of regulatory str
 ### Scope and Prescriptiveness of FSC-US and SFI 2008-2016
 
 <center>
-```{r FSC-SFI, fig.height= 10, fig.width=7.5}
+```{r FSC-SFI, fig.height= 10, fig.width=7.5, dpi=600, retina=1}
 SFIvFSCnetChange$Measure %<>% str_replace("Increased", "Increased (+)") 
 
 ## line plot (line)
@@ -322,7 +322,7 @@ label = "Increased on
   labs(title = "Absolute Change in Prescriptiveness",
        y = "Number of issues changed",
        color = "Prescriptiveness", linetype = "Prescriptiveness") + 
-  scale_y_continuous(breaks = seq(0,48, by = 4)) + 
+  scale_y_continuous(breaks = seq(0,48, by = 4), limits=c(0,24)) + 
   scale_x_continuous(breaks = seq(2008,2016, by = 1)) + 
   #scale_linetype_discrete(name = "Change in Prescriptiveness") + 
   theme(#panel.grid.major = element_blank(), 
@@ -420,7 +420,7 @@ grid.draw(egg::ggarrange(bar, tile, line,
 </center>
 
 The bottom panel of the above figure shows the trend in absolute prescriptiveness. Comparing the total number of increases in prescriptiveness is one way to measure rates of change. By this measure, the FSC-US increased stringency at a faster rate than the SFI from 2008 to 2016.
-```{r FSC-SFI-trend, fig.width=3.5, fig.height=4}
+```{r FSC-SFI-trend, fig.width=3.5, fig.height=4, dpi=600, retina=1}
 line + 
   geom_segment(aes(#color = Program, 
                    #linetype = Program,
@@ -435,7 +435,7 @@ y = "")
 ```
 
 The top pannel in the above figure shows the trend in issue scope and relative prescriptiveness, which have stayed fairly constant from 2008 to 2016.
-```{r FSC-SFI-bar, fig.width=4, fig.height=4}
+```{r FSC-SFI-bar, fig.width=4, fig.height=4, dpi=600, retina=1}
 bar + 
   scale_x_continuous(breaks = seq(2008,2016, by = 1), labels = seq(2008,2016, by = 1))  + 
   theme(axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)) + 
@@ -454,7 +454,7 @@ Overall, each program had distinct areas in which its requirements were more pre
 
 <center>
 
-```{r FSC-PEFC, fig.height= 10, fig.width=7.5}
+```{r FSC-PEFC, fig.height= 10, fig.width=7.5, dpi=600, retina=1}
 PEFCvFSC$Measure %<>% str_replace("Increased", "Increased (+)") 
 
 PEFCvFSC %<>% mutate(Change08 = ifelse(Year > 2011 & Program == "Activist-backed FSC P&C", 13, Change08))
@@ -479,7 +479,7 @@ issues 2008-2015", x = 2015, y = 20, vjust = 1, hjust = 1, size = 3) +
   labs(title = "Absolute Change in Prescriptiveness",
        y = "Number of issues changed",
        color = "Prescriptiveness", linetype = "Prescriptiveness") +
-  scale_y_continuous(breaks = seq(0,48, by = 4)) + 
+  scale_y_continuous(breaks = seq(0,48, by = 4), limits=c(0,24)) + 
   scale_x_continuous(breaks = seq(2008,2015, by = 1)) + 
   #scale_linetype_discrete(name = "Change in Prescriptiveness") + 
   theme(#panel.grid.major = element_blank(), 
@@ -577,7 +577,7 @@ grid.draw(egg::ggarrange(bar, tile, line,
 </center>
 
 The top pannel in the above figure shows the trend in issue scope and relative prescriptiveness, which have stayed fairly constant from 2008 to 2016.
-```{r FSC-PEFC-bar, fig.width=4, fig.height=4}
+```{r FSC-PEFC-bar, fig.width=4, fig.height=4, dpi=600, retina=1}
 bar + 
   scale_x_continuous(breaks = seq(2008,2015, by = 1), labels = seq(2008,2015, by = 1))  + 
   theme(axis.text.x=element_text(angle = 45, vjust = 1.3, hjust = 1)) + 
@@ -590,7 +590,7 @@ y = "")
 
 
 The bottom panel of the above figure shows the trend in absolute prescriptiveness. By this measure, the PEFC increased stringency at a slightly faster rate than the FSC-P&C from 2008 to 2016.
-```{r FSC-PEFC-trend, fig.width=3.5, fig.height=4}
+```{r FSC-PEFC-trend, fig.width=3.5, fig.height=4, dpi=600, retina=1}
 line + 
   geom_segment(aes(#color = Program, 
                    #linetype = Program,
