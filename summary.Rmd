@@ -1,7 +1,8 @@
 ---
 title: "Do Private Regulations Ratchet Up?"
 subtitle: "How to distinguish types of regulatory stringency and patterns of change"
-output: #powerpoint_presentation
+output: 
+#    powerpoint_presentation
 #    pdf_document:
 #    keep_tex: true
     html_document:
@@ -26,7 +27,7 @@ load(here("data/SFIvFSC.Rdata"))
 
 Get the Bibtex citation [here](https://judgelord.github.io/research/fsc-sfi/#)
 
-If you are unable to download the paper, email email Devin.JL@gmail.com.
+If you are unable to download the paper, email Devin.JL@gmail.com.
 
 **Abstract**
 
@@ -95,7 +96,7 @@ corp <- ggplot(acres %>% filter(bar %in% c("Total Corporate-owned timberland",
           panel.grid.major.y = element_blank(),
           #change axis ticks thickness
           axis.ticks.y=element_blank())  
- 
+
  #grid.newpage()
   grid.draw(egg::ggarrange(corp, cert, 
                            ncol = 1,
@@ -237,7 +238,7 @@ harvest buffer zones",
         panel.grid.major.y = element_blank())
 
 sfi <- d %>% 
-  filter(program %in% c("SFI", "PEFC")) %>% 
+  filter(program %in% c("SFI", "PEFC")) %>%
   ggplot(aes(x = Criteria, y = feet, fill= type, label = text, group=1)) + 
   geom_col(position = "stack") + 
   geom_text(aes(y = 0), hjust = 0, size = 3, color = "#458B00", check_overlap = T)+
@@ -246,7 +247,7 @@ sfi <- d %>%
   labs(x = "", y = "", fill = "",
        title = "Industry-backed SFI & PEFC")+
   scale_fill_viridis_d(begin = .9, end = .5, option = "B") + 
-  facet_grid(region ~., scales = "free", space = "free", switch = "y") +
+  #facet_grid(region ~., scales = "free", space = "free", switch = "y") +
   # scale_x_continuous(limits = c(0,150)) + 
   # theme_gray() +
   theme(strip.text.y = element_text(angle = 180),
@@ -693,7 +694,7 @@ Upwardly converging issues: `r Issues$issues[which(Issues$pattern =="Upward conv
 
 ---
 
-### Overall Comparison
+## Overall Comparison of SFI and FSC-US
 By distinguishing different types of stringency, our framework improves upon blunt measures of “high” or “low” based on ambiguous concepts or only a few of the many issues a policy may address.
  
 Overall, our results are consistent with the expectation that activist-backed programs have higher levels of more costly types of stringency. On ecological goals, the FSC-US standard was significantly more stringent than the SFI standard on both scope and prescriptiveness dimensions. On social goals, results are more mixed. On scope, the FSC-US standard protected land tenure and required that local communities benefit from harvesting in ways that were unmatched by SFI’s standard. 
@@ -701,23 +702,35 @@ Numerically, FSC-US covered a broader scope of social issues. On prescriptivenes
  
 On more business-oriented goals such as efficiency (e.g., levels of cut tree utilization), industry capacity (e.g., workforce training and research), and industry reputation (e.g., public education and aesthetics), the overall patterns were largely reversed. SFI was slightly broader in scope (requiring contributions to research where FSC did not), was more prescriptive, and required higher performance levels on many business-friendly issues.
  
-### Patterns of Change
-In most years between 2008 and 2016, neither the FSC nor the SFI changed on any issue (the center cell in Table above, “equilibrium”).
+## Patterns of Change
+In most years between 2008 and 2016, neither the FSC nor the SFI changed on any issue.
  
 When they did change, upwardly diverging prescriptiveness was the most frequent pattern. Most changes for both programs occurred in 2010, where the overall pattern was divergence rather than convergence or stability. For all 16 issues on which only the FSC-US added requirements, the FSC-US already had the more prescriptive requirements, and almost all of these additions address ecological problems. Similarly, for three out of the four issues on which only the SFI added requirements, the SFI already had more prescriptive requirements.
  
 The vast majority of changes (21 of 27 issues changed) fit a pattern where one program increased prescriptiveness while the other did not (or in one case, increased to a lesser degree), and the program that increased stringency *already had the more prescriptive requirements*. On 18 issues, the less prescriptive program stayed the same, leading to upward divergence. On three issues, the less prescriptive program decreased prescriptiveness, leading to opposing divergence.
  
-Convergence was rare. In 2010, upward convergence only occurred when the FSC-US added requirements on the issue of “continual improvement” of harvesting operations, an issue usually associated more with the SFI. This outcome is interesting because scholars generally predict that less stringent private regulations will converge toward “benchmark” standards like FSC’s [@Overdevest2005; @Overdevest2010]. Instead, we find the FSC-US ratcheting up prescriptiveness on an issue where its industry-backed competitor had more stringent requirements. Indeed, most studies overlook the possibility that industry-backed standards like the SFI may be more stringent on some issues and thus fail to theorize about dynamics that could cause this. We see downward convergence only on the issues of "community benefits" and "tenure rights," where the more prescriptive FSC-US removed requirements, thus moving closer to SFI.
+Convergence was rare. In 2010, upward convergence only occurred when the FSC-US added requirements on the issue of “continual improvement” of harvesting operations, an issue usually associated more with the SFI. This outcome is interesting because scholars generally predict that less stringent private regulations will converge toward “benchmark” standards like FSC’s. Instead, we find the FSC-US ratcheting up prescriptiveness on an issue where its industry-backed competitor had more stringent requirements. Indeed, most studies overlook the possibility that industry-backed standards like the SFI may be more stringent on some issues and thus fail to theorize about dynamics that could cause this. We see downward convergence only on the issues of "community benefits" and "tenure rights," where the more prescriptive FSC-US removed requirements, thus moving closer to SFI.
  
 Parallel change was also rare. An upward parallel change occurred on only three issues in 2010: forest management planning, controlling carbon emissions, and reporting and consultation, where both programs added requirements. We classify the addition of protections for riparian zones by both SFI and FSC-US as another case of upward divergence rather than upward parallel change because the requirements for riparian protection added by the FSC-US were more prescriptive than those added by the SFI. No issues exhibited downward parallel change, as “race to the bottom” theory anticipates.
  
-After the significant revisions of both programs in 2010, only the SFI updated its requirements, mostly in 2015. In contrast to the 2010 changes, the pattern in 2015 was a slight upward convergence. SFI increased prescriptiveness on three issues where it did not already have the most prescriptive requirements. While a much smaller scale of change than 2010, this upward convergence is notable because it focuses on regulating toxic chemicals, plantations, and harvesting on tribal lands, which likely have net costs rather than benefits for the industry. 
+After the significant revisions of both programs in 2010, only the SFI updated its requirements, mostly in 2015. In contrast to the 2010 changes, the pattern in 2015 was a slight upward convergence. SFI increased prescriptiveness on three issues where it did not already have the most prescriptive requirements. While a much smaller scale of change than 2010, this upward convergence is notable because it focuses on regulating toxic chemicals, plantations, and harvesting on tribal lands, which likely have net costs rather than benefits for the industry.  
+ 
+## Implications for Theory
+Applying our framework to the case of forestry certification reveals how one could reach different conclusions by looking at different dimensions of change. If focusing only on program scope, one would find little support for any theory predicting change—either convergence or divergence. If focusing only on prescriptiveness on ecological issues, one would find divergence, with the activist-backed FSC-US becoming more prescriptive at a faster rate than the industry-backed SFI. But if focusing only on prescriptiveness on issues related to industry capacity and reputation, one would find the opposite, with the SFI becoming more prescriptive at a faster rate than the FSC-US. While certainly inconsistent with “race-to-the-bottom” theories, the overall upwardly divergent trajectories of the SFI and FSC-US do not exactly fit a “race to the top” (upward parallel) pattern either.
+ 
+## Industry-Backed Certification Programs as a Form of Collective Action
+Our finding that the SFI and FSC-US were each more prescriptive and continued to become more prescriptive on qualitatively different issues highlights how industry-backed certification programs can serve their industry in two ways.
+ 
+First, industry-backed certification programs provide individual firms with a service—a signal of "social responsibility" that requires a credible third party to send. Another way to send such a signal would be to comply with an activist-backed regulation, but this may be much more expensive. Hence, industry-backed programs are often created to save firms money by offering a label that sends “green” or “socially responsible” signals in the market without some of the more costly demands of activist-backed programs or public regulations. Such signals rely on perceived, rather than actual, stringency.^[While our framework clarifies many differences in actual stringency between activist- and industry-backed programs, each actor’s problem definitions and values will determine the program they prefer. For example, actors prioritize different issues. Some may value actual stringency while others value perceived stringency. Industry-backed programs often address the same issues as activist-backed programs, using language that might imply equivalency in stringency, but which contain substantially fewer prescriptive requirements. Yet seemingly similar looking language can require very different levels of performance. For example, the SFI requirements for “Forests of Exceptional Conservation Value” (FECV) are much less prescriptive than the FSC-US requirements for “High Conservation Value Forests” (HCVF), despite their similar language. The extent to which this helps firms coordinate to maximize the impression of stringency while minimizing the costs of doing so is a question for future research.]
+ 
+Second, industry-backed certification programs provide a mechanism for an industry to improve its collective reputation and capacity by coordinating contributions to collective goods, a common function of industry associations. That the SFI developed more prescriptive standards than the FSC-US on several issues is inconsistent with the predictions that competition between industry-backed and activist-backed competition will lead to a “race to the bottom” on all issues. It is also inconsistent with the prediction that activist-backed standards will be more prescriptive on all issues. However, the substance of these issues suggests that these requirements are not a result of competition with the FSC. Instead, the SFI had the most prescriptive requirements for actions that firms may take anyway—like training workers and maximizing efficiency—or that present collective action problems for the industry—like managing the visual impact of harvesting and sector-level reputation. Likewise, the three issues on which only the SFI changed—maximizing the utilization of cut trees, public education, and worker training—reflect concerns for the efficiency, reputation, and capacity of the forest products industry. Educating the public about forestry and training workers may not exclusively benefit individual firms, but given the broad adoption of SFI certification, such requirements may provide collective benefits for the sector in the form of a positive public image and skilled workforce.
+ 
+In short, for the handful of issues where the SFI developed more prescriptive requirements than did the FSC-US, SFI requirements tended to focus on actions that firms would likely take in the absence of certification (such as training workers or educating the public) but where certification may provide additional collective benefits by causing them to be more widely adopted. While unforeseen by existing theories, the fact that the SFI is more prescriptive on some issues is unsurprising if these requirements provide net benefits to the sector regardless of activist pressures or consumer demands. Disentangling the type of regulatory stringency is thus necessary to assess whether industry-backed programs increasing stringency supports or contradicts broader theories of competition between activist and industry-backed programs.
 
 
 ---
 
-## Conclusion
+## Conclusions
 
 Scholars have made substantial progress in developing theories of how economic and political forces shape the substance of private regulations, and how these different requirements then affect levels of adoption and compliance. We have argued that these theories require more attention to the types of policy to which they apply and that testing these theories requires research that measures change across programs and over time. Our framework for measuring regulatory stringency and using longitudinal data to classify patterns of change offers a foundation for further research. The overwhelming failure to do so thus far has hampered the accumulation of knowledge and caused confusion about the potential and limits of private governance. There is no perfect way to compare incommensurate policies. We have nonetheless made our best effort to offer a method to do so. By applying this method, we have systematically quantified differences that can be quantified and described as richly as possible those comparisons that one can only make qualitatively.
  
@@ -725,7 +738,7 @@ Applying our framework to the case of forestry standards in the United States de
  
 Previous studies of forest certification illustrate how empirical debates often result from research design choices that capture some patterns but miss others. Some scholars chose a few key issues and found convergence. Others used different issues or measures and did not. Still others made broad generalizations in both directions without specifying a scope of policy content or measurement concepts at all. Our integration of both precise and broad measures found that both conclusions were accurate but incomplete. Activist-backed and industry-backed programs converged in policy scope on a few issues, but overall, their scopes have seen little change. Furthermore, we found these programs to have diverged overall on prescriptiveness, because, while both standards “ratcheted up,” they did so at different rates and on different policy issues. This deep dive into defining regulatory stringency and policy change in one domain both lays a foundation for scholarship on the causes of public and private regulation in forestry and offers a model for similar research in other policy domains.
  
-Our methodological critique and corrective framework also have practical value. First, the power dynamics among coalitions that promote programs like the FSC or the SFI have created an environment in which competing claims about their requirements and how they have changed causes confusion among potential buyers of certified products. The politics of private regulation revolve around claims about the relative stringency of each program’s requirements, "public comparisons that would resolve the debate about whose standards were higher" [@Overdevest2010]. Our framework disentangles abstract notions of “higher” with more concrete and objective ways to measure regulatory stringency. Second, it is impossible to measure the impact of a set of regulatory requirements without disentangling their component parts. Our analysis of written requirements is thus a critical, but often overlooked first step for efforts to assess the effects of these programs on the ground.
+Our methodological critique and corrective framework also have practical value. First, the power dynamics among coalitions that promote programs like the FSC or the SFI have created an environment in which competing claims about their requirements and how they have changed causes confusion among potential buyers of certified products. The politics of private regulation revolve around claims about the relative stringency of each program’s requirements, public comparisons that would resolve debates about "whose standards were higher." Our framework disentangles abstract notions of “higher” with more concrete and objective ways to measure regulatory stringency. Second, it is impossible to measure the impact of a set of regulatory requirements without disentangling their component parts. Our analysis of written requirements is thus a critical, but often overlooked first step for efforts to assess the effects of these programs on the ground.
  
 Most importantly, our framework and analysis offer a model for careful measurement of policy change as a variable. It is tempting to take shortcuts by making broad generalizations or by selecting what is easy to measure or what others have highlighted. However, if we aim to build testable theories or collect the kinds of evidence needed to test existing theories, we must define policy change in ways that can be applied across programs and over time. Doing so will not only improve the quality of research and theory, it may also uncover entirely new puzzles and insights.
 
