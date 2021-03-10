@@ -2,19 +2,19 @@
 title: Do Private Regulations Ratchet Up?
 subtitle: How to Distinguish Types of Regulatory Stringency and Patterns of Change
 
-author: "Devin Judge-Lord, University of Wisconsin-Madison<br>Benjamin Cashore,  Yale University<br>Constance L. McDermott, Oxford University"
+author: "Devin Judge-Lord, University of Wisconsin-Madison<br>Benjamin Cashore,  National University of Singapore<br>Constance L. McDermott, Oxford University"
 date: "Paper & slides: [judgelord.github.io/research/FSC-SFI](https://judgelord.github.io/research/fsc-sfi)"
-# output:
-#   xaringan::moon_reader:
-#     lib_dir: libs
-#     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
-#     css: xaringan-themer.css
-#     nature:
-#       highlightStyle: github
-#       highlightLines: true
-#       countIncrementalSlides: false
-# editor_options: 
-#   chunk_output_type: console
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+editor_options:
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
