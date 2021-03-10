@@ -1,6 +1,6 @@
 ---
 title: Do Private Regulations Ratchet Up?
-subtitle: How to Distinguish Types of Regulatory Stringency and Patterns of Change
+subtitle: "How to Distinguish Types of Regulatory Stringency and Patterns of Change<br> Published in *Organization & Environment* 2020"
 
 author: "Devin Judge-Lord, University of Wisconsin-Madison<br>Benjamin Cashore,  National University of Singapore<br>Constance L. McDermott, Oxford University"
 date: "Paper & slides: [judgelord.github.io/research/FSC-SFI](https://judgelord.github.io/research/fsc-sfi)"
@@ -10,6 +10,7 @@ output:
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
     css: xaringan-themer.css
     nature:
+      ratio: '16:9'
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -105,9 +106,7 @@ I am going to review the results for the US: FSC-US and SFI, but in the paper, w
 
 ---
 
-# Case study: Comparing competing U.S. forestry certification programs
-
-- One founded by environmental groups (FSC), the other by the national industry association (SFI)
+### We use this framework to compare competing U.S. forestry certification programs, one founded by environmental groups (FSC), the other by the national industry association (SFI)
 
 ```{r, fig.show = "hold", out.width = "100%"}
 
@@ -124,7 +123,7 @@ Sustainable Forestry initiative was founded by the American Paper and Forest Pro
 
 Competing certification regimes play a major role in regulating the U.S. forestry industry, regulating a third of commercially harvested timberland, including most corporate-owned timberland. <!--Audits often assess compliance with public laws beyond certification requirements.-->
 
-```{r, fig.show = "hold", out.width = "100%"}
+```{r, fig.show = "hold", out.width = "85%"}
 
 knitr::include_graphics("Figs/acres-1.png")  
 ```
@@ -139,7 +138,7 @@ class: inverse center
 
 # The politics of governing through market power
 
-(versus or along-side public policy)
+# (versus or along-side public policy)
 
 ???
 
@@ -151,6 +150,8 @@ What I mean is that some authority other than the government exists that has the
 
 ---
 
+class: inverse
+
 Private Authority, Act 1: Organizing for change in commodity production
 
 ```{r, fig.show = "hold", out.width = "100%"}
@@ -160,18 +161,22 @@ knitr::include_graphics("images/kleenex.JPG")
 
 ---
 
+class: inverse
+
 Private Authority, Act 2: Demand for certified product
 
-```{r, fig.show = "hold", out.width = "75%"}
+```{r, fig.show = "hold", out.width = "56%"}
 
 knitr::include_graphics("images/kleenex3.JPG")  
 ```
 
 ---
 
-Private Authority, Act 3: Governing, i.e., changing requirements over time
+class: inverse
 
-```{r, fig.show = "hold", out.width = "100%"}
+Private Authority, Act 3: Changing requirements over time
+
+```{r, fig.show = "hold", out.width = "80%"}
 
 knitr::include_graphics("images/fscvote.jpg")  
 knitr::include_graphics("images/sficon.png")  
@@ -184,7 +189,7 @@ knitr::include_graphics("images/sficon.png")
 
 We compare each program's stringency on 48 key social and environmental issues from 2008-2016. For example, as of 2016, the FSC-US and SFI had different limits on the size of clearcuts: 
 
-```{r, fig.show = "hold", out.width = "80%"}
+```{r, fig.show = "hold", out.width = "70%"}
 
 knitr::include_graphics("Figs/clearcuts-1.png")  
 ```
@@ -194,7 +199,7 @@ knitr::include_graphics("Figs/clearcuts-1.png")
 
 Another key issue: limits on harvesting near streams
 
-```{r, fig.show = "hold", out.width = "75%"}
+```{r, fig.show = "hold", out.width = "55%"}
 
 knitr::include_graphics("Figs/riparian-1.png")  
 ```
@@ -225,13 +230,19 @@ knitr::include_graphics("Figs/riparian-1.png")
 
 ### Types of Stringency
 
-![](Figs/table2.png)
+```{r, fig.show = "hold", out.width = "80%"}
+
+knitr::include_graphics("Figs/table2.png")  
+```
 
 --
 
 Policy Prescriptiveness
 
-![](Figs/prescriptiveness.png)
+```{r, fig.show = "hold", out.width = "80%"}
+
+knitr::include_graphics("Figs/prescriptiveness.png")  
+```
 
 ???
 
@@ -245,7 +256,7 @@ We assess the prescriptiveness and policy settings of each of the 48 key issues 
 
 (in each type of regulatory stringency)
 
-```{r, fig.show = "hold", out.width = "100%"}
+```{r, fig.show = "hold", out.width = "95%"}
 
 knitr::include_graphics("Figs/patterns.png")  
 ```
@@ -255,12 +266,12 @@ knitr::include_graphics("Figs/patterns.png")
 
 Overall, we find **"equilibrium" in policy scope**: neither program significantly changed the scope of issues it addressed.
 
-```{r, fig.show = "hold", out.width = "60%"}
+```{r, fig.show = "hold", out.width = "45%"}
 
 knitr::include_graphics("Figs/FSC-SFI-bar-1.png")  
 ```
 
-????
+???
 
 Scope of bother programs stayed relatively constant, and if we just look at the darker and middle grey bars, issues where there were some requirements, the two programs have a very similar scope. 
 
@@ -274,7 +285,7 @@ Both programs did begin regulating carbon emissions in 2010, but it is unclear i
 Overall, we find **"upwardly divergent" policy prescriptiveness**: both programs increased in prescriptiveness, but this increase was greater for the activist-backed FSC-US program. 
 
 
-```{r, fig.show = "hold", out.width = "50%"}
+```{r, fig.show = "hold", out.width = "40%"}
 
 knitr::include_graphics("Figs/FSC-SFI-trend-1.png")  
 ```
@@ -289,7 +300,7 @@ Overall assessments of **policy settings** are tricky, as most can only be compa
 
 --
 
-# One pattern: requirements added by the activist-backed program were more likely to impose costs on firms than requirements added by the industry-backed program, many of which may even benefit firms. 
+## One pattern: requirements added by the activist-backed program were more likely to impose costs on firms than requirements added by the industry-backed program, many of which may even benefit firms. 
 
 <!--
 
@@ -297,7 +308,6 @@ Overall assessments of **policy settings** are tricky, as most can only be compa
 
 - Certification programs provide individual firms with a service, a signal of “social responsibility” that requires a credible third party.
 
---
 
 ### Why is SFI more prescriptive on some issues?
 
