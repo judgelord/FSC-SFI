@@ -4,17 +4,17 @@ subtitle: How to Distinguish Types of Regulatory Stringency and Patterns of Chan
 
 author: "Devin Judge-Lord, University of Wisconsin-Madison<br>Benjamin Cashore,  Yale University<br>Constance L. McDermott, Oxford University"
 date: "Paper & slides: [judgelord.github.io/research/FSC-SFI](https://judgelord.github.io/research/fsc-sfi)"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
-    css: xaringan-themer.css
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-editor_options: 
-  chunk_output_type: console
+# output:
+#   xaringan::moon_reader:
+#     lib_dir: libs
+#     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"
+#     css: xaringan-themer.css
+#     nature:
+#       highlightStyle: github
+#       highlightLines: true
+#       countIncrementalSlides: false
+# editor_options: 
+#   chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -99,6 +99,10 @@ A comprehensive approach allows us to assess regulatory scope and prescriptivene
 
 There are other dimensions of regulatory stringency, like the rigorousness of auditing processes and enforcement, which are outside of the scope of this paper. We focus on the written substantive requirements. 
 
+To show what applying this framework looks like, we apply it to the case of the competing forestry certification programs.
+
+I am going to review the results for the US: FSC-US and SFI, but in the paper, we also assess PEFC and FSC Principles and Criteria. 
+
 ---
 
 # Case study: Comparing competing U.S. forestry certification programs
@@ -109,6 +113,10 @@ There are other dimensions of regulatory stringency, like the rigorousness of au
 
 knitr::include_graphics("images/fscwood.jpg")  
 ```
+
+???
+
+Sustainable Forestry initiative was founded by the American Paper and Forest Products Association as a more industry-friendly alternative to the FSC. 
 
 ---
 
@@ -121,17 +129,29 @@ Competing certification regimes play a major role in regulating the U.S. forestr
 knitr::include_graphics("Figs/acres-1.png")  
 ```
 
+???
+
+These programs play a major role in regulating forestry, covering much more of the sector than USDA Organic certification for farmland, for example. 
+
 ---
 
 class: inverse center
 
-# Governing through market power
+# The politics of governing through market power
 
 (versus or along-side public policy)
 
+???
+
+I want to take 1 minute for a very brief overview of what I mean when I say private authority. 
+
+As with public policy, requirements can be voluntary, but the lack of government regulation does not just mean businesses regulating themselves.
+
+What I mean is that some authority other than the government exists that has the power to regulate an industry; in this case, the authority to regulate an industry's practices is rooted in market power. Buyers demand that products that meet certain requirements, the body that sets those requirements has the power to regulate the practices of producers.
+
 ---
 
-Private Authority, Act 1: Objections to a mode of production 
+Private Authority, Act 1: Organizing for change in commodity production
 
 ```{r, fig.show = "hold", out.width = "100%"}
 
@@ -149,7 +169,7 @@ knitr::include_graphics("images/kleenex3.JPG")
 
 ---
 
-Private Authority, Act 3: Governing, i.e. changing requirements over time
+Private Authority, Act 3: Governing, i.e., changing requirements over time
 
 ```{r, fig.show = "hold", out.width = "100%"}
 
@@ -191,7 +211,7 @@ knitr::include_graphics("Figs/riparian-1.png")
 |Indigenous peoples' rights | Recognize and uphold rights, customs, culture, including UNDRIP. No threat to rights or resources. Free, prior, and informed consent on public and private lands. Engage indigenous peoples and consult with affected groups. Cooperate to identify and protect significant sites. Compensate for indigenous knowledge and utilize as requested. | A written policy acknowledging a commitment to recognize and respect rights. |
 |Public Reporting and Consultation | Required on public and private lands. | Required on public lands. | 
 |Forest conversion to non-forest | Prohibited except limited areas where clear, substantial, additional, secure, long-term conservation benefits. | No specific policy.| 
-|Old growth forest | Old growth is normally mapped as conservation forest. Only restoration management on public land. Legacy trees are not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old-growth would naturally occur. | Support and participate in programs for old-growth conservation---no identification or restoration requirements.
+|Old growth forest | Old growth is normally mapped as conservation forest—only restoration management on public land. Legacy trees are not harvested. Maintain structure, composition, and processes. A portion of the forest is restored where old-growth would naturally occur. | Support and participate in programs for old-growth conservation---no identification or restoration requirements.
 |Protected areas | Conserve or restore a representative area of natural ecosystems. Assess and maintain environmental values and necessary conservation measures. | No specific policy.|
 |Threatened and Endangered Species | Survey and report or assume vulnerable and imperiled species are present. Maintain habitat & viable populations. | Program to protect threatened and endangered species at known sites. Protect viable populations of imperiled species.|
 |Workers' right to organize | Workers are free to associate and advocate. Develop dispute resolution. | Obey laws. Train on worker rights. |
@@ -233,7 +253,7 @@ knitr::include_graphics("Figs/patterns.png")
 *The two arrows in each cell represent two programs. A comparison of three programs would have three arrows.
 ---
 
-Overall, we find ‘equilibrium’ policy scope: neither program significantly changed the scope of issues it addressed.
+Overall, we find **"equilibrium" in policy scope**: neither program significantly changed the scope of issues it addressed.
 
 ```{r, fig.show = "hold", out.width = "60%"}
 
@@ -242,12 +262,16 @@ knitr::include_graphics("Figs/FSC-SFI-bar-1.png")
 
 ????
 
+Scope of bother programs stayed relatively constant, and if we just look at the darker and middle grey bars, issues where there were some requirements, the two programs have a very similar scope. 
+
+The industry-backed SFI program often contained language similar to that of the activist-backed FSC-US program (i.e., it was similar in scope) but often lacked (costlier) mandatory performance thresholds (i.e., the requirements were less prescriptive--the dark grey bars). This result suggests that any effort to test theories related to compliance cost or differentiation must distinguish between measures of stringency based on policy scope or prescriptiveness.
+
 There we some changes: 
 Both programs did begin regulating carbon emissions in 2010, but it is unclear if this change in scope is one program reacting to the other or both programs responding to a third causal variable.
 
 ---
 
-Overall, we find ‘upwardly divergent’ policy prescriptiveness: both programs increased in prescriptiveness, but this increase was greater for the activist-backed FSC-US program. 
+Overall, we find **"upwardly divergent" policy prescriptiveness**: both programs increased in prescriptiveness, but this increase was greater for the activist-backed FSC-US program. 
 
 
 ```{r, fig.show = "hold", out.width = "50%"}
@@ -257,19 +281,21 @@ knitr::include_graphics("Figs/FSC-SFI-trend-1.png")
 
 ???
 
-The industry-backed SFI program often contained language similar to that of the activist-backed FSC-US program (i.e., it was similar in scope), but often lacked (costlier) mandatory performance thresholds (i.e., the requirements were less prescriptive). This result suggests that any effort to test theories related to compliance cost or differentiation must distinguish between measures of stringency based on policy scope or prescriptiveness.
+Unlike scope, there were quite a few changes in prescriptiveness. The FSC-US standard contained a great deal more requirements than the national template had. SFI made a series of smaller revisions, also increasing prescriptiveness but at a lower rate. 
 
 ---
 
-Overall assessments of policy settings are tricky, as most can only be compared qualitatively (see the paper!) and thus can't be aggregated.
-
-One pattern: requirements added by the activist-backed were more likely to impose costs on firms than requirements added by the industry-backed program, many of which may even benefit firms. 
+Overall assessments of **policy settings** are tricky, as most can only be compared qualitatively (see the paper!) and thus can't be aggregated.
 
 --
 
+# One pattern: requirements added by the activist-backed program were more likely to impose costs on firms than requirements added by the industry-backed program, many of which may even benefit firms. 
+
+<!--
+
 ### Why does SFI address many of the same issues as FSC but with less prescriptive requirements?
 
-- Certification programs provide individual firms with a service---a signal of “social responsibility” that requires a credible third party.
+- Certification programs provide individual firms with a service, a signal of “social responsibility” that requires a credible third party.
 
 --
 
@@ -278,7 +304,7 @@ One pattern: requirements added by the activist-backed were more likely to impos
 - Industry-backed certification programs also provide a mechanism for an industry to improve its collective reputation and capacity by coordinating contributions to collective goods.
 
 
-
+-->
 
 ---
 
